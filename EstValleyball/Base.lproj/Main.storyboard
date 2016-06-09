@@ -8,7 +8,7 @@
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Home" id="BYZ-38-t0r" customClass="ViewController" customModule="EstValleyball" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home" id="BYZ-38-t0r" customClass="HomeController" customModule="EstValleyball" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,23 +17,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Rd-TA-VzB">
-                                <rect key="frame" x="89" y="126" width="141" height="30"/>
-                                <state key="normal" title="Login with Facebook"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="01" translatesAutoresizingMaskIntoConstraints="NO" id="xSG-l9-aTV">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="volleyball_001" translatesAutoresizingMaskIntoConstraints="NO" id="DHR-s2-DKC">
+                                <rect key="frame" x="100" y="-71" width="403" height="399"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Rd-TA-VzB">
+                                <rect key="frame" x="29" y="155" width="164" height="88"/>
+                                <state key="normal" image="Login with Facebook"/>
+                                <connections>
+                                    <action selector="loginFacebook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0QD-Fp-tsk"/>
+                                </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Home" translatesAutoresizingMaskIntoConstraints="NO" id="KnO-SA-F1D">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="ballView" destination="DHR-s2-DKC" id="sVK-wk-RXp"/>
+                        <segue destination="ZXy-X5-IS0" kind="show" identifier="loggedIn" id="ZvM-I7-OUD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="305"/>
+            <point key="canvasLocation" x="218" y="305"/>
         </scene>
         <!--StartGame-->
         <scene sceneID="pAO-9Y-wW6">
             <objects>
-                <viewController title="StartGame" id="ZXy-X5-IS0" sceneMemberID="viewController">
+                <viewController title="StartGame" id="ZXy-X5-IS0" customClass="StartGameController" customModule="EstValleyball" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Skz-mk-SVw"/>
                         <viewControllerLayoutGuide type="bottom" id="4gz-Pf-pXN"/>
@@ -41,9 +57,24 @@
                     <view key="view" contentMode="scaleToFill" id="kJG-bd-mEF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1C-Oe-ZAs">
+                                <rect key="frame" x="113" y="122" width="94" height="39"/>
+                                <state key="normal" title="start game"/>
+                                <connections>
+                                    <action selector="startGame:" destination="ZXy-X5-IS0" eventType="touchUpInside" id="zlN-gL-Had"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e2M-0g-PVc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="v63-ji-BWb" kind="show" identifier="startedGame" id="XtU-lX-PV5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLK-Gj-Dgg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -88,4 +119,10 @@
             <point key="canvasLocation" x="1517" y="305"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="01" width="1242" height="2208"/>
+        <image name="Home" width="1239" height="1165"/>
+        <image name="Login with Facebook" width="632" height="339"/>
+        <image name="volleyball_001" width="1080" height="1080"/>
+    </resources>
 </document>

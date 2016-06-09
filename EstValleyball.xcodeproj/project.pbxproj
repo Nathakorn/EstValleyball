@@ -13,6 +13,8 @@
 		D0698B5A1D09317C00854814 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0698B591D09317C00854814 /* Assets.xcassets */; };
 		D0698B5D1D09317C00854814 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0698B5B1D09317C00854814 /* LaunchScreen.storyboard */; };
 		D0698B661D094FB600854814 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B651D094FB600854814 /* HomeController.swift */; };
+		D0698B681D09532700854814 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B671D09532700854814 /* Constants.swift */; };
+		D0698B6A1D0954B900854814 /* StartGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B691D0954B900854814 /* StartGameController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		D0698B5C1D09317C00854814 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0698B5E1D09317C00854814 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0698B651D094FB600854814 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		D0698B671D09532700854814 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D0698B691D0954B900854814 /* StartGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartGameController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		D0698B511D09317C00854814 /* EstValleyball */ = {
 			isa = PBXGroup;
 			children = (
+				D0698B6B1D09566100854814 /* Fonts */,
 				D0698B641D094F5700854814 /* Controllers */,
 				D0698B521D09317C00854814 /* AppDelegate.swift */,
 				D0698B541D09317C00854814 /* ViewController.swift */,
@@ -63,6 +68,7 @@
 				D0698B591D09317C00854814 /* Assets.xcassets */,
 				D0698B5B1D09317C00854814 /* LaunchScreen.storyboard */,
 				D0698B5E1D09317C00854814 /* Info.plist */,
+				D0698B671D09532700854814 /* Constants.swift */,
 			);
 			path = EstValleyball;
 			sourceTree = "<group>";
@@ -71,8 +77,16 @@
 			isa = PBXGroup;
 			children = (
 				D0698B651D094FB600854814 /* HomeController.swift */,
+				D0698B691D0954B900854814 /* StartGameController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D0698B6B1D09566100854814 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,7 +162,9 @@
 			files = (
 				D0698B551D09317C00854814 /* ViewController.swift in Sources */,
 				D0698B531D09317C00854814 /* AppDelegate.swift in Sources */,
+				D0698B6A1D0954B900854814 /* StartGameController.swift in Sources */,
 				D0698B661D094FB600854814 /* HomeController.swift in Sources */,
+				D0698B681D09532700854814 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
