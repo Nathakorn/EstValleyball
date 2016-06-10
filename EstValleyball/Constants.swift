@@ -14,3 +14,5 @@ let SEGUE_LOGGED_OUT = "loggedOut"
 let SEGUE_REGISTERED = "registered"
 
 let SEGUE_STARTED_GAME = "startedGame"
+
+let SEGUE_SHOW_RESULT = "showedResult"

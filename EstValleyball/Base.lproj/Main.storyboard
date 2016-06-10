@@ -127,15 +127,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jE0-wX-T1f">
                                 <rect key="frame" x="93" y="226" width="135" height="157"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gsj-wZ-3A1">
-                                <rect key="frame" x="12" y="125" width="308" height="357"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJw-X0-FnP">
-                                <rect key="frame" x="51" y="106" width="220" height="356"/>
-                                <fontDescription key="fontDescription" name="PSLEmpireProBoldItalic" family="PSL Empire Pro" pointSize="246"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xeM-Mr-laG" customClass="UICountingLabel">
+                                <rect key="frame" x="93" y="147" width="215" height="273"/>
+                                <fontDescription key="fontDescription" name="PSLEmpireProBoldItalic" family="PSL Empire Pro" pointSize="154"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gsj-wZ-3A1">
+                                <rect key="frame" x="0.0" y="105" width="320" height="357"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -143,13 +143,14 @@
                     <connections>
                         <outlet property="NumCountDown" destination="jE0-wX-T1f" id="JA4-jG-yZE"/>
                         <outlet property="kmHr" destination="Gsj-wZ-3A1" id="8jd-2z-RCP"/>
-                        <outlet property="score" destination="hJw-X0-FnP" id="qDh-JR-zPr"/>
+                        <outlet property="score" destination="xeM-Mr-laG" id="AhQ-X0-mpF"/>
                         <outlet property="spinBall" destination="lZV-A3-on7" id="HUg-9O-ra8"/>
+                        <segue destination="rId-aX-sCf" kind="show" identifier="showedResult" id="i93-76-0cj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F7W-EA-l3B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1096" y="305"/>
+            <point key="canvasLocation" x="1134" y="305"/>
         </scene>
         <!--Result-->
         <scene sceneID="BDB-0e-Euq">
@@ -162,6 +163,32 @@
                     <view key="view" contentMode="scaleToFill" id="t4s-vK-Kza">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="duringGameBackground" translatesAutoresizingMaskIntoConstraints="NO" id="u94-Mi-xCW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XjU-Ea-VsE">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top bar" translatesAutoresizingMaskIntoConstraints="NO" id="gDL-2p-Mbn">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="14" translatesAutoresizingMaskIntoConstraints="NO" id="EVQ-AR-tqA">
+                                <rect key="frame" x="0.0" y="68" width="320" height="304"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="13" translatesAutoresizingMaskIntoConstraints="NO" id="sDP-rj-FRY">
+                                <rect key="frame" x="13" y="77" width="294" height="360"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRi-Q4-yx4">
+                                <rect key="frame" x="36" y="362" width="118" height="69"/>
+                                <connections>
+                                    <segue destination="v63-ji-BWb" kind="show" id="kk8-5c-riQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -173,6 +200,8 @@
     </scenes>
     <resources>
         <image name="01" width="1242" height="2208"/>
+        <image name="13" width="1242" height="1520"/>
+        <image name="14" width="1242" height="1334"/>
         <image name="Home" width="1239" height="1165"/>
         <image name="Login with Facebook" width="632" height="339"/>
         <image name="duringGameBackground" width="1242" height="2208"/>
@@ -181,4 +210,7 @@
         <image name="top bar" width="1242" height="217"/>
         <image name="volleyball_001" width="1080" height="1080"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="kk8-5c-riQ"/>
+    </inferredMetricsTieBreakers>
 </document>

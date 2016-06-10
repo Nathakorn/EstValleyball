@@ -10,8 +10,9 @@ import UIKit
 
 class GameController: UIViewController {
 
+    
     @IBOutlet weak var kmHr: UIImageView!
-    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var score: UICountingLabel!
     @IBOutlet weak var spinBall: UIImageView!
     @IBOutlet weak var numCountDown: UIImageView!
     override func viewDidLoad() {
@@ -26,6 +27,7 @@ class GameController: UIViewController {
     }
     override func viewDidAppear(animated: Bool) {
         //number countdown
+       
         self.numCountDown.animationImages = [
             UIImage(named:"count3.png")!,
             UIImage(named:"count2.png")!,
@@ -73,24 +75,18 @@ class GameController: UIViewController {
             originFrame = CGRectMake(-250,-100,450,450)
             self.spinBall.frame = originFrame
             }, completion: { finished in
-                var score = 0;
-                UIView.animateWithDuration(100000,
-                    delay: 0,
-                    options: UIViewAnimationOptions.Repeat,
-                    animations: {
-                        for (score = 0; score <= 50; score++) {
-                            self.score.text = String(score)
-                        }
-                    }, completion: { finished in
-                        if (score == 50) {
-                            self.score.layer.removeAllAnimations()
-                            self.score.text = String(score)
-                        }
-                })
-                //self.score.text = "99"
+                
+                //var random = arc4random_uniform(80) + 10
+                self.score.format = "%d"
+                self.score.countFrom(0, to: 85, withDuration: 1)
+                
                 self.kmHr.image = UIImage(named: "imv_bg_num.png")
+                UIView.animateWithDuration(4, delay: 30, options: [UIViewAnimationOptions.CurveEaseOut], animations: {
+                    print("test")
+                }, completion: { finished in
+                    self.performSegueWithIdentifier(SEGUE_SHOW_RESULT, sender: nil)
         })
-        
+    })
         
        
         
@@ -106,5 +102,4 @@ class GameController: UIViewController {
         return newImage
     }
     
-   
 }
