@@ -4,6 +4,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="PSL053pro_0.ttf">
+            <string>PSLEmpireProBoldItalic</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
@@ -95,7 +100,7 @@
         <!--Game-->
         <scene sceneID="au3-OW-gnd">
             <objects>
-                <viewController title="Game" id="v63-ji-BWb" sceneMemberID="viewController">
+                <viewController title="Game" id="v63-ji-BWb" customClass="GameController" customModule="EstValleyball" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lhR-MO-tx4"/>
                         <viewControllerLayoutGuide type="bottom" id="EZo-lU-RkI"/>
@@ -107,6 +112,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="duringGameBackground" translatesAutoresizingMaskIntoConstraints="NO" id="q2G-Qx-4VW">
                                 <rect key="frame" x="0.0" y="42" width="320" height="526"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lZV-A3-on7">
+                                <rect key="frame" x="59" y="307" width="19" height="17"/>
+                            </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oUV-CY-nU4">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <subviews>
@@ -116,10 +124,28 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jE0-wX-T1f">
+                                <rect key="frame" x="93" y="226" width="135" height="157"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gsj-wZ-3A1">
+                                <rect key="frame" x="12" y="125" width="308" height="357"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJw-X0-FnP">
+                                <rect key="frame" x="51" y="106" width="220" height="356"/>
+                                <fontDescription key="fontDescription" name="PSLEmpireProBoldItalic" family="PSL Empire Pro" pointSize="246"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="NumCountDown" destination="jE0-wX-T1f" id="JA4-jG-yZE"/>
+                        <outlet property="kmHr" destination="Gsj-wZ-3A1" id="8jd-2z-RCP"/>
+                        <outlet property="score" destination="hJw-X0-FnP" id="qDh-JR-zPr"/>
+                        <outlet property="spinBall" destination="lZV-A3-on7" id="HUg-9O-ra8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F7W-EA-l3B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

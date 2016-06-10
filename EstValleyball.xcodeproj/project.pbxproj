@@ -15,6 +15,8 @@
 		D0698B661D094FB600854814 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B651D094FB600854814 /* HomeController.swift */; };
 		D0698B681D09532700854814 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B671D09532700854814 /* Constants.swift */; };
 		D0698B6A1D0954B900854814 /* StartGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B691D0954B900854814 /* StartGameController.swift */; };
+		D0698B6D1D0A804000854814 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B6C1D0A803F00854814 /* GameController.swift */; };
+		D0698B6F1D0AB82800854814 /* PSL053pro_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0698B6E1D0AB82800854814 /* PSL053pro_0.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		D0698B651D094FB600854814 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		D0698B671D09532700854814 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D0698B691D0954B900854814 /* StartGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartGameController.swift; sourceTree = "<group>"; };
+		D0698B6C1D0A803F00854814 /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		D0698B6E1D0AB82800854814 /* PSL053pro_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PSL053pro_0.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 			children = (
 				D0698B651D094FB600854814 /* HomeController.swift */,
 				D0698B691D0954B900854814 /* StartGameController.swift */,
+				D0698B6C1D0A803F00854814 /* GameController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -85,6 +90,7 @@
 		D0698B6B1D09566100854814 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				D0698B6E1D0AB82800854814 /* PSL053pro_0.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -149,6 +155,7 @@
 			files = (
 				D0698B5D1D09317C00854814 /* LaunchScreen.storyboard in Resources */,
 				D0698B5A1D09317C00854814 /* Assets.xcassets in Resources */,
+				D0698B6F1D0AB82800854814 /* PSL053pro_0.ttf in Resources */,
 				D0698B581D09317C00854814 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0698B551D09317C00854814 /* ViewController.swift in Sources */,
+				D0698B6D1D0A804000854814 /* GameController.swift in Sources */,
 				D0698B531D09317C00854814 /* AppDelegate.swift in Sources */,
 				D0698B6A1D0954B900854814 /* StartGameController.swift in Sources */,
 				D0698B661D094FB600854814 /* HomeController.swift in Sources */,
@@ -314,6 +322,7 @@
 				D0698B631D09317C00854814 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
