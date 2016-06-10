@@ -58,21 +58,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="startGameBackground" translatesAutoresizingMaskIntoConstraints="NO" id="e2M-0g-PVc">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1C-Oe-ZAs">
-                                <rect key="frame" x="113" y="122" width="94" height="39"/>
-                                <state key="normal" title="start game"/>
+                                <rect key="frame" x="92" y="226" width="126" height="53"/>
                                 <connections>
                                     <action selector="startGame:" destination="ZXy-X5-IS0" eventType="touchUpInside" id="zlN-gL-Had"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e2M-0g-PVc">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rwQ-o7-f5h">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top bar" translatesAutoresizingMaskIntoConstraints="NO" id="HRj-5t-bJp">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="keepBall" translatesAutoresizingMaskIntoConstraints="NO" id="jEV-UU-eze">
+                                <rect key="frame" x="0.0" y="363" width="320" height="255"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="keepBall" destination="jEV-UU-eze" id="jP9-eD-M0p"/>
                         <segue destination="v63-ji-BWb" kind="show" identifier="startedGame" id="XtU-lX-PV5"/>
                     </connections>
                 </viewController>
@@ -91,6 +103,20 @@
                     <view key="view" contentMode="scaleToFill" id="k82-Ga-d9R">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="duringGameBackground" translatesAutoresizingMaskIntoConstraints="NO" id="q2G-Qx-4VW">
+                                <rect key="frame" x="0.0" y="42" width="320" height="526"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oUV-CY-nU4">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top bar" translatesAutoresizingMaskIntoConstraints="NO" id="ftw-Fh-gAc">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -123,6 +149,10 @@
         <image name="01" width="1242" height="2208"/>
         <image name="Home" width="1239" height="1165"/>
         <image name="Login with Facebook" width="632" height="339"/>
+        <image name="duringGameBackground" width="1242" height="2208"/>
+        <image name="keepBall" width="1486" height="1306"/>
+        <image name="startGameBackground" width="1242" height="2208"/>
+        <image name="top bar" width="1242" height="217"/>
         <image name="volleyball_001" width="1080" height="1080"/>
     </resources>
 </document>
