@@ -127,15 +127,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jE0-wX-T1f">
                                 <rect key="frame" x="93" y="226" width="135" height="157"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gsj-wZ-3A1">
+                                <rect key="frame" x="0.0" y="105" width="320" height="357"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xeM-Mr-laG" customClass="UICountingLabel">
                                 <rect key="frame" x="93" y="147" width="215" height="273"/>
                                 <fontDescription key="fontDescription" name="PSLEmpireProBoldItalic" family="PSL Empire Pro" pointSize="154"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gsj-wZ-3A1">
-                                <rect key="frame" x="0.0" y="105" width="320" height="357"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -211,6 +211,6 @@
         <image name="volleyball_001" width="1080" height="1080"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kk8-5c-riQ"/>
+        <segue reference="XtU-lX-PV5"/>
     </inferredMetricsTieBreakers>
 </document>

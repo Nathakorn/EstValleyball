@@ -84,7 +84,7 @@ class GameController: UIViewController {
                 UIView.animateWithDuration(4, delay: 30, options: [UIViewAnimationOptions.CurveEaseOut], animations: {
                     print("test")
                 }, completion: { finished in
-                    self.performSegueWithIdentifier(SEGUE_SHOW_RESULT, sender: nil)
+                    //self.performSegueWithIdentifier(SEGUE_SHOW_RESULT, sender: nil)
         })
     })
         
