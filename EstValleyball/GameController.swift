@@ -28,6 +28,7 @@ class GameController: UIViewController {
     }
     override func viewDidAppear(animated: Bool) {
         //number countdown
+        startPitch()
         self.ballFromOpponent()
         self.numCountDown.layer.zPosition = 1
         self.numCountDown.animationImages = [
@@ -141,8 +142,10 @@ class GameController: UIViewController {
             self.spinBall.frame = originFrame
             }, completion: { finished in
                 //var random = arc4random_uniform(80) + 10
+                self.score.layer.zPosition = 4
+                self.kmHr.layer.zPosition = 3
                 self.score.format = "%d"
-                self.score.countFrom(0, to: 85, withDuration: 1)
+                self.score.countFrom(0, to: CGFloat(currentMaxVelocity), withDuration: 1)
                 self.kmHr.image = UIImage(named: "imv_bg_num.png")
                 NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(GameController.showResult), userInfo: nil, repeats: true)
         })

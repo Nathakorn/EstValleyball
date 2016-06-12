@@ -17,6 +17,7 @@
 		D0698B6A1D0954B900854814 /* StartGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B691D0954B900854814 /* StartGameController.swift */; };
 		D0698B6D1D0A804000854814 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B6C1D0A803F00854814 /* GameController.swift */; };
 		D0698B6F1D0AB82800854814 /* PSL053pro_0.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0698B6E1D0AB82800854814 /* PSL053pro_0.ttf */; };
+		D09904741D0C606E0049A99A /* Gyroscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09904731D0C606E0049A99A /* Gyroscope.swift */; };
 		D0DD62FA1D0AF41500B46F4F /* resultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DD62F91D0AF41500B46F4F /* resultController.swift */; };
 		D0DD62FC1D0BE58800B46F4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0DD62FB1D0BE58800B46F4F /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		D0698B6E1D0AB82800854814 /* PSL053pro_0.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PSL053pro_0.ttf; sourceTree = "<group>"; };
 		D0698B701D0AD97200854814 /* Est-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Est-Bridging-Header.h"; sourceTree = "<group>"; };
 		D0698B711D0ADBD000854814 /* UICountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
+		D09904731D0C606E0049A99A /* Gyroscope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gyroscope.swift; sourceTree = "<group>"; };
 		D0DD62F91D0AF41500B46F4F /* resultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resultController.swift; sourceTree = "<group>"; };
 		D0DD62FB1D0BE58800B46F4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +105,7 @@
 				D0698B671D09532700854814 /* Constants.swift */,
 				D0698B701D0AD97200854814 /* Est-Bridging-Header.h */,
 				D0698B711D0ADBD000854814 /* UICountingLabel.h */,
+				D09904731D0C606E0049A99A /* Gyroscope.swift */,
 			);
 			path = EstValleyball;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				TargetAttributes = {
 					D0698B4E1D09317C00854814 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = VC2Q84EQ3X;
 					};
 				};
 			};
@@ -254,6 +258,7 @@
 				D0698B531D09317C00854814 /* AppDelegate.swift in Sources */,
 				D0698B6A1D0954B900854814 /* StartGameController.swift in Sources */,
 				D0DD62FA1D0AF41500B46F4F /* resultController.swift in Sources */,
+				D09904741D0C606E0049A99A /* Gyroscope.swift in Sources */,
 				D0698B661D094FB600854814 /* HomeController.swift in Sources */,
 				D0698B681D09532700854814 /* Constants.swift in Sources */,
 			);
@@ -369,10 +374,13 @@
 			baseConfigurationReference = 16E90600D604D2A6732C5C41 /* Pods-EstValleyball.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EstValleyball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nathakorn.EstValleyball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EstValleyball/Est-Bridging-Header.h";
 			};
 			name = Debug;
@@ -382,10 +390,13 @@
 			baseConfigurationReference = AB6E662FC22F19D8059234B6 /* Pods-EstValleyball.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EstValleyball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nathakorn.EstValleyball;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EstValleyball/Est-Bridging-Header.h";
 			};
 			name = Release;
