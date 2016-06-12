@@ -104,6 +104,7 @@ class GameController: UIViewController {
                     comingBall.frame = originFrame
                     }, completion: { finished in
                         //print(currentMaxVelocity)
+                        
                         startPitch(comingBall)
                         NSTimer.scheduledTimerWithTimeInterval(4, target: self, selector: #selector(GameController.afterHitBall), userInfo: nil, repeats: false)
                         

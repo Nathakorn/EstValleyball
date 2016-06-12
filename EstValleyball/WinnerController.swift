@@ -1,5 +1,5 @@
 //
-//  MenuController.swift
+//  WinnerController.swift
 //  EstValleyball
 //
 //  Created by KORN on 6/12/2559 BE.
@@ -8,21 +8,14 @@
 
 import UIKit
 
-class MenuController: UIViewController {
-    var fromSegue: String!
-    
-    @IBAction func playGame(sender: UIButton) {
-        self.performSegueWithIdentifier(SEGUE_SHOW_GAME, sender: nil)
-    }
-    @IBAction func goStartGame(sender: UIButton) {
-        self.performSegueWithIdentifier(fromSegue, sender: nil)
-    }
+class WinnerController: UIViewController {
+
+    @IBOutlet weak var winnerView: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        if fromSegue == nil{
-            fromSegue = SEGUE_STARTED_GAME
-        }
-        //print(fromSegue)
+        let url = NSURL(string: "http://www.estcolathai.com/volleyballmobile/winner.aspx")
+        let request = NSURLRequest(URL: url!)
+        winnerView.loadRequest(request)
         // Do any additional setup after loading the view.
     }
 

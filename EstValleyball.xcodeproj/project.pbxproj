@@ -21,6 +21,8 @@
 		D099047A1D0D7A100049A99A /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09904791D0D7A100049A99A /* MenuController.swift */; };
 		D099047D1D0D8C6F0049A99A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D099047B1D0D8C6F0049A99A /* Main.storyboard */; };
 		D099047F1D0DADA00049A99A /* RuleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D099047E1D0DADA00049A99A /* RuleController.swift */; };
+		D09904811D0DBADD0049A99A /* YoutubeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09904801D0DBADD0049A99A /* YoutubeController.swift */; };
+		D09904831D0DC4FB0049A99A /* WinnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09904821D0DC4FB0049A99A /* WinnerController.swift */; };
 		D0DD62FC1D0BE58800B46F4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0DD62FB1D0BE58800B46F4F /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 		D09904791D0D7A100049A99A /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		D099047C1D0D8C6F0049A99A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D099047E1D0DADA00049A99A /* RuleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleController.swift; sourceTree = "<group>"; };
+		D09904801D0DBADD0049A99A /* YoutubeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeController.swift; sourceTree = "<group>"; };
+		D09904821D0DC4FB0049A99A /* WinnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerController.swift; sourceTree = "<group>"; };
 		D0DD62FB1D0BE58800B46F4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +127,8 @@
 				D09904751D0D76520049A99A /* ResultController.swift */,
 				D09904791D0D7A100049A99A /* MenuController.swift */,
 				D099047E1D0DADA00049A99A /* RuleController.swift */,
+				D09904801D0DBADD0049A99A /* YoutubeController.swift */,
+				D09904821D0DC4FB0049A99A /* WinnerController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -263,9 +269,11 @@
 				D099047A1D0D7A100049A99A /* MenuController.swift in Sources */,
 				D0698B6D1D0A804000854814 /* GameController.swift in Sources */,
 				D0698B531D09317C00854814 /* AppDelegate.swift in Sources */,
+				D09904831D0DC4FB0049A99A /* WinnerController.swift in Sources */,
 				D0698B6A1D0954B900854814 /* StartGameController.swift in Sources */,
 				D09904761D0D76520049A99A /* ResultController.swift in Sources */,
 				D09904741D0C606E0049A99A /* Gyroscope.swift in Sources */,
+				D09904811D0DBADD0049A99A /* YoutubeController.swift in Sources */,
 				D0698B661D094FB600854814 /* HomeController.swift in Sources */,
 				D0698B681D09532700854814 /* Constants.swift in Sources */,
 				D099047F1D0DADA00049A99A /* RuleController.swift in Sources */,
