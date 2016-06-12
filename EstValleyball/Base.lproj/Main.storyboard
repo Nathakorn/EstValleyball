@@ -385,6 +385,9 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IvI-YN-Uza">
+                                <rect key="frame" x="0.0" y="332" width="320" height="236"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -392,6 +395,7 @@
                     <connections>
                         <outlet property="NumCountDown" destination="jE0-wX-T1f" id="JA4-jG-yZE"/>
                         <outlet property="kmHr" destination="Gsj-wZ-3A1" id="8jd-2z-RCP"/>
+                        <outlet property="lightBling" destination="IvI-YN-Uza" id="xL5-jm-Lf9"/>
                         <outlet property="score" destination="xeM-Mr-laG" id="AhQ-X0-mpF"/>
                         <outlet property="spinBall" destination="lZV-A3-on7" id="HUg-9O-ra8"/>
                         <segue destination="rId-aX-sCf" kind="show" identifier="showedResult" id="i93-76-0cj"/>

@@ -10,6 +10,7 @@ import UIKit
 
 class GameController: UIViewController {
     
+    @IBOutlet weak var lightBling: UIImageView!
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "showedMenu"){
             let destination = segue.destinationViewController as! MenuController
@@ -104,6 +105,14 @@ class GameController: UIViewController {
                     comingBall.frame = originFrame
                     }, completion: { finished in
                         //print(currentMaxVelocity)
+                        //self.lightBling.image = UIImage(named: "img_light.png")
+                        self.lightBling.animationImages = [
+                            UIImage(named:"img_light.png")!,
+                            UIImage(named:"11.png")!
+                        ]
+                            self.lightBling.animationDuration = 0.3
+                            self.lightBling.animationRepeatCount = 3
+                            self.lightBling.startAnimating()
                         
                         startPitch(comingBall)
                         NSTimer.scheduledTimerWithTimeInterval(4, target: self, selector: #selector(GameController.afterHitBall), userInfo: nil, repeats: false)
