@@ -9,10 +9,19 @@
 import UIKit
 
 class StartGameController: UIViewController {
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "showedMenu"){
+            let destination = segue.destinationViewController as! MenuController
+            destination.fromSegue = SEGUE_STARTED_GAME
+            //self.performSegueWithIdentifier(SEGUE_SHOW_MENU, sender: nil)
+        }
+    }
+    /*
     @IBAction func goMenu(sender: UIButton) {
         self.performSegueWithIdentifier(SEGUE_SHOW_MENU, sender: nil)
-    }
+    }*/
+    
     @IBOutlet weak var keepBall: UIImageView!
     var isImageBottom = true
     @IBAction func startGame(sender: UIButton) {

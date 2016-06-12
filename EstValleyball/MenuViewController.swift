@@ -1,5 +1,5 @@
 //
-//  ResultController.swift
+//  MenuViewController.swift
 //  EstValleyball
 //
 //  Created by KORN on 6/12/2559 BE.
@@ -8,16 +8,8 @@
 
 import UIKit
 
-class ResultController: UIViewController {
+class MenuViewController: UIViewController {
 
-   
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier == "showedMenu"){
-            let destination = segue.destinationViewController as! MenuController
-            destination.fromSegue = SEGUE_SHOW_RESULT
-            //self.performSegueWithIdentifier(SEGUE_SHOW_MENU, sender: nil)
-        }
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

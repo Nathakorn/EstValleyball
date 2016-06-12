@@ -10,8 +10,12 @@ import UIKit
 
 class GameController: UIViewController {
     
-    @IBAction func goMenu(sender: UIButton) {
-        self.performSegueWithIdentifier(SEGUE_SHOW_MENU, sender: nil)
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "showedMenu"){
+            let destination = segue.destinationViewController as! MenuController
+            destination.fromSegue = SEGUE_SHOW_GAME
+            //self.performSegueWithIdentifier(SEGUE_SHOW_MENU, sender: nil)
+        }
     }
     let screenSize: CGRect = UIScreen.mainScreen().bounds
     //@IBOutlet weak var comingBall: UIImageView!

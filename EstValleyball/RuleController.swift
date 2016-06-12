@@ -1,5 +1,5 @@
 //
-//  ResultController.swift
+//  RuleController.swift
 //  EstValleyball
 //
 //  Created by KORN on 6/12/2559 BE.
@@ -8,20 +8,17 @@
 
 import UIKit
 
-class ResultController: UIViewController {
+class RuleController: UIViewController {
 
-   
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier == "showedMenu"){
-            let destination = segue.destinationViewController as! MenuController
-            destination.fromSegue = SEGUE_SHOW_RESULT
-            //self.performSegueWithIdentifier(SEGUE_SHOW_MENU, sender: nil)
-        }
+    @IBAction func goBackButton(sender: UIButton) {
+        web.goBack()
     }
+    @IBOutlet weak var web: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let url = NSURL(string: "http://www.estcolathai.com/volleyballmobile/rule.html")
+        let request = NSURLRequest(URL: url!)
+        web.loadRequest(request)        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

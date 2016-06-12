@@ -51,10 +51,72 @@
             </objects>
             <point key="canvasLocation" x="218" y="305"/>
         </scene>
+        <!--Rule Controller-->
+        <scene sceneID="DEf-4o-cWG">
+            <objects>
+                <viewController id="pg6-kb-lXC" customClass="RuleController" customModule="EstValleyball" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UOg-O5-gq2"/>
+                        <viewControllerLayoutGuide type="bottom" id="oqw-vC-RPi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eAw-ey-IfM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1R8-Bd-DqD">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00N-ZP-ObE">
+                                <rect key="frame" x="252" y="28" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="goBackButton:" destination="pg6-kb-lXC" eventType="touchUpInside" id="4al-hV-9pe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="web" destination="1R8-Bd-DqD" id="ydM-kd-G8K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zmh-TH-crb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="754" y="-1104"/>
+        </scene>
+        <!--Youtube-->
+        <scene sceneID="fnp-lN-fux">
+            <objects>
+                <viewController title="Youtube" id="zf6-hy-i2h" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HGY-gk-ncf"/>
+                        <viewControllerLayoutGuide type="bottom" id="IVl-xQ-IR0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cuZ-kv-3Ca">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="duringGameBackground" translatesAutoresizingMaskIntoConstraints="NO" id="uPY-Am-Fix">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg_tvc" translatesAutoresizingMaskIntoConstraints="NO" id="cXC-HE-4fL">
+                                <rect key="frame" x="0.0" y="72" width="320" height="281"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0gi-n2-Lg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="295" y="-697"/>
+        </scene>
         <!--Menu-->
         <scene sceneID="MgE-LB-iB8">
             <objects>
-                <viewController title="Menu" id="Nul-UZ-cfi" sceneMemberID="viewController">
+                <viewController title="Menu" id="Nul-UZ-cfi" customClass="MenuController" customModule="EstValleyball" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jTG-FS-woD"/>
                         <viewControllerLayoutGuide type="bottom" id="lbX-Uj-Zhu"/>
@@ -81,6 +143,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZ4-fi-M2S">
                                 <rect key="frame" x="34" y="188" width="252" height="23"/>
                                 <state key="normal" image="btn_menu3"/>
+                                <connections>
+                                    <segue destination="DhH-jm-dFc" kind="show" id="YcL-GM-Jx2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VH7-8G-gXv">
                                 <rect key="frame" x="34" y="237" width="252" height="23"/>
@@ -89,26 +154,64 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbD-Sm-Ppj">
                                 <rect key="frame" x="34" y="134" width="252" height="23"/>
                                 <state key="normal" image="btn_menu2"/>
+                                <connections>
+                                    <segue destination="pg6-kb-lXC" kind="show" id="aH7-jg-e8z"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yqx-V7-05R">
                                 <rect key="frame" x="34" y="82" width="252" height="23"/>
                                 <state key="normal" image="btn_menu1"/>
+                                <connections>
+                                    <action selector="playGame:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="koy-gh-U5j"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktu-YC-paQ">
                                 <rect key="frame" x="125" y="434" width="70" height="47"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfV-oQ-IJj">
-                                <rect key="frame" x="138" y="441" width="45" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfx-YZ-sGL">
+                                <rect key="frame" x="138" y="424" width="44" height="30"/>
                                 <state key="normal" image="btn_close"/>
+                                <connections>
+                                    <action selector="goStartGame:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="F0r-rH-lr9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="ZXy-X5-IS0" kind="show" identifier="startedGame" id="4Gl-ow-BtX"/>
+                        <segue destination="v63-ji-BWb" kind="show" identifier="showedGame" id="CNh-1t-eEh"/>
+                        <segue destination="rId-aX-sCf" kind="show" identifier="showedResult" id="6nw-w1-TWr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tAR-WM-7PU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="754" y="-410"/>
+        </scene>
+        <!--HowToPlay-->
+        <scene sceneID="r92-eS-gwc">
+            <objects>
+                <viewController title="HowToPlay" id="DhH-jm-dFc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HLd-7L-G3u"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zna-va-Eze"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UEl-WC-jZE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="howto" translatesAutoresizingMaskIntoConstraints="NO" id="zXJ-VN-uXh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ASa-5f-Vke" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1214" y="-573"/>
         </scene>
         <!--StartGame-->
         <scene sceneID="pAO-9Y-wW6">
@@ -141,7 +244,7 @@
                                         <rect key="frame" x="8" y="7" width="26" height="29"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
-                                            <action selector="goMenu:" destination="ZXy-X5-IS0" eventType="touchUpInside" id="Ksb-eN-0Y0"/>
+                                            <segue destination="Nul-UZ-cfi" kind="show" identifier="showedMenu" id="r6E-wv-YSm"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -157,7 +260,6 @@
                     <connections>
                         <outlet property="keepBall" destination="jEV-UU-eze" id="jP9-eD-M0p"/>
                         <segue destination="v63-ji-BWb" kind="show" identifier="startedGame" id="XtU-lX-PV5"/>
-                        <segue destination="Nul-UZ-cfi" kind="show" identifier="showedMenu" id="9UE-3X-re4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLK-Gj-Dgg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -191,7 +293,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UrV-oN-YAx">
                                         <rect key="frame" x="0.0" y="6" width="33" height="30"/>
                                         <connections>
-                                            <action selector="goMenu:" destination="v63-ji-BWb" eventType="touchUpInside" id="cfx-Jm-59I"/>
+                                            <segue destination="Nul-UZ-cfi" kind="show" identifier="showedMenu" id="jld-tC-7eH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -219,7 +321,6 @@
                         <outlet property="score" destination="xeM-Mr-laG" id="AhQ-X0-mpF"/>
                         <outlet property="spinBall" destination="lZV-A3-on7" id="HUg-9O-ra8"/>
                         <segue destination="rId-aX-sCf" kind="show" identifier="showedResult" id="i93-76-0cj"/>
-                        <segue destination="Nul-UZ-cfi" kind="show" id="KaF-so-3ww"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F7W-EA-l3B" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -229,7 +330,7 @@
         <!--Result-->
         <scene sceneID="BDB-0e-Euq">
             <objects>
-                <viewController title="Result" id="rId-aX-sCf" customClass="resultController" customModule="EstValleyball" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Result" id="rId-aX-sCf" customClass="ResultController" customModule="EstValleyball" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hTh-4c-8cE"/>
                         <viewControllerLayoutGuide type="bottom" id="Peb-3g-ZSU"/>
@@ -247,6 +348,12 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top bar" translatesAutoresizingMaskIntoConstraints="NO" id="gDL-2p-Mbn">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpT-n1-4Xb">
+                                        <rect key="frame" x="0.0" y="7" width="37" height="30"/>
+                                        <connections>
+                                            <segue destination="Nul-UZ-cfi" kind="show" identifier="showedMenu" id="D5d-Cg-9MS"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -266,9 +373,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <segue destination="Nul-UZ-cfi" kind="show" id="ifF-dL-OZQ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="645-AT-Ft2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -282,6 +386,7 @@
         <image name="Home" width="1239" height="1165"/>
         <image name="Login with Facebook" width="632" height="339"/>
         <image name="bg_menu" width="540" height="960"/>
+        <image name="bg_tvc" width="540" height="512"/>
         <image name="btn_close" width="183" height="183"/>
         <image name="btn_menu1" width="640" height="59"/>
         <image name="btn_menu2" width="640" height="59"/>
@@ -291,13 +396,16 @@
         <image name="btn_menu6" width="640" height="59"/>
         <image name="btn_menu7" width="640" height="59"/>
         <image name="duringGameBackground" width="1242" height="2208"/>
+        <image name="howto" width="540" height="875"/>
         <image name="keepBall" width="1486" height="1306"/>
         <image name="startGameBackground" width="1242" height="2208"/>
         <image name="top bar" width="1242" height="217"/>
         <image name="volleyball_001" width="1080" height="1080"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kk8-5c-riQ"/>
-        <segue reference="ifF-dL-OZQ"/>
+        <segue reference="jld-tC-7eH"/>
+        <segue reference="CNh-1t-eEh"/>
+        <segue reference="6nw-w1-TWr"/>
+        <segue reference="4Gl-ow-BtX"/>
     </inferredMetricsTieBreakers>
 </document>
