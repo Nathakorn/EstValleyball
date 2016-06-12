@@ -15,10 +15,10 @@ import CoreMotion
     var currentMaxAccelY = 0.0
     var currentMaxAccelZ = 0.0
     var currentMaxVelocity = 0
-
-    func startPitch(){
-        motionManager.accelerometerUpdateInterval = 0.05
-        motionManager.gyroUpdateInterval = 0.05
+    let screenSize: CGRect = UIScreen.mainScreen().bounds
+    func startPitch(comingBall : UIImageView){
+        motionManager.accelerometerUpdateInterval = 0.01
+        motionManager.gyroUpdateInterval = 0.01
         resetMaxValues()
         //start recording data
         let _:CMAccelerometerData!
@@ -34,6 +34,18 @@ import CoreMotion
             //var velocitykh = velocity
             //print(Int(floor(velocity)))
             currentMaxVelocity = Int(floor(velocity * 2.5))
+            if(currentMaxVelocity > 25){
+                UIView.animateWithDuration(0.2, animations: {
+                    var originFrame = comingBall.frame
+                    originFrame = CGRectMake(screenSize.width/2-100, 300, 20, 20)
+                    comingBall.frame = originFrame
+                    
+                    }, completion: { finished in
+                       
+                })
+            }
+            print(currentMaxVelocity)
+            
         })
     }
     func resetMaxValues() {
