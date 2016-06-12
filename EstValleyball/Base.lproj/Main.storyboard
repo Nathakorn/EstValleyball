@@ -183,17 +183,22 @@
                                 <rect key="frame" x="34" y="285" width="252" height="23"/>
                                 <state key="normal" image="btn_menu5"/>
                                 <connections>
+                                    <action selector="goWinner:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="tM7-Rd-eZv"/>
                                     <segue destination="F5u-of-4Da" kind="show" id="dTt-cG-5ID"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bC0-xd-frw">
                                 <rect key="frame" x="34" y="335" width="252" height="23"/>
                                 <state key="normal" image="btn_menu6"/>
+                                <connections>
+                                    <action selector="goShare:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="cX6-Gt-PZQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZ4-fi-M2S">
                                 <rect key="frame" x="34" y="188" width="252" height="23"/>
                                 <state key="normal" image="btn_menu3"/>
                                 <connections>
+                                    <action selector="goHowToPlay:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="XMI-c6-Pvc"/>
                                     <segue destination="DhH-jm-dFc" kind="show" id="YcL-GM-Jx2"/>
                                 </connections>
                             </button>
@@ -201,6 +206,7 @@
                                 <rect key="frame" x="34" y="237" width="252" height="23"/>
                                 <state key="normal" image="btn_menu4"/>
                                 <connections>
+                                    <action selector="goYoutubeButton:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="rkn-en-418"/>
                                     <segue destination="zf6-hy-i2h" kind="show" id="2Ts-Ls-emD"/>
                                 </connections>
                             </button>
@@ -208,6 +214,7 @@
                                 <rect key="frame" x="34" y="134" width="252" height="23"/>
                                 <state key="normal" image="btn_menu2"/>
                                 <connections>
+                                    <action selector="goRule:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="CCz-q3-heV"/>
                                     <segue destination="pg6-kb-lXC" kind="show" id="aH7-jg-e8z"/>
                                 </connections>
                             </button>
@@ -233,6 +240,12 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="howToPlayButton" destination="EZ4-fi-M2S" id="EYe-Vb-Cqx"/>
+                        <outlet property="playButton" destination="Yqx-V7-05R" id="B7M-qG-K0g"/>
+                        <outlet property="ruleButton" destination="mbD-Sm-Ppj" id="ydv-Bp-qSV"/>
+                        <outlet property="shareButton" destination="bC0-xd-frw" id="QPK-Xm-4oR"/>
+                        <outlet property="winnerButton" destination="MaH-zW-r6e" id="4IS-qK-LES"/>
+                        <outlet property="youtubeButton" destination="VH7-8G-gXv" id="wFF-3k-b8Y"/>
                         <segue destination="ZXy-X5-IS0" kind="show" identifier="startedGame" id="4Gl-ow-BtX"/>
                         <segue destination="v63-ji-BWb" kind="show" identifier="showedGame" id="CNh-1t-eEh"/>
                         <segue destination="rId-aX-sCf" kind="show" identifier="showedResult" id="6nw-w1-TWr"/>
@@ -312,7 +325,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="keepBall" translatesAutoresizingMaskIntoConstraints="NO" id="jEV-UU-eze">
-                                <rect key="frame" x="0.0" y="363" width="320" height="255"/>
+                                <rect key="frame" x="-9" y="307" width="338" height="290"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -464,9 +477,9 @@
         <image name="volleyball_001" width="1080" height="1080"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3tq-CP-Hcn"/>
-        <segue reference="6nw-w1-TWr"/>
-        <segue reference="CNh-1t-eEh"/>
-        <segue reference="ZvM-I7-OUD"/>
+        <segue reference="jld-tC-7eH"/>
+        <segue reference="XtU-lX-PV5"/>
+        <segue reference="4Gl-ow-BtX"/>
+        <segue reference="i93-76-0cj"/>
     </inferredMetricsTieBreakers>
 </document>

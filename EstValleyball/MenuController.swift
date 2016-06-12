@@ -11,8 +11,34 @@ import UIKit
 class MenuController: UIViewController {
     var fromSegue: String!
     
+    
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var ruleButton: UIButton!
+    @IBOutlet weak var youtubeButton: UIButton!
+    @IBOutlet weak var winnerButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var howToPlayButton: UIButton!
+    
+   
     @IBAction func playGame(sender: UIButton) {
+        playButton.setImage(UIImage(named: "btn_menu1_active.png"), forState: .Normal)
         self.performSegueWithIdentifier(SEGUE_SHOW_GAME, sender: nil)
+    }
+    @IBAction func goRule(sender: UIButton) {
+        ruleButton.setImage(UIImage(named: "btn_menu2_active.png"), forState: .Normal)
+    }
+    @IBAction func goHowToPlay(sender: UIButton) {
+        howToPlayButton.setImage(UIImage(named: "btn_menu3_active.png"), forState: .Normal)
+    }
+    @IBAction func goYoutubeButton(sender: UIButton) {
+        youtubeButton.setImage(UIImage(named: "btn_menu4_active.png"), forState: .Normal)
+    }
+    @IBAction func goWinner(sender: UIButton) {
+        winnerButton.setImage(UIImage(named: "btn_menu5_active.png"), forState: .Normal)
+    }
+    
+    @IBAction func goShare(sender: UIButton) {
+         shareButton.setImage(UIImage(named: "btn_menu6_active.png"), forState: .Normal)
     }
     @IBAction func goStartGame(sender: UIButton) {
         self.performSegueWithIdentifier(fromSegue, sender: nil)
