@@ -16,3 +16,4 @@ let SEGUE_REGISTERED = "registered"
 let SEGUE_STARTED_GAME = "startedGame"
 
 let SEGUE_SHOW_RESULT = "showedResult"
+let SEGUE_SHOW_MENU = "showedMenu"
