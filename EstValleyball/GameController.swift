@@ -111,11 +111,11 @@ class GameController: UIViewController {
                             UIImage(named:"11.png")!
                         ]
                             self.lightBling.animationDuration = 0.3
-                            self.lightBling.animationRepeatCount = 3
+                            self.lightBling.animationRepeatCount = 0
                             self.lightBling.startAnimating()
                         
                         startPitch(comingBall)
-                        NSTimer.scheduledTimerWithTimeInterval(4, target: self, selector: #selector(GameController.afterHitBall), userInfo: nil, repeats: false)
+                        NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(GameController.afterHitBall), userInfo: nil, repeats: false)
                         
                     })
         })
@@ -127,7 +127,7 @@ class GameController: UIViewController {
         self.score.format = "%d"
         self.score.countFrom(0, to: CGFloat(currentMaxVelocity), withDuration: 1)
         self.kmHr.image = UIImage(named: "imv_bg_num.png")
-        NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(GameController.showResult), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(GameController.showResult), userInfo: nil, repeats: true)
           }
     func showResult() {
         self.performSegueWithIdentifier(SEGUE_SHOW_RESULT, sender: nil)

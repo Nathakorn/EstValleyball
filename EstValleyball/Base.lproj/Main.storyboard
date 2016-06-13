@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="v63-ji-BWb">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -348,15 +348,15 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hand" translatesAutoresizingMaskIntoConstraints="NO" id="jEV-UU-eze">
-                                <rect key="frame" x="0.0" y="246" width="320" height="345"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn_start_b" translatesAutoresizingMaskIntoConstraints="NO" id="SHB-ON-ddV">
+                                <rect key="frame" x="83" y="213" width="148" height="79"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="keepBall" destination="jEV-UU-eze" id="jP9-eD-M0p"/>
+                        <outlet property="brightStart" destination="SHB-ON-ddV" id="o2F-Od-DNH"/>
                         <segue destination="v63-ji-BWb" kind="show" identifier="startedGame" id="XtU-lX-PV5"/>
                     </connections>
                 </viewController>
@@ -503,8 +503,8 @@
         <image name="btn_menu4" width="640" height="59"/>
         <image name="btn_menu5" width="640" height="59"/>
         <image name="btn_menu6" width="640" height="59"/>
+        <image name="btn_start_b" width="300" height="176"/>
         <image name="duringGameBackground" width="1242" height="2208"/>
-        <image name="hand" width="1242" height="1513"/>
         <image name="homeBackground" width="840" height="1493"/>
         <image name="howto" width="540" height="875"/>
         <image name="startGameBackground" width="1242" height="2208"/>
@@ -512,9 +512,9 @@
         <image name="volleyball_001" width="1080" height="1080"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="r6E-wv-YSm"/>
-        <segue reference="ZvM-I7-OUD"/>
         <segue reference="XtU-lX-PV5"/>
+        <segue reference="ZvM-I7-OUD"/>
         <segue reference="i93-76-0cj"/>
+        <segue reference="jld-tC-7eH"/>
     </inferredMetricsTieBreakers>
 </document>
