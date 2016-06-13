@@ -23,19 +23,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01" translatesAutoresizingMaskIntoConstraints="NO" id="xSG-l9-aTV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="xSG-l9-aTV">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="volleyball_001" translatesAutoresizingMaskIntoConstraints="NO" id="DHR-s2-DKC">
                                 <rect key="frame" x="100" y="-71" width="403" height="399"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Rd-TA-VzB">
-                                <rect key="frame" x="29" y="155" width="164" height="88"/>
-                                <state key="normal" image="Login with Facebook"/>
-                                <connections>
-                                    <action selector="loginFacebook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0QD-Fp-tsk"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home" translatesAutoresizingMaskIntoConstraints="NO" id="KnO-SA-F1D">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
                                 <constraints>
@@ -47,6 +40,16 @@
                                         <exclude reference="aA1-gd-RF7"/>
                                     </mask>
                                 </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Rd-TA-VzB">
+                                <rect key="frame" x="30" y="157" width="163" height="86"/>
+                                <state key="normal" image="Login with Facebook"/>
+                                <connections>
+                                    <action selector="loginFacebook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vam-uZ-BBa"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn_login_b" translatesAutoresizingMaskIntoConstraints="NO" id="Ufb-1C-ClZ">
+                                <rect key="frame" x="30" y="157" width="163" height="86"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -63,6 +66,8 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="ballView" destination="DHR-s2-DKC" id="sVK-wk-RXp"/>
+                        <outlet property="brightLogin" destination="Ufb-1C-ClZ" id="e2U-ZA-xw5"/>
+                        <outlet property="loginButton" destination="3Rd-TA-VzB" id="5Bt-VI-cim"/>
                         <segue destination="ZXy-X5-IS0" kind="show" identifier="loggedIn" id="ZvM-I7-OUD"/>
                     </connections>
                 </viewController>
@@ -343,8 +348,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="keepBall" translatesAutoresizingMaskIntoConstraints="NO" id="jEV-UU-eze">
-                                <rect key="frame" x="-9" y="307" width="338" height="290"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hand" translatesAutoresizingMaskIntoConstraints="NO" id="jEV-UU-eze">
+                                <rect key="frame" x="0.0" y="246" width="320" height="345"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -483,7 +488,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="01" width="1242" height="2208"/>
         <image name="13" width="1242" height="1520"/>
         <image name="14" width="1242" height="1334"/>
         <image name="Home" width="1239" height="1165"/>
@@ -492,6 +496,7 @@
         <image name="bg_tvc" width="540" height="512"/>
         <image name="btn_close" width="183" height="183"/>
         <image name="btn_close_tvc" width="70" height="79"/>
+        <image name="btn_login_b" width="300" height="159"/>
         <image name="btn_menu1" width="640" height="59"/>
         <image name="btn_menu2" width="640" height="59"/>
         <image name="btn_menu3" width="640" height="59"/>
@@ -499,8 +504,9 @@
         <image name="btn_menu5" width="640" height="59"/>
         <image name="btn_menu6" width="640" height="59"/>
         <image name="duringGameBackground" width="1242" height="2208"/>
+        <image name="hand" width="1242" height="1513"/>
+        <image name="homeBackground" width="840" height="1493"/>
         <image name="howto" width="540" height="875"/>
-        <image name="keepBall" width="1486" height="1306"/>
         <image name="startGameBackground" width="1242" height="2208"/>
         <image name="top bar" width="1242" height="217"/>
         <image name="volleyball_001" width="1080" height="1080"/>

@@ -10,7 +10,9 @@ import UIKit
 
 class HomeController: UIViewController {
     
+    @IBOutlet weak var brightLogin: UIImageView!
     @IBOutlet weak var ballView: UIImageView!
+    @IBOutlet weak var loginButton: UIButton!
     @IBAction func loginFacebook(sender: UIButton) {
         
         let loginManager = FBSDKLoginManager()
@@ -40,7 +42,8 @@ class HomeController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
         self.ballView.animationImages = [
             UIImage(named:"volleyball_001.png")!,
             UIImage(named:"volleyball_002.png")!,
@@ -64,7 +67,7 @@ class HomeController: UIViewController {
             UIImage(named:"volleyball_020.png")!,
             UIImage(named:"volleyball_021.png")!
         ]
-        self.ballView.animationDuration = 0.2
+        self.ballView.animationDuration = 1.5
         self.ballView.startAnimating()
     }
     
@@ -79,7 +82,13 @@ class HomeController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         print("viewDidAppear")
-        if (FBSDKAccessToken.currentAccessToken() != nil) {
+        
+        UIView.animateWithDuration(0.4, delay: 0.0, options: [UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.Repeat], animations: {
+                self.brightLogin.alpha = 0.2
+            }, completion: { finished in
+        })
+        
+            if (FBSDKAccessToken.currentAccessToken() != nil) {
             self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
         } else {
             
