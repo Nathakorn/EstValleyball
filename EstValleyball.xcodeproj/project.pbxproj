@@ -24,6 +24,9 @@
 		D09904811D0DBADD0049A99A /* YoutubeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09904801D0DBADD0049A99A /* YoutubeController.swift */; };
 		D09904831D0DC4FB0049A99A /* WinnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09904821D0DC4FB0049A99A /* WinnerController.swift */; };
 		D09906B01D0DF13B0049A99A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D09906AF1D0DF13B0049A99A /* Assets.xcassets */; };
+		D09906B41D0E708E0049A99A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09906B11D0E708E0049A99A /* FBSDKCoreKit.framework */; };
+		D09906B51D0E708E0049A99A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09906B21D0E708E0049A99A /* FBSDKLoginKit.framework */; };
+		D09906B61D0E708E0049A99A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09906B31D0E708E0049A99A /* FBSDKShareKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		D09904801D0DBADD0049A99A /* YoutubeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeController.swift; sourceTree = "<group>"; };
 		D09904821D0DC4FB0049A99A /* WinnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerController.swift; sourceTree = "<group>"; };
 		D09906AF1D0DF13B0049A99A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = EstValleyball/Assets.xcassets; sourceTree = "<group>"; };
+		D09906B11D0E708E0049A99A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		D09906B21D0E708E0049A99A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		D09906B31D0E708E0049A99A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +63,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D09906B61D0E708E0049A99A /* FBSDKShareKit.framework in Frameworks */,
 				C5F730AB1EDBE27C6002F549 /* Pods_EstValleyball.framework in Frameworks */,
+				D09906B41D0E708E0049A99A /* FBSDKCoreKit.framework in Frameworks */,
+				D09906B51D0E708E0049A99A /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +85,9 @@
 		7DB7B41295A1C3AD92BAA67B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D09906B11D0E708E0049A99A /* FBSDKCoreKit.framework */,
+				D09906B21D0E708E0049A99A /* FBSDKLoginKit.framework */,
+				D09906B31D0E708E0049A99A /* FBSDKShareKit.framework */,
 				B6EB32309C2C9B5308BCF582 /* Pods_EstValleyball.framework */,
 			);
 			name = Frameworks;
@@ -392,6 +404,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = EstValleyball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nathakorn.EstValleyball;
@@ -408,6 +424,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = EstValleyball/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nathakorn.EstValleyball;

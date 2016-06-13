@@ -10,6 +10,7 @@ import UIKit
 
 class StartGameController: UIViewController {
     
+    @IBOutlet weak var startButton: UIButton!
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "showedMenu"){
             let destination = segue.destinationViewController as! MenuController
@@ -34,18 +35,26 @@ class StartGameController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         //var customFrame = keepBall.frame
         
+        
         UIView.animateWithDuration(1.0, delay: 0.0, options: [UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.Repeat], animations: {
                 var originFrame = self.keepBall.frame
-                
                 originFrame.origin.y = 320.0
-                
                 self.keepBall.frame = originFrame
             }, completion: { finished in
         })
         /*
+        self.startButton.imageView?.animationImages = [
+            UIImage(named:"img_light.png")!,
+            UIImage(named:"11.png")!
+        ]
+        self.startButton.imageView?.animationDuration = 1
+        self.startButton.imageView?.animationRepeatCount = 3
+        self.startButton.imageView?.startAnimating()
+        */
+        /*
         UIView.animateWithDuration(1.0,
             animations: {
-                
+         
             }, completion: { finished in
                 
         })

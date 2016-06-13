@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="PSL053pro_0.ttf">
@@ -22,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="01" translatesAutoresizingMaskIntoConstraints="NO" id="xSG-l9-aTV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01" translatesAutoresizingMaskIntoConstraints="NO" id="xSG-l9-aTV">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="volleyball_001" translatesAutoresizingMaskIntoConstraints="NO" id="DHR-s2-DKC">
@@ -35,11 +36,29 @@
                                     <action selector="loginFacebook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0QD-Fp-tsk"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Home" translatesAutoresizingMaskIntoConstraints="NO" id="KnO-SA-F1D">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home" translatesAutoresizingMaskIntoConstraints="NO" id="KnO-SA-F1D">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="293" id="aA1-gd-RF7"/>
+                                    <constraint firstAttribute="width" secondItem="KnO-SA-F1D" secondAttribute="height" multiplier="320:293" id="wK5-Bd-JEA"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="aA1-gd-RF7"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xSG-l9-aTV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3hD-kd-dYT"/>
+                            <constraint firstItem="xSG-l9-aTV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="6Pr-oe-6nu"/>
+                            <constraint firstAttribute="trailing" secondItem="KnO-SA-F1D" secondAttribute="trailing" id="BDD-h2-QYZ"/>
+                            <constraint firstAttribute="trailing" secondItem="xSG-l9-aTV" secondAttribute="trailing" id="GPy-uJ-wU4"/>
+                            <constraint firstItem="KnO-SA-F1D" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Szr-Hm-V3O"/>
+                            <constraint firstItem="KnO-SA-F1D" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="b7o-kN-RsF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xSG-l9-aTV" secondAttribute="bottom" id="dex-98-oHa"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -438,15 +457,21 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="14" translatesAutoresizingMaskIntoConstraints="NO" id="EVQ-AR-tqA">
                                 <rect key="frame" x="0.0" y="68" width="320" height="304"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="13" translatesAutoresizingMaskIntoConstraints="NO" id="sDP-rj-FRY">
-                                <rect key="frame" x="13" y="77" width="294" height="360"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRi-Q4-yx4">
                                 <rect key="frame" x="36" y="362" width="118" height="69"/>
                                 <connections>
                                     <segue destination="v63-ji-BWb" kind="show" id="kk8-5c-riQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNl-Rl-26r">
+                                <rect key="frame" x="167" y="338" width="118" height="69"/>
+                                <connections>
+                                    <action selector="fbShareResult:" destination="rId-aX-sCf" eventType="touchUpInside" id="Zee-aA-NEo"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="13" translatesAutoresizingMaskIntoConstraints="NO" id="sDP-rj-FRY">
+                                <rect key="frame" x="13" y="77" width="294" height="360"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -481,9 +506,9 @@
         <image name="volleyball_001" width="1080" height="1080"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jld-tC-7eH"/>
+        <segue reference="r6E-wv-YSm"/>
+        <segue reference="ZvM-I7-OUD"/>
         <segue reference="XtU-lX-PV5"/>
-        <segue reference="4Gl-ow-BtX"/>
         <segue reference="i93-76-0cj"/>
     </inferredMetricsTieBreakers>
 </document>

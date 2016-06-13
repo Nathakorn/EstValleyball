@@ -9,11 +9,34 @@
 import UIKit
 
 class HomeController: UIViewController {
-
     
     @IBOutlet weak var ballView: UIImageView!
     @IBAction func loginFacebook(sender: UIButton) {
-        self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+        
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
+        
+        loginManager.loginBehavior = FBSDKLoginBehavior.Browser
+        
+        loginManager.logInWithReadPermissions(["public_profile", "email", "user_about_me"], fromViewController: self, handler: {
+            (result: FBSDKLoginManagerLoginResult!, error: NSError?) -> Void in
+            if (error != nil) {
+                // fb login error
+            } else if (result.isCancelled) {
+                // fb login cancelled
+            } else if (result.declinedPermissions.contains("public_profile") || result.declinedPermissions.contains("email") || result.declinedPermissions.contains("user_about_me")) {
+                // declined "public_profile", "email" or "user_about_me"
+            } else {
+                // var fbId = FBSDKAccessToken.currentAccessToken().userID
+                
+                /*
+                 // FB Access Token
+                 var fbAccessToken = FBSDKAccessToken.currentAccessToken().tokenString
+                 var url = "https://graph.facebook.com/me/picture?type=large&return_ssl_resource=1&access_token=\(fbAccessToken)"
+                 */
+            }
+        })
+    
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +66,24 @@ class HomeController: UIViewController {
         ]
         self.ballView.animationDuration = 0.2
         self.ballView.startAnimating()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
         
+        UIScreen.mainScreen().bounds.size
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        print("viewDidAppear")
+        if (FBSDKAccessToken.currentAccessToken() != nil) {
+            self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+        } else {
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
