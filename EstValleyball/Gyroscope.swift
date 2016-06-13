@@ -18,7 +18,8 @@ import CoreMotion
 
     let screenSize: CGRect = UIScreen.mainScreen().bounds
     func startPitch(comingBall : UIImageView, lightBling: UIImageView, game: GameController){
-    
+        //for count time
+        var i = 0
         var isHit = false
         motionManager.accelerometerUpdateInterval = 0.01
         motionManager.gyroUpdateInterval = 0.01
@@ -28,6 +29,7 @@ import CoreMotion
         let _:NSError!
         motionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue()!, withHandler: {
             accelerometerData,error in
+            i += 1
             let accX = outputAccelerationDataX(accelerometerData!.acceleration)
             let accY = outputAccelerationDataX(accelerometerData!.acceleration)
             let accZ = outputAccelerationDataX(accelerometerData!.acceleration)
@@ -44,13 +46,13 @@ import CoreMotion
                     if isHit == false{
                         let randomOneTwo = Int(arc4random_uniform(2) + 1)
                         if randomOneTwo == 1{
-                            originFrame = CGRectMake(screenSize.width/2-100, 300, 20, 20)
+                            originFrame = CGRectMake(screenSize.width/2-100, 340, 0, 0)
                             isHit = true
                             //game.afterHitBall()
                             NSTimer.scheduledTimerWithTimeInterval(1, target: game, selector: #selector(GameController.afterHitBall), userInfo: nil, repeats: false)
                         }
                         else{
-                            originFrame = CGRectMake(screenSize.width/2+100, 300, 20, 20)
+                            originFrame = CGRectMake(screenSize.width/2+100, 340, 0, 0)
                             isHit = true
                             //game.afterHitBall()
                             NSTimer.scheduledTimerWithTimeInterval(1, target: game, selector: #selector(GameController.afterHitBall), userInfo: nil, repeats: false)
@@ -62,9 +64,14 @@ import CoreMotion
                        
                 })
             }
+            if i == 300 {
+                print("no play")
+                motionManager.stopAccelerometerUpdates()
+                game.showNoplay()
+            }
             print(currentMaxVelocity)
-            
         })
+        
     }
     func resetMaxValues() {
         currentMaxAccelX = 0

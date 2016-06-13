@@ -57,6 +57,46 @@ class GameController: UIViewController {
        
         
     }
+    func showNoplay(){
+        var noPlayPopupView = UIView()
+        noPlayPopupView.frame = CGRectMake(0,0,320, 568)
+        noPlayPopupView.backgroundColor = UIColor.blackColor()
+        //noPlayPopupView.alpha = 0.3
+        var noPlayView = UIImageView()
+        let image = UIImage(named: "bg_noplay.png")
+        noPlayView = UIImageView(image: image)
+        noPlayView.frame = CGRectMake(0,100,320,230)
+        noPlayView.layer.zPosition = 0
+        noPlayPopupView.addSubview(noPlayView)
+        
+        //button 
+        
+        var startButton = UIButton()
+        startButton.frame = CGRectMake(165,155,148,79)
+        startButton.setImage(UIImage(named: "btn_start_a"), forState: .Normal)
+        startButton.layer.zPosition = 1
+        startButton.addTarget(self, action: #selector(newGame), forControlEvents: .TouchUpInside)
+        noPlayPopupView.addSubview(startButton)
+        //button bright
+        var startButtonBright = UIImageView()
+        startButtonBright.frame = CGRectMake(165,155,148,79)
+        startButtonBright.image = UIImage(named: "btn_start_b")
+        startButtonBright.layer.zPosition = 2
+        
+        noPlayPopupView.addSubview(startButtonBright)
+        
+        UIView.animateWithDuration(0.4, delay: 0.0, options: [UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.Repeat], animations: {
+            startButtonBright.alpha = 0.2
+            }, completion: { finished in
+        })
+       
+        self.view.addSubview(noPlayPopupView)
+        
+    }
+    func newGame(sender: UIButton!){
+        print("korn")
+        //self.performSegueWithIdentifier(SEGUE_STARTED_GAME, sender: nil)
+    }
     func ballFromOpponent(){
         
         var comingBall = UIImageView()
@@ -98,7 +138,7 @@ class GameController: UIViewController {
                 comingBall.frame = originFrame
             
             }, completion: { finished in
-                UIView.animateWithDuration(1.5, animations: {
+                UIView.animateWithDuration(2, animations: {
                     var originFrame = comingBall.frame
                     originFrame = CGRectMake(self.screenSize.width/2-200, 120, 400, 400)
                     
@@ -113,7 +153,7 @@ class GameController: UIViewController {
                             self.lightBling.animationDuration = 0.3
                             self.lightBling.animationRepeatCount = 0
                             self.lightBling.startAnimating()
-                        
+                            //self.lightBling.layer.zPosition = 10
                         startPitch(comingBall,lightBling: self.lightBling, game: self)
                         //NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(GameController.afterHitBall), userInfo: nil, repeats: false)
                         
@@ -122,25 +162,16 @@ class GameController: UIViewController {
     }
     func afterHitBall() {
         //var random = arc4random_uniform(80) + 10
+        motionManager.stopAccelerometerUpdates()
         self.score.layer.zPosition = 4
         self.kmHr.layer.zPosition = 3
         self.score.format = "%d"
         self.score.countFrom(0, to: CGFloat(currentMaxVelocity), withDuration: 1)
         self.kmHr.image = UIImage(named: "imv_bg_num.png")
-        NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(GameController.showResult), userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(showResult), userInfo: nil, repeats: true)
           }
     func showResult() {
         self.performSegueWithIdentifier(SEGUE_SHOW_RESULT, sender: nil)
-    }
-        func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
-        let scale = newWidth / image.size.width
-        let newHeight = image.size.height * scale
-        UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
-        image.drawInRect(CGRectMake(0, 0, newWidth, newHeight))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return newImage
     }
     
 }

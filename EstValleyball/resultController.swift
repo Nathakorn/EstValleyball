@@ -10,6 +10,11 @@ import UIKit
 
 class ResultController: UIViewController, FBSDKSharingDelegate {
    
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var newGameButton: UIButton!
+    var data : NSData!
+    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var facebookImg: UIImageView!
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "showedMenu"){
             let destination = segue.destinationViewController as! MenuController
@@ -17,10 +22,54 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
             //self.performSegueWithIdentifier(SEGUE_SHOW_MENU, sender: nil)
         }
     }
+    override func viewDidAppear(animated: Bool) {
+        shareButton.layer.zPosition = 11
+        newGameButton.layer.zPosition = 12
+        var resultView = UIView()
+        resultView.frame = CGRectMake(0,0,320, 524)
+        //resultView.backgroundColor = UIColor.blackColor()
+        //noPlayPopupView.alpha = 0.3
+        resultView.layer.zPosition = 5
+        var result = UIImageView()
+        if currentMaxVelocity > 55{
+            let image = UIImage(named: "bg_result1.png")
+            result = UIImageView(image: image)
+        }
+        else if currentMaxVelocity <= 55 && currentMaxVelocity > 45{
+            let image = UIImage(named: "bg_result2.png")
+            result = UIImageView(image: image)
+            
+        }
+        else if currentMaxVelocity <= 45 && currentMaxVelocity > 40{
+            let image = UIImage(named: "bg_result3.png")
+            result = UIImageView(image: image)
+        }
+        else if currentMaxVelocity <= 40 && currentMaxVelocity > 30{
+            let image = UIImage(named: "bg_result4.png")
+            result = UIImageView(image: image)
+        }
+        else if currentMaxVelocity <= 30{
+            let image = UIImage(named: "bg_result5.png")
+            result = UIImageView(image: image)
+        }
+        result.frame = CGRectMake(0,44,320, 524)
+        result.layer.zPosition = 2
+        resultView.addSubview(result)
+        self.view.addSubview(resultView)
+        //score.format = "%d"
+        score.text = String(currentMaxVelocity)
+        //print(FBSDKAccessToken.currentAccessToken().userID)
+        
+        facebookImg.image = UIImage(data:data!)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        print(FBSDKAccessToken.currentAccessToken().userID)
         // Do any additional setup after loading the view.
+        var fbId = FBSDKAccessToken.currentAccessToken().userID
+        let url = NSURL(string:"http://graph.facebook.com/" + fbId + "/picture?type=square")
+        data = NSData(contentsOfURL:url!)
     }
 
     override func didReceiveMemoryWarning() {

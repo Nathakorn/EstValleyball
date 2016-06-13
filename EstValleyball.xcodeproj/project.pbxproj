@@ -23,7 +23,7 @@
 		D099047F1D0DADA00049A99A /* RuleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D099047E1D0DADA00049A99A /* RuleController.swift */; };
 		D09904811D0DBADD0049A99A /* YoutubeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09904801D0DBADD0049A99A /* YoutubeController.swift */; };
 		D09904831D0DC4FB0049A99A /* WinnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09904821D0DC4FB0049A99A /* WinnerController.swift */; };
-		D09906B01D0DF13B0049A99A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D09906AF1D0DF13B0049A99A /* Assets.xcassets */; };
+		D09906B01D0DF13B0049A99A /* noplay.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D09906AF1D0DF13B0049A99A /* noplay.xcassets */; };
 		D09906B41D0E708E0049A99A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09906B11D0E708E0049A99A /* FBSDKCoreKit.framework */; };
 		D09906B51D0E708E0049A99A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09906B21D0E708E0049A99A /* FBSDKLoginKit.framework */; };
 		D09906B61D0E708E0049A99A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09906B31D0E708E0049A99A /* FBSDKShareKit.framework */; };
@@ -52,7 +52,7 @@
 		D099047E1D0DADA00049A99A /* RuleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuleController.swift; sourceTree = "<group>"; };
 		D09904801D0DBADD0049A99A /* YoutubeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeController.swift; sourceTree = "<group>"; };
 		D09904821D0DC4FB0049A99A /* WinnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerController.swift; sourceTree = "<group>"; };
-		D09906AF1D0DF13B0049A99A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = EstValleyball/Assets.xcassets; sourceTree = "<group>"; };
+		D09906AF1D0DF13B0049A99A /* noplay.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = noplay.xcassets; path = EstValleyball/noplay.xcassets; sourceTree = "<group>"; };
 		D09906B11D0E708E0049A99A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		D09906B21D0E708E0049A99A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		D09906B31D0E708E0049A99A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 		D0698B461D09317B00854814 = {
 			isa = PBXGroup;
 			children = (
-				D09906AF1D0DF13B0049A99A /* Assets.xcassets */,
+				D09906AF1D0DF13B0049A99A /* noplay.xcassets */,
 				D0698B511D09317C00854814 /* EstValleyball */,
 				D0698B501D09317C00854814 /* Products */,
 				56705706654F33E4C006E496 /* Pods */,
@@ -217,7 +217,7 @@
 			files = (
 				D0698B5D1D09317C00854814 /* LaunchScreen.storyboard in Resources */,
 				D0698B6F1D0AB82800854814 /* PSL053pro_0.ttf in Resources */,
-				D09906B01D0DF13B0049A99A /* Assets.xcassets in Resources */,
+				D09906B01D0DF13B0049A99A /* noplay.xcassets in Resources */,
 				D099047D1D0D8C6F0049A99A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

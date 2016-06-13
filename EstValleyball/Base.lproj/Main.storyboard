@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZXy-X5-IS0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,6 +7,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="PSL053pro_0.ttf">
+            <string>PSLEmpireProBoldItalic</string>
             <string>PSLEmpireProBoldItalic</string>
         </mutableArray>
     </customFonts>
@@ -78,7 +79,6 @@
         <!--Rule Controller-->
         <scene sceneID="DEf-4o-cWG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zmh-TH-crb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="pg6-kb-lXC" customClass="RuleController" customModule="EstValleyball" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UOg-O5-gq2"/>
@@ -104,10 +104,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1YF-kn-DkW">
                                         <rect key="frame" x="8" y="8" width="26" height="28"/>
                                         <state key="normal" image="btn_drawer"/>
+                                        <connections>
+                                            <segue destination="Nul-UZ-cfi" kind="show" id="cKm-oT-twL"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yif-jG-UD0">
                                         <rect key="frame" x="288" y="8" width="24" height="28"/>
                                         <state key="normal" image="notification_icon"/>
+                                        <connections>
+                                            <segue destination="F5u-of-4Da" kind="show" id="YzX-p9-Dtl"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -118,8 +124,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="web" destination="1R8-Bd-DqD" id="ydM-kd-G8K"/>
+                        <segue destination="Nul-UZ-cfi" kind="show" id="DlY-2b-P6H"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zmh-TH-crb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="869" y="-1190"/>
         </scene>
@@ -352,10 +360,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1PR-9m-g0l">
                                         <rect key="frame" x="8" y="8" width="26" height="28"/>
                                         <state key="normal" image="btn_drawer"/>
+                                        <connections>
+                                            <segue destination="Nul-UZ-cfi" kind="show" id="BzG-4H-fcR"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xH3-YI-UZX">
                                         <rect key="frame" x="288" y="8" width="24" height="28"/>
                                         <state key="normal" image="notification_icon"/>
+                                        <connections>
+                                            <segue destination="F5u-of-4Da" kind="show" id="QN0-iC-bJm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -489,7 +503,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IvI-YN-Uza">
-                                <rect key="frame" x="0.0" y="207" width="320" height="361"/>
+                                <rect key="frame" x="0.0" y="237" width="320" height="331"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -549,28 +563,47 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="14" translatesAutoresizingMaskIntoConstraints="NO" id="EVQ-AR-tqA">
-                                <rect key="frame" x="0.0" y="68" width="320" height="304"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ev-cs-oVc">
+                                <rect key="frame" x="49" y="257" width="55" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xki-5d-gaO">
+                                <rect key="frame" x="49" y="257" width="55" height="44"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNb-88-WLp">
+                                <rect key="frame" x="128" y="237" width="54" height="44.5"/>
+                                <fontDescription key="fontDescription" name="PSLEmpireProBoldItalic" family="PSL Empire Pro" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="txt_result" translatesAutoresizingMaskIntoConstraints="NO" id="2y1-7C-NLY">
+                                <rect key="frame" x="13" y="438" width="294" height="122"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="13" translatesAutoresizingMaskIntoConstraints="NO" id="sDP-rj-FRY">
+                                <rect key="frame" x="13" y="99" width="294" height="360"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRi-Q4-yx4">
-                                <rect key="frame" x="36" y="362" width="118" height="69"/>
+                                <rect key="frame" x="35" y="380" width="118" height="69"/>
                                 <connections>
                                     <segue destination="v63-ji-BWb" kind="show" id="kk8-5c-riQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNl-Rl-26r">
-                                <rect key="frame" x="167" y="338" width="118" height="69"/>
+                                <rect key="frame" x="168" y="362" width="118" height="69"/>
                                 <connections>
                                     <action selector="fbShareResult:" destination="rId-aX-sCf" eventType="touchUpInside" id="Zee-aA-NEo"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="13" translatesAutoresizingMaskIntoConstraints="NO" id="sDP-rj-FRY">
-                                <rect key="frame" x="13" y="77" width="294" height="360"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="facebookImg" destination="xki-5d-gaO" id="uPP-F9-8Jm"/>
+                        <outlet property="newGameButton" destination="cRi-Q4-yx4" id="aHD-T3-rdl"/>
+                        <outlet property="score" destination="FNb-88-WLp" id="z2n-gN-Hm0"/>
+                        <outlet property="shareButton" destination="HNl-Rl-26r" id="Sdj-44-T7E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="645-AT-Ft2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -579,7 +612,6 @@
     </scenes>
     <resources>
         <image name="13" width="1242" height="1520"/>
-        <image name="14" width="1242" height="1334"/>
         <image name="Home" width="1239" height="1165"/>
         <image name="Login with Facebook" width="632" height="339"/>
         <image name="bg_actionbar" width="640" height="86"/>
@@ -602,13 +634,14 @@
         <image name="img_logo" width="120" height="101"/>
         <image name="notification_icon" width="73" height="73"/>
         <image name="startGameBackground" width="1242" height="2208"/>
+        <image name="txt_result" width="608" height="293"/>
         <image name="volleyball_001" width="1080" height="1080"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XtU-lX-PV5"/>
-        <segue reference="ZvM-I7-OUD"/>
-        <segue reference="jU9-Hj-2nh"/>
+        <segue reference="D5d-Cg-9MS"/>
         <segue reference="i93-76-0cj"/>
-        <segue reference="Zj2-j8-Wgq"/>
+        <segue reference="kk8-5c-riQ"/>
+        <segue reference="EnW-fF-QvJ"/>
+        <segue reference="ZvM-I7-OUD"/>
     </inferredMetricsTieBreakers>
 </document>
