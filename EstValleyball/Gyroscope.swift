@@ -17,7 +17,8 @@ import CoreMotion
     var currentMaxVelocity = 0
 
     let screenSize: CGRect = UIScreen.mainScreen().bounds
-    func startPitch(comingBall : UIImageView){
+    func startPitch(comingBall : UIImageView, lightBling: UIImageView, game: GameController){
+    
         var isHit = false
         motionManager.accelerometerUpdateInterval = 0.01
         motionManager.gyroUpdateInterval = 0.01
@@ -37,6 +38,7 @@ import CoreMotion
             //print(Int(floor(velocity)))
             currentMaxVelocity = Int(floor(velocity * 2.5))
             if(currentMaxVelocity > 25){
+                lightBling.stopAnimating()
                 UIView.animateWithDuration(0.2, animations: {
                     var originFrame = comingBall.frame
                     if isHit == false{
@@ -44,10 +46,14 @@ import CoreMotion
                         if randomOneTwo == 1{
                             originFrame = CGRectMake(screenSize.width/2-100, 300, 20, 20)
                             isHit = true
+                            //game.afterHitBall()
+                            NSTimer.scheduledTimerWithTimeInterval(1, target: game, selector: #selector(GameController.afterHitBall), userInfo: nil, repeats: false)
                         }
                         else{
                             originFrame = CGRectMake(screenSize.width/2+100, 300, 20, 20)
                             isHit = true
+                            //game.afterHitBall()
+                            NSTimer.scheduledTimerWithTimeInterval(1, target: game, selector: #selector(GameController.afterHitBall), userInfo: nil, repeats: false)
                         }
                     }
                     comingBall.frame = originFrame
@@ -65,6 +71,7 @@ import CoreMotion
         currentMaxAccelY = 0
         currentMaxAccelZ = 0
     }
+
     func outputAccelerationDataX(acceleration: CMAcceleration) -> Double{
         if fabs(acceleration.x) > fabs(currentMaxAccelX){
             currentMaxAccelX = acceleration.x

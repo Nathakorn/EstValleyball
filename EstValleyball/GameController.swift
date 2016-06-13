@@ -114,8 +114,8 @@ class GameController: UIViewController {
                             self.lightBling.animationRepeatCount = 0
                             self.lightBling.startAnimating()
                         
-                        startPitch(comingBall)
-                        NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(GameController.afterHitBall), userInfo: nil, repeats: false)
+                        startPitch(comingBall,lightBling: self.lightBling, game: self)
+                        //NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(GameController.afterHitBall), userInfo: nil, repeats: false)
                         
                     })
         })
