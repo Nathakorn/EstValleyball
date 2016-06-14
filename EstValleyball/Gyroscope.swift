@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreMotion
-
+import AudioToolbox
     
     var motionManager = CMMotionManager()
     var currentMaxAccelX = 0.0
@@ -42,6 +42,7 @@ import CoreMotion
             if(currentMaxVelocity > 25){
                 lightBling.stopAnimating()
                 UIView.animateWithDuration(0.2, animations: {
+                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                     var originFrame = comingBall.frame
                     if isHit == false{
                         let randomOneTwo = Int(arc4random_uniform(2) + 1)

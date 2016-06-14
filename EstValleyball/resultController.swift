@@ -93,7 +93,7 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
                                      60/320*self.screenSize.width,
                                      60/568*self.screenSize.height)
             x = 50.0/320*self.screenSize.width
-            y = 285.0/320*self.screenSize.width
+            y = 285.0/568*self.screenSize.width
         }
         else if currentMaxVelocity <= 30{
             let image = UIImage(named: "bg_result5.png")
@@ -103,7 +103,7 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
                                      60/320*self.screenSize.width,
                                      60/568*self.screenSize.height)
             x = 40.0/320*self.screenSize.width
-            y = 260.0/320*self.screenSize.width
+            y = 260.0/568*self.screenSize.width
 
         }
         resultView.addSubview(result)

@@ -212,7 +212,7 @@ class GameController: UIViewController {
                         self.lightBling.startAnimating()
                         
                             //self.lightBling.layer.zPosition = 10
-                        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                       
                         startPitch(self.comingBall,lightBling: self.lightBling, game: self)
                         //NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(GameController.afterHitBall), userInfo: nil, repeats: false)
                         
