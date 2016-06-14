@@ -9,14 +9,20 @@
 import UIKit
 
 class YoutubeController: UIViewController {
-
-    @IBOutlet weak var youtubeView: UIWebView!
+    
+    var youtubeView = UIWebView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var screenSize = UIScreen.mainScreen().bounds.size
+        self.youtubeView.frame = CGRectMake(15/320*screenSize.width, 117/568*screenSize.height, 291/320*screenSize.width, 186/568*screenSize.height)
+        
+        self.view.addSubview(self.youtubeView)
+        
         let url = NSURL(string: "https://www.youtube.com/watch?v=SSDvPawnuJE")
         let request = NSURLRequest(URL: url!)
-        youtubeView.loadRequest(request)
-        // Do any additional setup after loading the view.
+        self.youtubeView.loadRequest(request)
     }
 
     override func didReceiveMemoryWarning() {

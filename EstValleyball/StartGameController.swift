@@ -12,6 +12,11 @@ class StartGameController: UIViewController {
     
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var brightStart: UIImageView!
+    
+    var normalButton = UIImageView()
+    var blinkButton = UIImageView()
+    var start = UIButton()
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "showedMenu"){
             let destination = segue.destinationViewController as! MenuController
@@ -26,29 +31,57 @@ class StartGameController: UIViewController {
     
     @IBOutlet weak var keepBall: UIImageView!
     var isImageBottom = true
-    @IBAction func startGame(sender: UIButton) {
+    func startGame() {
         self.performSegueWithIdentifier(SEGUE_STARTED_GAME, sender: nil)
     }
+    
+    /*
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }*/
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        var screenSize = UIScreen.mainScreen().bounds.size
+        var buttonRect = CGRectMake(83.0/320.0*screenSize.width, 213.0/568.0*screenSize.height, 148.0/320.0*screenSize.width, 79.0/568.0*screenSize.height)
+        
+        self.normalButton.frame = buttonRect
+        self.blinkButton.frame = buttonRect
+        
+        self.normalButton.image = UIImage(named: "btn_start_a")
+        self.blinkButton.image = UIImage(named: "btn_start_b")
+        
+        self.start.frame = buttonRect
+        self.start.addTarget(self, action: #selector(StartGameController.startGame), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        self.view.addSubview(self.normalButton)
+        self.view.addSubview(self.blinkButton)
+        self.view.addSubview(self.start)
     }
     override func viewDidAppear(animated: Bool) {
         //var customFrame = keepBall.frame
         //bright start button
         UIView.animateWithDuration(0.4, delay: 0.0, options: [UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.Repeat], animations: {
-            self.brightStart.alpha = 0.2
+            self.blinkButton.alpha = 0.2
             }, completion: { finished in
         })
+        
+        var screenSize = UIScreen.mainScreen().bounds.size
+        
         var keepBall = UIImageView()
         let image = UIImage(named: "hand.png")
         keepBall = UIImageView(image: image)
-        keepBall.frame = CGRectMake(0,240,320,390)
+        keepBall.frame = CGRectMake(0, 240/568*screenSize.height, screenSize.width,390/568*screenSize.height)
         keepBall.layer.zPosition = 4
         self.view.addSubview(keepBall)
         UIView.animateWithDuration(0.8, delay: 0.0, options: [UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.Repeat], animations: {
                 var originFrame = keepBall.frame
-                originFrame.origin.y = 222.0
+                originFrame.origin.y = 222.0/568.0*screenSize.height
                 keepBall.frame = originFrame
             }, completion: { finished in
         })

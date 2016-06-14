@@ -46,13 +46,13 @@ import CoreMotion
                     if isHit == false{
                         let randomOneTwo = Int(arc4random_uniform(2) + 1)
                         if randomOneTwo == 1{
-                            originFrame = CGRectMake(screenSize.width/2-100, 340, 0, 0)
+                            originFrame = CGRectMake(screenSize.width/2-100, 340, 20, 20)
                             isHit = true
                             //game.afterHitBall()
                             NSTimer.scheduledTimerWithTimeInterval(1, target: game, selector: #selector(GameController.afterHitBall), userInfo: nil, repeats: false)
                         }
                         else{
-                            originFrame = CGRectMake(screenSize.width/2+100, 340, 0, 0)
+                            originFrame = CGRectMake(screenSize.width/2+100, 340, 20, 20)
                             isHit = true
                             //game.afterHitBall()
                             NSTimer.scheduledTimerWithTimeInterval(1, target: game, selector: #selector(GameController.afterHitBall), userInfo: nil, repeats: false)
@@ -61,10 +61,18 @@ import CoreMotion
                     comingBall.frame = originFrame
                     
                     }, completion: { finished in
-                       
+                        if isHit == true{
+                            print("test")
+                            UIView.animateWithDuration(0.2, animations: {
+                                var originFrame2 = comingBall.frame
+                                originFrame2 = CGRectMake(screenSize.width/2, 300, 0, 0)
+                                comingBall.frame = originFrame2
+                                }, completion: { finished in
+                            })
+                        }
                 })
             }
-            if i == 300 {
+            if i == 300 && isHit == false{
                 print("no play")
                 motionManager.stopAccelerometerUpdates()
                 game.showNoplay()

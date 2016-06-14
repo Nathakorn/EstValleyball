@@ -13,7 +13,12 @@ class HomeController: UIViewController {
     @IBOutlet weak var brightLogin: UIImageView!
     @IBOutlet weak var ballView: UIImageView!
     @IBOutlet weak var loginButton: UIButton!
-    @IBAction func loginFacebook(sender: UIButton) {
+    
+    var normalButton = UIImageView()
+    var blinkButton = UIImageView()
+    var login = UIButton()
+    
+    func loginFacebook() {
         
         let loginManager = FBSDKLoginManager()
         loginManager.logOut()
@@ -30,7 +35,7 @@ class HomeController: UIViewController {
                 // declined "public_profile", "email" or "user_about_me"
             } else {
                 // var fbId = FBSDKAccessToken.currentAccessToken().userID
-                
+                self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
                 /*
                  // FB Access Token
                  var fbAccessToken = FBSDKAccessToken.currentAccessToken().tokenString
@@ -69,14 +74,44 @@ class HomeController: UIViewController {
         ]
         self.ballView.animationDuration = 1.5
         self.ballView.startAnimating()
+        
+        /*
+        let fontFamilyNames = UIFont.familyNames()
+        for familyName in fontFamilyNames {
+            print("------------------------------")
+            print("Font Family Name = [\(familyName)]")
+            let names = UIFont.fontNamesForFamilyName(familyName )
+            print("Font Names = [\(names)]")
+        }*/
+        
+        
+        var screenSize = UIScreen.mainScreen().bounds.size
+        var buttonRect = CGRectMake(30.0/320.0*screenSize.width, 157.0/568.0*screenSize.height, 163.0/320.0*screenSize.width, 86.0/568.0*screenSize.height)
+        
+        self.normalButton.frame = buttonRect
+        self.blinkButton.frame = buttonRect
+        self.login.frame = buttonRect
+        
+        self.normalButton.image = UIImage(named: "Login with Facebook")
+        self.blinkButton.image = UIImage(named: "btn_login_b")
+        
+        self.login.addTarget(self, action: #selector(HomeController.loginFacebook), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        self.view.addSubview(self.normalButton)
+        self.view.addSubview(self.blinkButton)
+        self.view.addSubview(self.login)
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         print("viewWillAppear")
         
-        UIScreen.mainScreen().bounds.size
-        
+        if (FBSDKAccessToken.currentAccessToken() != nil) {
+            self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+        } else {
+            
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -84,11 +119,11 @@ class HomeController: UIViewController {
         print("viewDidAppear")
         
         UIView.animateWithDuration(0.4, delay: 0.0, options: [UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.Repeat], animations: {
-                self.brightLogin.alpha = 0.2
+                self.blinkButton.alpha = 0.2
             }, completion: { finished in
         })
         
-            if (FBSDKAccessToken.currentAccessToken() != nil) {
+        if (FBSDKAccessToken.currentAccessToken() != nil) {
             self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
         } else {
             
