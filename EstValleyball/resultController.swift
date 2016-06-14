@@ -13,7 +13,7 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
     var data : NSData!
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var facebookImg: UIImageView!
-    
+    var capView = UIView()
     var screenSize = UIScreen.mainScreen().bounds.size
     var widthMultiplier = 320 * UIScreen.mainScreen().bounds.size.width
     var heightMultiplier = 568 * UIScreen.mainScreen().bounds.size.height
@@ -146,6 +146,29 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
             self.view.addSubview(self.profileImageView)
             self.view.bringSubviewToFront(self.profileImageView)
         })
+       
+        capView.frame = CGRectMake(0.0, 0.0, 300.0/320*self.screenSize.width, 157.5/568*self.screenSize.height)
+        var sharePic = UIImageView()
+        sharePic.frame = CGRectMake(0.0, 0.0, 300.0/320*self.screenSize.width, 157.5/568*self.screenSize.height)
+        if currentMaxVelocity > 55{
+            sharePic.image = UIImage(named: "share1.png")
+        }
+        else if currentMaxVelocity <= 55 && currentMaxVelocity > 45{
+            sharePic.image = UIImage(named: "share2.png")
+        }
+        else if currentMaxVelocity <= 45 && currentMaxVelocity > 40{
+            sharePic.image = UIImage(named: "share3.png")
+        }
+        else if currentMaxVelocity <= 40 && currentMaxVelocity > 30{
+            sharePic.image = UIImage(named: "share4.png")
+        }
+        else if currentMaxVelocity <= 30{
+            sharePic.image = UIImage(named: "share5.png")
+        }
+        capView.addSubview(sharePic)
+        //capView.
+        
+        
         
         //score.format = "%d"
         score.text = String(currentMaxVelocity)
@@ -178,9 +201,9 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
         
         // resultImage.addSubview(button)
         
-        UIGraphicsBeginImageContextWithOptions(resultImage.frame.size, true, UIScreen.mainScreen().scale)
+        UIGraphicsBeginImageContextWithOptions(capView.frame.size, true, UIScreen.mainScreen().scale)
         var ctx: CGContextRef = UIGraphicsGetCurrentContext()!
-        resultImage.layer.renderInContext(ctx)
+        capView.layer.renderInContext(ctx)
         var shareImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         

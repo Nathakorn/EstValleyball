@@ -22,6 +22,7 @@ import AudioToolbox
         var i = 0
         var isHit = false
         var isVibration = false
+        var isHitTwo = false
         motionManager.accelerometerUpdateInterval = 0.01
         motionManager.gyroUpdateInterval = 0.01
         resetMaxValues()
@@ -51,15 +52,17 @@ import AudioToolbox
                     if isHit == false{
                         let randomOneTwo = Int(arc4random_uniform(2) + 1)
                         if randomOneTwo == 1{
-                            originFrame = CGRectMake(screenSize.width/2-100, 340, 20, 20)
+                            originFrame = CGRectMake(screenSize.width/2-100, 310, 20, 20)
                             isHit = true
                             //game.afterHitBall()
+                            NSTimer.scheduledTimerWithTimeInterval(0.4, target: game, selector: #selector(GameController.hitBallTwo), userInfo: nil, repeats: false)
                             NSTimer.scheduledTimerWithTimeInterval(1, target: game, selector: #selector(GameController.afterHitBall), userInfo: nil, repeats: false)
                         }
                         else{
-                            originFrame = CGRectMake(screenSize.width/2+100, 340, 20, 20)
+                            originFrame = CGRectMake(screenSize.width/2+100, 310, 20, 20)
                             isHit = true
                             //game.afterHitBall()
+                            NSTimer.scheduledTimerWithTimeInterval(0.4, target: game, selector: #selector(GameController.hitBallTwo), userInfo: nil, repeats: false)
                             NSTimer.scheduledTimerWithTimeInterval(1, target: game, selector: #selector(GameController.afterHitBall), userInfo: nil, repeats: false)
                         }
                     }
@@ -67,15 +70,17 @@ import AudioToolbox
                     
                     }, completion: { finished in
                         /*
-                        if isHit == true{
+                        if isHit == true && isHitTwo == false{
                             print("test")
                             UIView.animateWithDuration(0.2, animations: {
                                 var originFrame2 = comingBall.frame
                                 originFrame2 = CGRectMake(screenSize.width/2, 300, 0, 0)
                                 comingBall.frame = originFrame2
+                                isHitTwo = true
                                 }, completion: { finished in
                             })
-                        }*/
+                        }
+                        */
                 })
             }
             if i == 300 && isHit == false{
