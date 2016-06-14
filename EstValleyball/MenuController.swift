@@ -60,24 +60,31 @@ class MenuController: UIViewController {
         var height: CGFloat = 23.0 / 568.0 * screenSize.width
         
         self.playButton.frame = CGRectMake(x, 82.0 / 568.0 * screenSize.height, width, height)
+        self.playButton.setImage(UIImage(named: "btn_menu1.png"), forState: .Normal)
         self.playButton.addTarget(self, action: #selector(MenuController.playGame), forControlEvents: UIControlEvents.TouchUpInside)
         
         self.ruleButton.frame = CGRectMake(x, 134.0 / 568.0 * screenSize.height, width, height)
+        self.ruleButton.setImage(UIImage(named: "btn_menu2.png"), forState: .Normal)
         self.ruleButton.addTarget(self, action: #selector(MenuController.goRule), forControlEvents: UIControlEvents.TouchUpInside)
         
         self.howToPlayButton.frame = CGRectMake(x, 188.0 / 568.0 * screenSize.height, width, height)
+        self.howToPlayButton.setImage(UIImage(named: "btn_menu3.png"), forState: .Normal)
         self.howToPlayButton.addTarget(self, action: #selector(MenuController.goHowToPlay), forControlEvents: UIControlEvents.TouchUpInside)
         
         self.youtubeButton.frame = CGRectMake(x, 237.0 / 568.0 * screenSize.height, width, height)
+        self.youtubeButton.setImage(UIImage(named: "btn_menu4.png"), forState: .Normal)
         self.youtubeButton.addTarget(self, action: #selector(MenuController.goYoutubeButton), forControlEvents: UIControlEvents.TouchUpInside)
         
         self.winnerButton.frame = CGRectMake(x, 285.0 / 568.0 * screenSize.height, width, height)
+        self.winnerButton.setImage(UIImage(named: "btn_menu5.png"), forState: .Normal)
         self.winnerButton.addTarget(self, action: #selector(MenuController.goWinner), forControlEvents: UIControlEvents.TouchUpInside)
         
         self.shareButton.frame = CGRectMake(x, 335.0 / 568.0 * screenSize.height, width, height)
+        self.winnerButton.setImage(UIImage(named: "btn_menu6.png"), forState: .Normal)
         self.shareButton.addTarget(self, action: #selector(MenuController.goShare), forControlEvents: UIControlEvents.TouchUpInside)
         
         self.closeButton.frame = CGRectMake(138 / 320.0 * screenSize.width, 406.0 / 568.0 * screenSize.height, 44.0 / 320.0 * screenSize.width, 44.0 / 320.0 * screenSize.width)
+        self.closeButton.setImage(UIImage(named: "btn_close.png"), forState: .Normal)
         self.closeButton.addTarget(self, action: #selector(MenuController.playGame), forControlEvents: UIControlEvents.TouchUpInside)
         
         self.view.addSubview(self.playButton)
