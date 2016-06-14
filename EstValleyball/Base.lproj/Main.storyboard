@@ -233,7 +233,9 @@
                                 </constraints>
                                 <state key="normal" image="btn_close_tvc"/>
                                 <connections>
-                                    <segue destination="Nul-UZ-cfi" kind="show" id="Zj2-j8-Wgq"/>
+                                    <segue destination="Nul-UZ-cfi" kind="popoverPresentation" popoverAnchorView="bOZ-NN-0az" id="Zj2-j8-Wgq">
+                                        <popoverArrowDirection key="popoverArrowDirection" left="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -267,121 +269,20 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_menu" translatesAutoresizingMaskIntoConstraints="NO" id="pfN-rb-x4N">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MaH-zW-r6e">
-                                <rect key="frame" x="34" y="285" width="252" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="23" id="Ace-wL-oEw"/>
-                                </constraints>
-                                <state key="normal" image="btn_menu5"/>
-                                <connections>
-                                    <action selector="goWinner:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="tM7-Rd-eZv"/>
-                                    <segue destination="F5u-of-4Da" kind="show" id="dTt-cG-5ID"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bC0-xd-frw">
-                                <rect key="frame" x="34" y="335" width="252" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="23" id="Uvn-nk-FlW"/>
-                                </constraints>
-                                <state key="normal" image="btn_menu6"/>
-                                <connections>
-                                    <action selector="goShare:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="cX6-Gt-PZQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZ4-fi-M2S">
-                                <rect key="frame" x="34" y="188" width="252" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="23" id="v59-Vu-vLg"/>
-                                </constraints>
-                                <state key="normal" image="btn_menu3"/>
-                                <connections>
-                                    <action selector="goHowToPlay:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="XMI-c6-Pvc"/>
-                                    <segue destination="DhH-jm-dFc" kind="show" id="YcL-GM-Jx2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VH7-8G-gXv">
-                                <rect key="frame" x="34" y="237" width="252" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="23" id="Ddo-mz-Gge"/>
-                                </constraints>
-                                <state key="normal" image="btn_menu4"/>
-                                <connections>
-                                    <action selector="goYoutubeButton:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="rkn-en-418"/>
-                                    <segue destination="zf6-hy-i2h" kind="show" id="2Ts-Ls-emD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mbD-Sm-Ppj">
-                                <rect key="frame" x="34" y="134" width="252" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="23" id="c7c-5H-vM7"/>
-                                </constraints>
-                                <state key="normal" image="btn_menu2"/>
-                                <connections>
-                                    <action selector="goRule:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="CCz-q3-heV"/>
-                                    <segue destination="pg6-kb-lXC" kind="show" id="aH7-jg-e8z"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yqx-V7-05R">
-                                <rect key="frame" x="34" y="82" width="252" height="23"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="23" id="VKa-9T-gpI"/>
-                                </constraints>
-                                <state key="normal" image="btn_menu1"/>
-                                <connections>
-                                    <action selector="playGame:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="koy-gh-U5j"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktu-YC-paQ">
                                 <rect key="frame" x="125" y="434" width="70" height="47"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfx-YZ-sGL">
-                                <rect key="frame" x="138" y="406" width="44" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="Ppz-QJ-quv"/>
-                                    <constraint firstAttribute="height" constant="44" id="j8U-XZ-AUZ"/>
-                                </constraints>
-                                <state key="normal" image="btn_close"/>
-                                <connections>
-                                    <action selector="goStartGame:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="F0r-rH-lr9"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MaH-zW-r6e" firstAttribute="leading" secondItem="rXR-c9-nlJ" secondAttribute="leading" constant="34" id="0Jw-G7-o5V"/>
-                            <constraint firstItem="mbD-Sm-Ppj" firstAttribute="top" secondItem="Yqx-V7-05R" secondAttribute="bottom" constant="29" id="4kg-iU-5TA"/>
-                            <constraint firstAttribute="centerX" secondItem="rfx-YZ-sGL" secondAttribute="centerX" id="5yF-os-dh2"/>
-                            <constraint firstAttribute="trailing" secondItem="MaH-zW-r6e" secondAttribute="trailing" constant="34" id="7Y4-56-qLA"/>
-                            <constraint firstItem="bC0-xd-frw" firstAttribute="top" secondItem="MaH-zW-r6e" secondAttribute="bottom" constant="27" id="9HX-QI-5DU"/>
-                            <constraint firstAttribute="trailing" secondItem="VH7-8G-gXv" secondAttribute="trailing" constant="34" id="AcL-cN-KSg"/>
-                            <constraint firstAttribute="trailing" secondItem="mbD-Sm-Ppj" secondAttribute="trailing" constant="34" id="Dfc-EB-6VJ"/>
-                            <constraint firstItem="VH7-8G-gXv" firstAttribute="leading" secondItem="rXR-c9-nlJ" secondAttribute="leading" constant="34" id="EW1-sS-atl"/>
-                            <constraint firstItem="Yqx-V7-05R" firstAttribute="top" secondItem="jTG-FS-woD" secondAttribute="bottom" constant="62" id="Hlm-tB-gAg"/>
-                            <constraint firstItem="EZ4-fi-M2S" firstAttribute="top" secondItem="mbD-Sm-Ppj" secondAttribute="bottom" constant="31" id="MeZ-Cd-FfB"/>
-                            <constraint firstItem="bC0-xd-frw" firstAttribute="leading" secondItem="rXR-c9-nlJ" secondAttribute="leading" constant="34" id="T7V-JL-nLu"/>
-                            <constraint firstAttribute="trailing" secondItem="bC0-xd-frw" secondAttribute="trailing" constant="34" id="V3i-yB-UmY"/>
-                            <constraint firstAttribute="trailing" secondItem="EZ4-fi-M2S" secondAttribute="trailing" constant="34" id="ZR2-GO-Q6L"/>
                             <constraint firstAttribute="trailing" secondItem="pfN-rb-x4N" secondAttribute="trailing" id="dnE-j7-0TY"/>
-                            <constraint firstItem="mbD-Sm-Ppj" firstAttribute="leading" secondItem="rXR-c9-nlJ" secondAttribute="leading" constant="34" id="fpL-ZF-pBD"/>
                             <constraint firstItem="pfN-rb-x4N" firstAttribute="leading" secondItem="rXR-c9-nlJ" secondAttribute="leading" id="kJR-MJ-Fcq"/>
-                            <constraint firstItem="EZ4-fi-M2S" firstAttribute="leading" secondItem="rXR-c9-nlJ" secondAttribute="leading" constant="34" id="kKv-FZ-eN8"/>
-                            <constraint firstItem="MaH-zW-r6e" firstAttribute="top" secondItem="VH7-8G-gXv" secondAttribute="bottom" constant="25" id="lUL-Fv-20w"/>
-                            <constraint firstItem="VH7-8G-gXv" firstAttribute="top" secondItem="EZ4-fi-M2S" secondAttribute="bottom" constant="26" id="n19-BZ-yMr"/>
-                            <constraint firstItem="rfx-YZ-sGL" firstAttribute="top" secondItem="bC0-xd-frw" secondAttribute="bottom" constant="48" id="pM1-ei-6A3"/>
                             <constraint firstItem="lbX-Uj-Zhu" firstAttribute="top" secondItem="pfN-rb-x4N" secondAttribute="bottom" id="w7L-FZ-NBU"/>
-                            <constraint firstAttribute="trailing" secondItem="Yqx-V7-05R" secondAttribute="trailing" constant="34" id="wcC-bC-s8S"/>
                             <constraint firstItem="pfN-rb-x4N" firstAttribute="top" secondItem="rXR-c9-nlJ" secondAttribute="top" id="whL-cV-41S"/>
-                            <constraint firstItem="Yqx-V7-05R" firstAttribute="leading" secondItem="rXR-c9-nlJ" secondAttribute="leading" constant="34" id="wp0-kN-nCX"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="howToPlayButton" destination="EZ4-fi-M2S" id="EYe-Vb-Cqx"/>
-                        <outlet property="playButton" destination="Yqx-V7-05R" id="B7M-qG-K0g"/>
-                        <outlet property="ruleButton" destination="mbD-Sm-Ppj" id="ydv-Bp-qSV"/>
-                        <outlet property="shareButton" destination="bC0-xd-frw" id="QPK-Xm-4oR"/>
-                        <outlet property="winnerButton" destination="MaH-zW-r6e" id="4IS-qK-LES"/>
-                        <outlet property="youtubeButton" destination="VH7-8G-gXv" id="wFF-3k-b8Y"/>
                         <segue destination="ZXy-X5-IS0" kind="show" identifier="startedGame" id="4Gl-ow-BtX"/>
                         <segue destination="v63-ji-BWb" kind="show" identifier="showedGame" id="CNh-1t-eEh"/>
                         <segue destination="rId-aX-sCf" kind="show" identifier="showedResult" id="6nw-w1-TWr"/>
@@ -810,15 +711,8 @@
         <image name="bg_actionbar" width="640" height="86"/>
         <image name="bg_menu" width="540" height="960"/>
         <image name="bg_tvc" width="540" height="512"/>
-        <image name="btn_close" width="183" height="183"/>
         <image name="btn_close_tvc" width="70" height="79"/>
         <image name="btn_drawer" width="87" height="75"/>
-        <image name="btn_menu1" width="640" height="59"/>
-        <image name="btn_menu2" width="640" height="59"/>
-        <image name="btn_menu3" width="640" height="59"/>
-        <image name="btn_menu4" width="640" height="59"/>
-        <image name="btn_menu5" width="640" height="59"/>
-        <image name="btn_menu6" width="640" height="59"/>
         <image name="duringGameBackground" width="1242" height="2208"/>
         <image name="homeBackground" width="840" height="1493"/>
         <image name="howto" width="540" height="875"/>
@@ -830,9 +724,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4Gl-ow-BtX"/>
-        <segue reference="D5d-Cg-9MS"/>
-        <segue reference="6nw-w1-TWr"/>
-        <segue reference="dTt-cG-5ID"/>
+        <segue reference="Zj2-j8-Wgq"/>
         <segue reference="CNh-1t-eEh"/>
+        <segue reference="6nw-w1-TWr"/>
+        <segue reference="off-pc-rOr"/>
     </inferredMetricsTieBreakers>
 </document>
