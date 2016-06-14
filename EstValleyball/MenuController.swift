@@ -25,16 +25,18 @@ class MenuController: UIViewController {
         self.performSegueWithIdentifier(SEGUE_SHOW_GAME, sender: nil)
     }
     func goRule() {
+        self.performSegueWithIdentifier("goRule", sender: nil)
     }
     func goHowToPlay() {
+        self.performSegueWithIdentifier("goHowToPlay", sender: nil)
     }
     func goYoutubeButton() {
+        self.performSegueWithIdentifier("goYoutube", sender: nil)
     }
     func goWinner() {
+        self.performSegueWithIdentifier("goWinner", sender: nil)
     }
     func goShare() {
-    }
-    func goStartGame() {
         self.performSegueWithIdentifier(fromSegue, sender: nil)
     }
     

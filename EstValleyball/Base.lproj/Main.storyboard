@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="v63-ji-BWb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="v63-ji-BWb">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -129,7 +130,7 @@
                                         </constraints>
                                         <state key="normal" image="notification_icon"/>
                                         <connections>
-                                            <segue destination="F5u-of-4Da" kind="show" id="YzX-p9-Dtl"/>
+                                            <segue destination="F5u-of-4Da" kind="show" identifier="" id="YzX-p9-Dtl"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -350,7 +351,7 @@
                                     <constraint firstAttribute="width" constant="44" id="Ppz-QJ-quv"/>
                                     <constraint firstAttribute="height" constant="44" id="j8U-XZ-AUZ"/>
                                 </constraints>
-                                <state key="normal" image="17CFD241-3BC4-4AF3-9A79-44529F2E64B1"/>
+                                <state key="normal" image="77E758DE-87E9-4C0B-ADC4-C8E7FAD3E2D2"/>
                                 <connections>
                                     <action selector="goStartGame:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="F0r-rH-lr9"/>
                                 </connections>
@@ -370,11 +371,15 @@
                         <segue destination="ZXy-X5-IS0" kind="show" identifier="startedGame" id="4Gl-ow-BtX"/>
                         <segue destination="v63-ji-BWb" kind="show" identifier="showedGame" id="CNh-1t-eEh"/>
                         <segue destination="rId-aX-sCf" kind="show" identifier="showedResult" id="6nw-w1-TWr"/>
+                        <segue destination="zf6-hy-i2h" kind="show" identifier="goYoutube" id="8Nv-oV-vwY"/>
+                        <segue destination="pg6-kb-lXC" kind="show" identifier="goRule" id="15S-NG-mUk"/>
+                        <segue destination="DhH-jm-dFc" kind="show" identifier="goHowToPlay" id="U60-4m-S51"/>
+                        <segue destination="F5u-of-4Da" kind="show" identifier="goWinner" id="Ay4-Xt-w7u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tAR-WM-7PU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="756" y="-496"/>
+            <point key="canvasLocation" x="826" y="-456"/>
         </scene>
         <!--HowToPlay-->
         <scene sceneID="r92-eS-gwc">
@@ -388,8 +393,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="howto" translatesAutoresizingMaskIntoConstraints="NO" id="zXJ-VN-uXh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="howto" translatesAutoresizingMaskIntoConstraints="NO" id="zXJ-VN-uXh">
                                 <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="524" id="U9q-Xt-w3R"/>
+                                    <constraint firstAttribute="width" constant="320" id="nKt-VT-jPS"/>
+                                    <constraint firstAttribute="width" secondItem="zXJ-VN-uXh" secondAttribute="height" multiplier="80:131" id="sMz-sg-EiP"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ni8-rn-Wfj">
                                 <rect key="frame" x="294" y="0.0" width="26" height="22"/>
@@ -454,15 +464,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="cLM-hh-pyF" secondAttribute="trailing" id="JPH-ua-9dB"/>
+                            <constraint firstItem="zXJ-VN-uXh" firstAttribute="leading" secondItem="UEl-WC-jZE" secondAttribute="leading" id="U6z-YW-dNa"/>
+                            <constraint firstItem="zXJ-VN-uXh" firstAttribute="top" secondItem="cLM-hh-pyF" secondAttribute="bottom" id="VH6-tE-1XW"/>
                             <constraint firstItem="cLM-hh-pyF" firstAttribute="leading" secondItem="UEl-WC-jZE" secondAttribute="leading" id="gf3-qz-sm4"/>
+                            <constraint firstItem="Zna-va-Eze" firstAttribute="top" secondItem="zXJ-VN-uXh" secondAttribute="bottom" id="n31-qA-ToO"/>
                             <constraint firstItem="cLM-hh-pyF" firstAttribute="top" secondItem="UEl-WC-jZE" secondAttribute="top" id="wBN-lR-y7l"/>
+                            <constraint firstAttribute="trailing" secondItem="zXJ-VN-uXh" secondAttribute="trailing" id="zKT-B8-XnG"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ASa-5f-Vke" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1224" y="-299"/>
+            <point key="canvasLocation" x="1326" y="-351"/>
         </scene>
         <!--StartGame-->
         <scene sceneID="pAO-9Y-wW6">
@@ -740,7 +754,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gsj-wZ-3A1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gsj-wZ-3A1">
                                 <rect key="frame" x="0.0" y="105" width="320" height="357"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Gsj-wZ-3A1" secondAttribute="height" multiplier="320:357" id="Ybl-A6-NdX"/>
@@ -930,10 +944,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="17CFD241-3BC4-4AF3-9A79-44529F2E64B1" width="183" height="183">
+        <image name="77E758DE-87E9-4C0B-ADC4-C8E7FAD3E2D2" width="183" height="183">
             <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
-GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
+YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
+GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
 DBIAwAAAgAKACtISCRMVWk5TLm9iamVjdHOhFIADgAnSEgkXGqIYGYAEgAWACBAA0h0JHh9fEBROU1RJ
 RkZSZXByZXNlbnRhdGlvboAGgAdPEgACGGJNTQAqAAILTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -3224,15 +3238,15 @@ wWfB48JfwtvDWMPUxFHEzsVLxcjGRsbDx0HHv8g9yLzJOsm5yjjKt8s2y7bMNcy1zTXNtc42zrbPN8+4
 0DnQutE80b7SP9LB00TTxtRJ1MvVTtXR1lXW2Ndc1+DYZNjo2WzZ8dp22vvbgNwF3IrdEN2W3hzeot8p
 36/gNuC94UThzOJT4tvjY+Pr5HPk/OWE5g3mlucf56noMui86Ubp0Opb6uXrcOv77IbtEe2c7ijutO9A
 78zwWPDl8XLx//KM8xnzp/Q09ML1UPXe9m32+/eK+Bn4qPk4+cf6V/rn+3f8B/yY/Sn9uv5L/tz/bf//
-0iIjJCVaJGNsYXNzbmFtZVgkY2xhc3Nlc18QEE5TQml0bWFwSW1hZ2VSZXCjJicoXxAQTlNCaXRtYXBJ
-bWFnZVJlcFpOU0ltYWdlUmVwWE5TT2JqZWN00iIjKitXTlNBcnJheaIqKNIiIy0uXk5TTXV0YWJsZUFy
-cmF5oy0qKNMwMQkyMzRXTlNXaGl0ZVxOU0NvbG9yU3BhY2VEMCAwABADgAvSIiM2N1dOU0NvbG9yojYo
-0iIjOTpXTlNJbWFnZaI5KF8QD05TS2V5ZWRBcmNoaXZlctE9PlRyb290gAEAAAAIAAAAEQAAABoAAAAj
-AAAALQAAADIAAAA3AAAARQAAAEsAAABUAAAAWwAAAGgAAABvAAAAdwAAAHkAAAB+AAAAgAAAAIIAAACH
-AAAAkgAAAJQAAACWAAAAmAAAAJ0AAACgAAAAogAAAKQAAACmAAAAqAAAAK0AAADEAAAAxgAAAMgAAhkw
-AAIZNQACGUAAAhlJAAIZXAACGWAAAhlzAAIZfgACGYcAAhmMAAIZlAACGZcAAhmcAAIZqwACGa8AAhm2
-AAIZvgACGcsAAhnQAAIZ0gACGdQAAhnZAAIZ4QACGeQAAhnpAAIZ8QACGfQAAhoGAAIaCQACGg4AAAAA
-AAAEAQAAAAAAAAA/AAAAAAAAAAAAAAAAAAIaEA
+0iIjJCVaJGNsYXNzbmFtZVgkY2xhc3Nlc18QEE5TQml0bWFwSW1hZ2VSZXCjJCYnWk5TSW1hZ2VSZXBY
+TlNPYmplY3TSIiMpKldOU0FycmF5oikn0iIjLC1eTlNNdXRhYmxlQXJyYXmjLCkn0y8wCTEyM1dOU1do
+aXRlXE5TQ29sb3JTcGFjZUQwIDAAEAOAC9IiIzU2V05TQ29sb3KiNSfSIiM4OVdOU0ltYWdlojgnXxAP
+TlNLZXllZEFyY2hpdmVy0Tw9VHJvb3SAAQAAAAgAAAARAAAAGgAAACMAAAAtAAAAMgAAADcAAABFAAAA
+SwAAAFQAAABbAAAAaAAAAG8AAAB3AAAAeQAAAH4AAACAAAAAggAAAIcAAACSAAAAlAAAAJYAAACYAAAA
+nQAAAKAAAACiAAAApAAAAKYAAACoAAAArQAAAMQAAADGAAAAyAACGTAAAhk1AAIZQAACGUkAAhlcAAIZ
+YAACGWsAAhl0AAIZeQACGYEAAhmEAAIZiQACGZgAAhmcAAIZowACGasAAhm4AAIZvQACGb8AAhnBAAIZ
+xgACGc4AAhnRAAIZ1gACGd4AAhnhAAIZ8wACGfYAAhn7AAAAAAAABAEAAAAAAAAAPgAAAAAAAAAAAAAA
+AAACGf0
 </mutableData>
         </image>
         <image name="Home" width="1239" height="1165"/>
@@ -3251,10 +3265,10 @@ AAAEAQAAAAAAAAA/AAAAAAAAAAAAAAAAAAIaEA
         <image name="volleyball_001" width="1080" height="1080"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zj2-j8-Wgq"/>
-        <segue reference="6nw-w1-TWr"/>
-        <segue reference="CNh-1t-eEh"/>
         <segue reference="4Gl-ow-BtX"/>
-        <segue reference="YzX-p9-Dtl"/>
+        <segue reference="3tq-CP-Hcn"/>
+        <segue reference="QN0-iC-bJm"/>
+        <segue reference="CNh-1t-eEh"/>
+        <segue reference="6nw-w1-TWr"/>
     </inferredMetricsTieBreakers>
 </document>
