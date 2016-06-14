@@ -278,7 +278,7 @@
                                     <constraint firstAttribute="width" constant="44" id="Ppz-QJ-quv"/>
                                     <constraint firstAttribute="height" constant="44" id="j8U-XZ-AUZ"/>
                                 </constraints>
-                                <state key="normal" image="9CE5018E-2F35-46D5-A0AB-6CD498FD0FB1"/>
+                                <state key="normal" image="1B6B560C-318A-480B-A295-1C076DCC5578"/>
                                 <connections>
                                     <action selector="goStartGame:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="F0r-rH-lr9"/>
                                 </connections>
@@ -719,7 +719,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="9CE5018E-2F35-46D5-A0AB-6CD498FD0FB1" width="183" height="183">
+        <image name="1B6B560C-318A-480B-A295-1C076DCC5578" width="183" height="183">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

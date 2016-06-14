@@ -57,7 +57,7 @@ class MenuController: UIViewController {
         
         var x: CGFloat = 34.0 / 320.0 * screenSize.width
         var width: CGFloat = 252.0 / 320.0 * screenSize.width
-        var height: CGFloat = 23.0 / 568.0 * screenSize.width
+        var height: CGFloat = 23.0 / 568.0 * screenSize.height
         
         self.playButton.frame = CGRectMake(x, 82.0 / 568.0 * screenSize.height, width, height)
         self.playButton.setImage(UIImage(named: "btn_menu1.png"), forState: .Normal)
