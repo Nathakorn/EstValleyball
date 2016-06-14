@@ -120,7 +120,7 @@ class GameController: UIViewController {
     func hitBallTwo(){
         UIView.animateWithDuration(0.2, animations: {
             var originFrame2 = self.comingBall.frame
-            originFrame2 = CGRectMake(self.screenSize.width/2, 300, 0, 0)
+            originFrame2 = CGRectMake(self.comingBall.frame.origin.x, 300, 0, 0)
             self.comingBall.frame = originFrame2
            
             }, completion: { finished in
