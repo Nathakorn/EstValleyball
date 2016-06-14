@@ -73,15 +73,20 @@ class GameController: UIViewController {
     }
     
     func showNoplay(){
-       
+        var dimBackground = UIImageView()
+        dimBackground.frame = CGRectMake(0,0,320/320 * self.screenSize.width, 568/568 * self.screenSize.height)
+        dimBackground.backgroundColor = UIColor.blackColor()
+        dimBackground.alpha = 0.6
         noPlayPopupView.frame = CGRectMake(0,0,320/320 * self.screenSize.width, 568/568 * self.screenSize.height)
-        noPlayPopupView.backgroundColor = UIColor.blackColor()
+        dimBackground.layer.zPosition = 1
+        noPlayPopupView.addSubview(dimBackground)
+        //noPlayPopupView.backgroundColor = UIColor.blackColor()
         //noPlayPopupView.alpha = 0.3
         var noPlayView = UIImageView()
         let image = UIImage(named: "bg_noplay.png")
         noPlayView = UIImageView(image: image)
         noPlayView.frame = CGRectMake(0,100/568*self.screenSize.height,320/320*self.screenSize.width,230/568*self.screenSize.height)
-        noPlayView.layer.zPosition = 0
+        noPlayView.layer.zPosition = 3
         noPlayPopupView.addSubview(noPlayView)
         
         //button 
@@ -89,7 +94,7 @@ class GameController: UIViewController {
         let startButton = UIButton()
         startButton.frame = CGRectMake(165/320*self.screenSize.width,155/568*self.screenSize.height,148/320*self.screenSize.width,79/568*self.screenSize.height)
         startButton.setImage(UIImage(named: "btn_start_a"), forState: .Normal)
-        startButton.layer.zPosition = 1
+        startButton.layer.zPosition = 4
         startButton.addTarget(self, action: #selector(newGame), forControlEvents: .TouchUpInside)
         noPlayPopupView.addSubview(startButton)
         //button bright
@@ -97,7 +102,7 @@ class GameController: UIViewController {
         var startButtonBright = UIImageView()
         startButtonBright.frame = CGRectMake(165/320*self.screenSize.width,155/568*self.screenSize.height,148/320*self.screenSize.width,79/568*self.screenSize.height)
         startButtonBright.image = UIImage(named: "btn_start_b")
-        startButtonBright.layer.zPosition = 2
+        startButtonBright.layer.zPosition = 5
         
         noPlayPopupView.addSubview(startButtonBright)
         
