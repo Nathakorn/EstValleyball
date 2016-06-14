@@ -111,6 +111,13 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
         result.layer.zPosition = 2
         resultView.addSubview(score)
         
+        var goBackAndBackButton = UIButton()
+        goBackAndBackButton.frame = CGRectMake(280/320*self.screenSize.width,100/568*self.screenSize.height,20/320*self.screenSize.width,20/568*self.screenSize.height)
+        goBackAndBackButton.setImage(UIImage(named: "btn_close_tvc"), forState: .Normal)
+        goBackAndBackButton.layer.zPosition = 1
+        goBackAndBackButton.addTarget(self, action: #selector(goStartNewGame), forControlEvents: .TouchUpInside)
+        resultView.addSubview(goBackAndBackButton)
+        
         var startNewGameButton = UIButton()
         startNewGameButton.frame = CGRectMake(30/320*self.screenSize.width,400/568*self.screenSize.height,148/320*self.screenSize.width,79/568*self.screenSize.height)
         startNewGameButton.setImage(UIImage(named: "btn_start_a"), forState: .Normal)
@@ -166,6 +173,7 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
             sharePic.image = UIImage(named: "share5.png")
         }
         capView.addSubview(sharePic)
+        capView.layer.zPosition = 500
         //capView.
         
         

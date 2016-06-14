@@ -10,14 +10,16 @@ import UIKit
 
 class MenuController: UIViewController {
     var fromSegue: String!
-    
-    
+    var screenSize = UIScreen.mainScreen().bounds.size
+    var youtubeView = UIWebView()
+    var dimBackground = UIImageView()
     var playButton = UIButton()
     var ruleButton = UIButton()
     var youtubeButton = UIButton()
     var winnerButton = UIButton()
     var shareButton = UIButton()
     var howToPlayButton = UIButton()
+    var YoutubeSuperView = UIView()
     
     var closeButton = UIButton()
    
@@ -31,7 +33,44 @@ class MenuController: UIViewController {
         self.performSegueWithIdentifier("goHowToPlay", sender: nil)
     }
     func goYoutubeButton() {
-        self.performSegueWithIdentifier("goYoutube", sender: nil)
+        //self.performSegueWithIdentifier("goYoutube", sender: nil)
+        
+        var dimBackground = UIImageView()
+        dimBackground.frame = CGRectMake(0,0,320/320 * self.screenSize.width, 568/568 * self.screenSize.height)
+        dimBackground.backgroundColor = UIColor.blackColor()
+        dimBackground.alpha = 0.6
+        YoutubeSuperView.frame = CGRectMake(0,0,320/320 * self.screenSize.width, 568/568 * self.screenSize.height)
+        dimBackground.layer.zPosition = 1
+        YoutubeSuperView.addSubview(dimBackground)
+        //noPlayPopupView.backgroundColor = UIColor.blackColor()
+        //noPlayPopupView.alpha = 0.3
+        var noPlayView = UIImageView()
+        let image = UIImage(named: "bg_tvc.png")
+        noPlayView = UIImageView(image: image)
+        noPlayView.frame = CGRectMake(0,66/568*self.screenSize.height,320/320*self.screenSize.width,326/568*self.screenSize.height)
+        noPlayView.layer.zPosition = 3
+        YoutubeSuperView.addSubview(noPlayView)
+        
+        self.youtubeView.frame = CGRectMake(15/320*screenSize.width, 137/568*screenSize.height, 291/320*screenSize.width, 186/568*screenSize.height)
+        let url = NSURL(string: "https://www.youtube.com/watch?v=SSDvPawnuJE")
+        let request = NSURLRequest(URL: url!)
+        self.youtubeView.loadRequest(request)
+        youtubeView.layer.zPosition = 4
+        YoutubeSuperView.addSubview(youtubeView)
+        
+        var goBackAndBackButton = UIButton()
+        goBackAndBackButton.frame = CGRectMake(280/320*self.screenSize.width,65/568*self.screenSize.height,30/320*self.screenSize.width,20/568*self.screenSize.height)
+        goBackAndBackButton.setImage(UIImage(named: "btn_close_tvc"), forState: .Normal)
+        goBackAndBackButton.addTarget(self, action: #selector(goBackMenu), forControlEvents: .TouchUpInside)
+        goBackAndBackButton.layer.zPosition = 6
+        YoutubeSuperView.addSubview(goBackAndBackButton)
+        
+        
+        self.view.addSubview(YoutubeSuperView)
+        
+    }
+    func goBackMenu(){
+        YoutubeSuperView.removeFromSuperview()
     }
     func goWinner() {
         self.performSegueWithIdentifier("goWinner", sender: nil)
