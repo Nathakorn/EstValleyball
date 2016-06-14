@@ -101,6 +101,14 @@ class GameController: UIViewController {
         
         noPlayPopupView.addSubview(startButtonBright)
         
+        //Go to StartedGame
+        let goBackButton = UIButton()
+        goBackButton.frame = CGRectMake(240/320*self.screenSize.width,110/568*self.screenSize.height,30/320*self.screenSize.width,30/568*self.screenSize.height)
+        goBackButton.setImage(UIImage(named: "btn_close_tvc"), forState: .Normal)
+        goBackButton.layer.zPosition = 1
+        goBackButton.addTarget(self, action: #selector(goBackStartGame), forControlEvents: .TouchUpInside)
+        noPlayPopupView.addSubview(goBackButton)
+        
         UIView.animateWithDuration(0.4, delay: 0.0, options: [UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.Repeat], animations: {
             startButtonBright.alpha = 0.2
             }, completion: { finished in
@@ -108,6 +116,9 @@ class GameController: UIViewController {
        
         self.view.addSubview(noPlayPopupView)
         
+    }
+    func goBackStartGame(sender: UIButton){
+        self.performSegueWithIdentifier(SEGUE_GOBACK_STARTED_GAME, sender: nil)
     }
     func newGame(segue: UIStoryboardSegue, sender: UIButton!){
         

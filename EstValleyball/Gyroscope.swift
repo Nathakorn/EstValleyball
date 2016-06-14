@@ -21,6 +21,7 @@ import AudioToolbox
         //for count time
         var i = 0
         var isHit = false
+        var isVibration = false
         motionManager.accelerometerUpdateInterval = 0.01
         motionManager.gyroUpdateInterval = 0.01
         resetMaxValues()
@@ -42,7 +43,10 @@ import AudioToolbox
             if(currentMaxVelocity > 25){
                 lightBling.stopAnimating()
                 UIView.animateWithDuration(0.2, animations: {
-                    AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                    if isVibration == false{
+                        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                        isVibration = true
+                    }
                     var originFrame = comingBall.frame
                     if isHit == false{
                         let randomOneTwo = Int(arc4random_uniform(2) + 1)
@@ -62,6 +66,7 @@ import AudioToolbox
                     comingBall.frame = originFrame
                     
                     }, completion: { finished in
+                        /*
                         if isHit == true{
                             print("test")
                             UIView.animateWithDuration(0.2, animations: {
@@ -70,7 +75,7 @@ import AudioToolbox
                                 comingBall.frame = originFrame2
                                 }, completion: { finished in
                             })
-                        }
+                        }*/
                 })
             }
             if i == 300 && isHit == false{

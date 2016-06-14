@@ -54,7 +54,7 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
         resultView.layer.zPosition = 5
         var result = UIImageView()
         if currentMaxVelocity > 55{
-            let image = UIImage(named: "bg_result1.png")
+            let image = UIImage(named: "bg_result1v2.png")
             result = UIImageView(image: image)
             score.frame = CGRectMake(232/320*self.screenSize.width,
                                      260/568*self.screenSize.height,
@@ -65,7 +65,7 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
             
         }
         else if currentMaxVelocity <= 55 && currentMaxVelocity > 45{
-            let image = UIImage(named: "bg_result2.png")
+            let image = UIImage(named: "bg_result2v2.png")
             result = UIImageView(image: image)
             score.frame = CGRectMake(240/320*self.screenSize.width,
                                      260/568*self.screenSize.height,
@@ -75,7 +75,7 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
             y = 287.0/568*self.screenSize.height
         }
         else if currentMaxVelocity <= 45 && currentMaxVelocity > 40{
-            let image = UIImage(named: "bg_result3.png")
+            let image = UIImage(named: "bg_result3v2.png")
             result = UIImageView(image: image)
             score.frame = CGRectMake(160/320*self.screenSize.width,
                                      214/568*self.screenSize.height,
@@ -86,25 +86,24 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
 
         }
         else if currentMaxVelocity <= 40 && currentMaxVelocity > 30{
-            let image = UIImage(named: "bg_result4.png")
+            let image = UIImage(named: "bg_result4v2.png")
             result = UIImageView(image: image)
             score.frame = CGRectMake(132/320*self.screenSize.width,
                                      260/568*self.screenSize.height,
                                      60/320*self.screenSize.width,
                                      60/568*self.screenSize.height)
             x = 50.0/320*self.screenSize.width
-            y = 285.0/568*self.screenSize.width
+            y = 285.0/568*self.screenSize.height
         }
         else if currentMaxVelocity <= 30{
-            let image = UIImage(named: "bg_result5.png")
+            let image = UIImage(named: "bg_result5v2.png")
             result = UIImageView(image: image)
             score.frame = CGRectMake(123/320*self.screenSize.width,
                                      235/568*self.screenSize.height,
                                      60/320*self.screenSize.width,
                                      60/568*self.screenSize.height)
             x = 40.0/320*self.screenSize.width
-            y = 260.0/568*self.screenSize.width
-
+            y = 260.0/568*self.screenSize.height
         }
         resultView.addSubview(result)
 
@@ -120,7 +119,7 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
         resultView.addSubview(startNewGameButton)
         
         var shareButton = UIButton()
-        shareButton.frame = CGRectMake(185/320*self.screenSize.width,370/568*self.screenSize.height,148/320*self.screenSize.width,79/568*self.screenSize.height)
+        shareButton.frame = CGRectMake(180/320*self.screenSize.width,375/568*self.screenSize.height,148/320*self.screenSize.width,79/568*self.screenSize.height)
         shareButton.setImage(UIImage(named: "btn_share"), forState: .Normal)
         shareButton.layer.zPosition = 1
         shareButton.addTarget(self, action: #selector(fbShareResult), forControlEvents: .TouchUpInside)
