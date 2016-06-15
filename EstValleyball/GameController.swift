@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioToolbox
+import Alamofire
 class GameController: UIViewController, FBSDKSharingDelegate {
     var dimBackground = UIImageView()
     var result = UIImageView()
@@ -276,6 +277,18 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(GameController.showResult), userInfo: nil, repeats: false)
         }
     func showResult() {
+        print(FBSDKAccessToken.currentAccessToken())
+        let parameters = [
+            "imggallery": "",
+            "param1": String(currentMaxVelocity),
+            "param2": "12",
+            "Param3": "senser",
+            "access": "mobile",
+            "code": FBSDKAccessToken.currentAccessToken().tokenString,
+            "caller": "json"
+        ]
+        Alamofire.request(.POST, "http://www.estcolathai.com/volleyballmobile/api/mobile/submitGame.aspx", parameters: parameters)
+        
         //post to server
         //facebookID
         /*

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="v63-ji-BWb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -351,7 +351,7 @@
                                     <constraint firstAttribute="width" constant="44" id="Ppz-QJ-quv"/>
                                     <constraint firstAttribute="height" constant="44" id="j8U-XZ-AUZ"/>
                                 </constraints>
-                                <state key="normal" image="A9A5B7F5-D4B3-4163-869B-15551EB83B84"/>
+                                <state key="normal" image="DE54F1C0-7DDE-4E76-8FEB-74D653C2B815"/>
                                 <connections>
                                     <action selector="goStartGame:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="F0r-rH-lr9"/>
                                 </connections>
@@ -944,7 +944,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="A9A5B7F5-D4B3-4163-869B-15551EB83B84" width="183" height="183">
+        <image name="DE54F1C0-7DDE-4E76-8FEB-74D653C2B815" width="183" height="183">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -3265,10 +3265,10 @@ AAACGf0
         <image name="volleyball_001" width="1080" height="1080"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ic1-vV-h3l"/>
+        <segue reference="ZvM-I7-OUD"/>
+        <segue reference="jU9-Hj-2nh"/>
+        <segue reference="r6E-wv-YSm"/>
         <segue reference="XtU-lX-PV5"/>
-        <segue reference="off-pc-rOr"/>
-        <segue reference="jld-tC-7eH"/>
         <segue reference="i93-76-0cj"/>
     </inferredMetricsTieBreakers>
 </document>
