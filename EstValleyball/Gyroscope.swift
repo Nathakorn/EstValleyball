@@ -43,7 +43,7 @@ func startPitch(comingBall : UIImageView, lightBling: UIImageView, game: GameCon
         currentMaxVelocity = Int(floor(velocity * 2.5))
         if(currentMaxVelocity > 25){
             lightBling.stopAnimating()
-            UIView.animateWithDuration(0.2, animations: {
+            UIView.animateWithDuration(0.5, delay: 0, options: [UIViewAnimationOptions.TransitionNone],animations: {
                 if isVibration == false{
                     AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                     isVibration = true
@@ -53,9 +53,9 @@ func startPitch(comingBall : UIImageView, lightBling: UIImageView, game: GameCon
                     let randomOneTwo = Int(arc4random_uniform(2) + 1)
                     if randomOneTwo == 1{
                         originFrame = CGRectMake(screenSize.width/2-100/320 * screenSize.width
-                            ,280/568 * screenSize.height
-                            ,20/320 * screenSize.width
-                            ,20/568 * screenSize.height)
+                            ,290/568 * screenSize.height
+                            ,25/320 * screenSize.width
+                            ,25/568 * screenSize.height)
                         isHit = true
                         //game.afterHitBall()
                         NSTimer.scheduledTimerWithTimeInterval(0.4, target: game, selector: #selector(GameController.hitBallTwo), userInfo: nil, repeats: false)
@@ -63,9 +63,9 @@ func startPitch(comingBall : UIImageView, lightBling: UIImageView, game: GameCon
                     }
                     else{
                         originFrame = CGRectMake(screenSize.width/2+100/320 * screenSize.width
-                            ,285/568 * screenSize.height
-                            ,20/320 * screenSize.width
-                            ,20/568 * screenSize.height)
+                            ,290/568 * screenSize.height
+                            ,25/320 * screenSize.width
+                            ,25/568 * screenSize.height)
                         isHit = true
                         //game.afterHitBall()
                         NSTimer.scheduledTimerWithTimeInterval(0.4, target: game, selector: #selector(GameController.hitBallTwo), userInfo: nil, repeats: false)

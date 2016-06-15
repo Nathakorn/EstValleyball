@@ -131,9 +131,9 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         
     }
     func hitBallTwo(){
-        UIView.animateWithDuration(0.2, animations: {
+        UIView.animateWithDuration(0.4, animations: {
             var originFrame2 = self.comingBall.frame
-            originFrame2 = CGRectMake(self.comingBall.frame.origin.x, 300, 0, 0)
+            originFrame2 = CGRectMake(self.comingBall.frame.origin.x, 280, 0, 0)
             self.comingBall.frame = originFrame2
            
             }, completion: { finished in

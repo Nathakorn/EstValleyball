@@ -21,7 +21,7 @@ class HomeController: UIViewController {
     func loginFacebook() {
         
         let loginManager = FBSDKLoginManager()
-        loginManager.logOut()
+        //loginManager.logOut()
         
         loginManager.loginBehavior = FBSDKLoginBehavior.Browser
         
