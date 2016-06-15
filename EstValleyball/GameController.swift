@@ -276,6 +276,35 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(GameController.showResult), userInfo: nil, repeats: false)
         }
     func showResult() {
+        //post to server
+        //facebookID
+        /*
+        print("start post")
+        print(FBSDKAccessToken.currentAccessToken())
+        var velocity = String(currentMaxVelocity)
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.estcolathai.com/volleyballmobile/api/mobile/submitGame.aspx")!)
+        request.HTTPMethod = "POST"
+        let postString = "imggallery=&param1=" + velocity + "&param2=&param3=&access=&code=&caller="
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print("error=\(error)")
+                return
+            }
+            
+            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(response)")
+            }
+            
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString)")
+        }
+        task.resume()
+        print("finish post")
+        */
+ 
         self.kmHr.layer.zPosition = 1
         //self.score.alpha = 0.2
         //self.performSegueWithIdentifier(SEGUE_SHOW_RESULT, sender: nil)
