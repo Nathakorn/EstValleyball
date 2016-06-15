@@ -15,6 +15,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
     var noPlayPopupView = UIView()
     var resultPopupView = UIView()
     var score = UICountingLabel()
+    var facebookNameLabel = UILabel()
     var kmHr = UIImageView()
     var i = 0
     var scoreR = UILabel()
@@ -23,6 +24,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
     var resultView = UIView()
     var screenSize = UIScreen.mainScreen().bounds.size
     var isResult = false
+    var facebookCap = UIImageView()
     @IBOutlet weak var lightBling: UIImageView!
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "showedMenu"){
@@ -326,7 +328,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
                                      260/568*self.screenSize.height,
                                      60/320*self.screenSize.width,
                                      60/568*self.screenSize.height)
-            x = 132.0/320*self.screenSize.width
+            x = 133.0/320*self.screenSize.width
             y = 287.0/568*self.screenSize.height
             
         }
@@ -338,7 +340,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
                                      60/320*self.screenSize.width,
                                      60/568*self.screenSize.height)
             x = 155.0/320*self.screenSize.width
-            y = 287.0/568*self.screenSize.height
+            y = 290.0/568*self.screenSize.height
         }
         else if currentMaxVelocity <= 45 && currentMaxVelocity > 40{
             let image = UIImage(named: "bg_result3v2.png")
@@ -347,8 +349,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
                                      214/568*self.screenSize.height,
                                      60/320*self.screenSize.width,
                                      60/568*self.screenSize.height)
-            x = 77.0/320*self.screenSize.width
-            y = 237.0/568*self.screenSize.height
+            x = 81.0/320*self.screenSize.width
+            y = 244.0/568*self.screenSize.height
             
         }
         else if currentMaxVelocity <= 40 && currentMaxVelocity > 30{
@@ -358,8 +360,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
                                      260/568*self.screenSize.height,
                                      60/320*self.screenSize.width,
                                      60/568*self.screenSize.height)
-            x = 50.0/320*self.screenSize.width
-            y = 285.0/568*self.screenSize.height
+            x = 52.0/320*self.screenSize.width
+            y = 290.0/568*self.screenSize.height
         }
         else if currentMaxVelocity <= 30{
             let image = UIImage(named: "bg_result5v2.png")
@@ -368,14 +370,39 @@ class GameController: UIViewController, FBSDKSharingDelegate {
                                      235/568*self.screenSize.height,
                                      60/320*self.screenSize.width,
                                      60/568*self.screenSize.height)
-            x = 40.0/320*self.screenSize.width
-            y = 260.0/568*self.screenSize.height
+            x = 47.0/320*self.screenSize.width
+            y = 265.0/568*self.screenSize.height
         }
         resultView.addSubview(result)
         
         result.frame = CGRectMake(0,44/568*self.screenSize.height,320/320*self.screenSize.width, 524/568*self.screenSize.height)
         result.layer.zPosition = 2
         resultView.addSubview(scoreR)
+        /*
+        let req = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email,name"], tokenString: FBSDKAccessToken.currentAccessToken().tokenString, version: nil, HTTPMethod: "GET")
+        req.startWithCompletionHandler({ (connection, result, error : NSError!) -> Void in
+            if(error == nil)
+            {
+                print(result.dictionaryForKey())
+            }
+            else
+            {
+                print("error \(error)")
+            }
+        })*/
+        //current
+        //print(FBSDKProfile.currentProfile().firstName)
+        //print("korn")
+        //facebook name
+        /*
+        var facebookName = FBSDKProfile.currentProfile().name
+        facebookNameLabel.text = facebookName
+        facebookNameLabel.frame = CGRectMake(132/320*self.screenSize.width,
+                                             320/568*self.screenSize.height,
+                                             10/320*self.screenSize.width,
+                                             10/568*self.screenSize.height)
+        facebookNameLabel.layer.zPosition = 3000
+        resultView.addSubview(facebookNameLabel)*/
         
         var goBackAndBackButton = UIButton()
         goBackAndBackButton.frame = CGRectMake(280/320*self.screenSize.width,110/568*self.screenSize.height,30/320*self.screenSize.width,30/568*self.screenSize.height)
@@ -413,6 +440,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
             data = NSData(contentsOfURL: url!)
             if let image = UIImage(data: data) {
                 self.profileImageView.image = image
+                self.facebookCap.image = image
             }
             
             self.profileImageView.layer.borderColor = UIColor.whiteColor().CGColor
@@ -425,24 +453,55 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         capView.frame = CGRectMake(0.0, 0.0, 300.0/320*self.screenSize.width, 157.5/568*self.screenSize.height)
         var sharePic = UIImageView()
         sharePic.frame = CGRectMake(0.0, 0.0, 300.0/320*self.screenSize.width, 157.5/568*self.screenSize.height)
+        let degreeForShare:CGFloat = -7
+        var scoreForShare = UILabel()
+        scoreForShare.text = String(currentMaxVelocity)
+        scoreForShare.textColor = UIColor.whiteColor()
+        //scoreForShare.layer.zPosition = 200
+        scoreForShare.font = UIFont(name: "PSLEmpireProBoldItalic", size: 28.0/568*self.screenSize.height)
+        //scoreForShare.text = "99"
+        facebookCap.transform = CGAffineTransformMakeRotation(degreeForShare * CGFloat(M_PI/180) )
+        scoreForShare.transform = CGAffineTransformMakeRotation(degreeForShare * CGFloat(M_PI/180) )
+       
         if currentMaxVelocity > 55{
             sharePic.image = UIImage(named: "share1.png")
+            facebookCap.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 40/568*self.screenSize.height)
+            facebookCap.layer.zPosition = 4000
+            scoreForShare.frame = CGRectMake(205/320*self.screenSize.width, 75/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            scoreForShare.layer.zPosition = 4001
         }
         else if currentMaxVelocity <= 55 && currentMaxVelocity > 45{
             sharePic.image = UIImage(named: "share2.png")
+            facebookCap.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 40/568*self.screenSize.height)
+            facebookCap.layer.zPosition = 4000
+            scoreForShare.frame = CGRectMake(205/320*self.screenSize.width, 75/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            scoreForShare.layer.zPosition = 4001
         }
         else if currentMaxVelocity <= 45 && currentMaxVelocity > 40{
             sharePic.image = UIImage(named: "share3.png")
+            facebookCap.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 40/568*self.screenSize.height)
+            facebookCap.layer.zPosition = 4000
+            scoreForShare.frame = CGRectMake(205/320*self.screenSize.width, 75/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            scoreForShare.layer.zPosition = 4001
         }
         else if currentMaxVelocity <= 40 && currentMaxVelocity > 30{
             sharePic.image = UIImage(named: "share4.png")
+            facebookCap.frame  = CGRectMake(70/320*self.screenSize.width, 95/568*self.screenSize.height,40.0/320*self.screenSize.width, 40/568*self.screenSize.height)
+            facebookCap.layer.zPosition = 4000
+            scoreForShare.frame = CGRectMake(125/320*self.screenSize.width, 80/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            scoreForShare.layer.zPosition = 4001
         }
         else if currentMaxVelocity <= 30{
             sharePic.image = UIImage(named: "share5.png")
+            facebookCap.frame  = CGRectMake(70/320*self.screenSize.width, 95/568*self.screenSize.height,40.0/320*self.screenSize.width, 40/568*self.screenSize.height)
+            facebookCap.layer.zPosition = 4000
+            scoreForShare.frame = CGRectMake(125/320*self.screenSize.width, 80/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            scoreForShare.layer.zPosition = 4001
         }
         capView.addSubview(sharePic)
+        capView.addSubview(scoreForShare)
         //capView.addSubview(dimBackground)
-        
+        capView.addSubview(facebookCap)
         
         
         //score.format = "%d"
