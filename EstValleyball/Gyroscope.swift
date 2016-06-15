@@ -40,8 +40,10 @@ func startPitch(comingBall : UIImageView, lightBling: UIImageView, game: GameCon
         let velocity = sqrt(pow(accX,2) * 3 + pow(accY,2) * 3 + pow(accZ,2) * 3)
         //var velocitykh = velocity
         //print(Int(floor(velocity)))
-        currentMaxVelocity = Int(floor(velocity * 2.5))
-        if(currentMaxVelocity > 25){
+        currentMaxVelocity = Int(floor(velocity * 2.5 * 1.42))
+        let randomOneToThree = Int(arc4random_uniform(4) + 1)
+        currentMaxVelocity += randomOneToThree
+        if(currentMaxVelocity >= 50){
             lightBling.stopAnimating()
             UIView.animateWithDuration(0.5, delay: 0, options: [UIViewAnimationOptions.TransitionNone],animations: {
                 if isVibration == false{
