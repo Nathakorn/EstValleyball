@@ -125,7 +125,12 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         startButtonBright.image = UIImage(named: "btn_start_b")
         startButtonBright.layer.zPosition = 5
         
-        noPlayPopupView.addSubview(startButtonBright)
+        if (screenSize.height == 480.0 || screenSize.height == 1024.0){
+           
+        }else{
+           noPlayPopupView.addSubview(startButtonBright)
+        }
+        //noPlayPopupView.addSubview(startButtonBright)
         
         //Go to StartedGame
         let goBackButton = UIButton()
@@ -480,7 +485,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         
         dispatch_async(dispatch_get_main_queue(), {
             
-            self.profileImageView.frame = CGRectMake(x, y, 80.0, 55.0)
+            self.profileImageView.frame = CGRectMake(x, y, 80.0/320*self.screenSize.width, 55.0/568*self.screenSize.height)
             self.profileImageView.layer.zPosition = 100
             
             let fbId = FBSDKAccessToken.currentAccessToken().userID

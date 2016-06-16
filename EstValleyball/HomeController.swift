@@ -10,10 +10,12 @@ import UIKit
 
 class HomeController: UIViewController {
     
+    @IBOutlet weak var frontText: UIImageView!
+    @IBOutlet weak var homeBackground: UIImageView!
     @IBOutlet weak var brightLogin: UIImageView!
-    @IBOutlet weak var ballView: UIImageView!
     @IBOutlet weak var loginButton: UIButton!
     
+    var ballView = UIImageView()
     var normalButton = UIImageView()
     var blinkButton = UIImageView()
     var login = UIButton()
@@ -47,8 +49,20 @@ class HomeController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        let screenSize = UIScreen.mainScreen().bounds.size
         let loginManager = FBSDKLoginManager()
+        homeBackground.layer.zPosition = 1
+        frontText.layer.zPosition = 3
         loginManager.logOut()
+        if (screenSize.height == 480.0 || screenSize.height == 1024.0){
+            print("iphone4s/ipad")
+            ballView.frame = CGRectMake(100.0/320.0*screenSize.width, -71.0/480.0*screenSize.height, 403.0/320.0*screenSize.width, 399.0/480.0*screenSize.height)
+        }else{
+            print("iphone5,6,6plus")
+            ballView.frame = CGRectMake(100.0/320.0*screenSize.width, -71.0/568.0*screenSize.height, 403.0/320.0*screenSize.width, 399.0/568.0*screenSize.height)
+        }
+        ballView.layer.zPosition = 2
+        self.view.addSubview(ballView)
         self.ballView.animationImages = [
             UIImage(named:"volleyball_001.png")!,
             UIImage(named:"volleyball_002.png")!,
@@ -85,12 +99,12 @@ class HomeController: UIViewController {
         }*/
         
         var buttonRect = CGRect()
-        let screenSize = UIScreen.mainScreen().bounds.size
+        
         print(screenSize.height)
         if (screenSize.height == 480.0 || screenSize.height == 1024.0){
             print("iphone4s/ipad")
             buttonRect = CGRectMake(30.0/320.0*screenSize.width, 180.0/480.0*screenSize.height, 163.0/320.0*screenSize.width, 86.0/480.0*screenSize.height)
-            ballView.frame = CGRectMake(100.0/320.0*screenSize.width, -71.0/480.0*screenSize.height, 403.0/320.0*screenSize.width, 399.0/480.0*screenSize.height)
+            ballView.frame = CGRectMake(100.0/320.0*screenSize.width, -71.0/480.0*screenSize.height, 300.0/320.0*screenSize.width, 300.0/480.0*screenSize.height)
         }else{
             print("iphone5,6,6plus")
             buttonRect = CGRectMake(30.0/320.0*screenSize.width, 157.0/568.0*screenSize.height, 163.0/320.0*screenSize.width, 86.0/568.0*screenSize.height)
@@ -104,6 +118,9 @@ class HomeController: UIViewController {
         
         self.login.addTarget(self, action: #selector(HomeController.loginFacebook), forControlEvents: UIControlEvents.TouchUpInside)
         
+        normalButton.layer.zPosition = 4
+        blinkButton.layer.zPosition = 5
+        login.layer.zPosition = 6
         self.view.addSubview(self.normalButton)
         self.view.addSubview(self.blinkButton)
         self.view.addSubview(self.login)
