@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuController: UIViewController {
+class MenuController: UIViewController ,FBSDKSharingDelegate {
     var fromSegue: String!
     var screenSize = UIScreen.mainScreen().bounds.size
     var youtubeView = UIWebView()
@@ -76,7 +76,48 @@ class MenuController: UIViewController {
         self.performSegueWithIdentifier("goWinner", sender: nil)
     }
     func goShare() {
-        self.performSegueWithIdentifier(fromSegue, sender: nil)
+        //self.performSegueWithIdentifier(fromSegue, sender: nil)
+        
+        var shareUrl = "http://www.estcolathai.com/volleyballmobile/app_install.php";
+        
+        var contentImg = NSURL(string: "http://www.estcolathai.com/volleyballmobile/app/image/shareApp.jpg");
+        var contentURL = NSURL(string: shareUrl);
+        var contentTitle = "ดวลลูกตบเอส ชิงบัตรเชียร์วอลเลย์บอลเวิลด์กรังด์ปรีซ์ ตั้งแต่วันนี้ - 28 มิ.ย. 59";
+        var contentDescription = "เอส โคล่า ขอท้าคุณมาโชว์พลังตบให้แรงระดับชาติกับแอพสุดซ่า ชิงบัตรเวิลด์กรังด์ปรีซ์รอบสุดท้าย แล้วไปเชียร์สุดซี้ดติดขอบสนาม!!"
+        
+        /*
+         
+         var photo = FBSDKSharePhoto()
+         photo.image = shareImage
+         photo.userGenerated = true
+         var photoContent = FBSDKSharePhotoContent()
+         
+         
+         photoContent.photos = [photo]
+         */
+        
+        
+        //var shareUrl = "http://www.estcolathai.com/volleyballmobile/app_install.php";
+        
+        var photoContent:FBSDKShareLinkContent = FBSDKShareLinkContent();
+        
+        photoContent.contentURL = contentURL;
+        photoContent.contentTitle = contentTitle;
+        photoContent.contentDescription = contentDescription;
+        
+        photoContent.imageURL = contentImg;
+        
+        // FBSDKShareDialog.showFromViewController(self, withContent: photoContent, delegate: self)
+        
+        var dialog = FBSDKShareDialog()
+        dialog.mode = FBSDKShareDialogMode.FeedBrowser
+        
+        dialog.shareContent = photoContent
+        dialog.delegate = self
+        dialog.fromViewController = self
+        
+        dialog.show()
+        
     }
     
     override func viewDidLoad() {
@@ -153,4 +194,17 @@ class MenuController: UIViewController {
     }
     */
 
+    func sharerDidCancel(sharer: FBSDKSharing!) {
+        print("didCancel")
+    }
+    
+    func sharer(sharer: FBSDKSharing!, didFailWithError error: NSError!) {
+        print("didFailWithError: \(error.localizedDescription)")
+    }
+    
+    func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+        print("didCompleteWithResults")
+    }
+    
+    
 }

@@ -10,17 +10,12 @@ import UIKit
 import AudioToolbox
 import Alamofire
 class GameController: UIViewController, FBSDKSharingDelegate {
-    
-    var shareImg:String = "";
-    var gid:String = "";
-    
     var dimBackground = UIImageView()
     var result = UIImageView()
     var comingBall = UIImageView()
     var noPlayPopupView = UIView()
     var resultPopupView = UIView()
     var score = UICountingLabel()
-    var shareButton = UIButton()
     var facebookNameLabel = UILabel()
     var kmHr = UIImageView()
     var i = 0
@@ -282,7 +277,17 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(GameController.showResult), userInfo: nil, repeats: false)
         }
     func showResult() {
-        
+        print(FBSDKAccessToken.currentAccessToken())
+        let parameters = [
+            "imggallery": "",
+            "param1": String(currentMaxVelocity),
+            "param2": "12",
+            "Param3": "sensor",
+            "access": "mobile",
+            "code": FBSDKAccessToken.currentAccessToken().tokenString,
+            "caller": "json"
+        ]
+        Alamofire.request(.POST, "http://www.estcolathai.com/volleyballmobile/api/mobile/submitGame.aspx", parameters: parameters)
         
         //post to server
         //facebookID
@@ -456,7 +461,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         startNewGameButton.addTarget(self, action: #selector(goStartNewGame), forControlEvents: .TouchUpInside)
         resultView.addSubview(startNewGameButton)
         
-        
+        var shareButton = UIButton()
         shareButton.frame = CGRectMake(180/320*self.screenSize.width,375/568*self.screenSize.height,148/320*self.screenSize.width,79/568*self.screenSize.height)
         shareButton.setImage(UIImage(named: "btn_share"), forState: .Normal)
         shareButton.layer.zPosition = 1
@@ -485,51 +490,6 @@ class GameController: UIViewController, FBSDKSharingDelegate {
             
             self.view.addSubview(self.profileImageView)
             self.view.bringSubviewToFront(self.profileImageView)
-            
-            
-            
-            UIGraphicsBeginImageContextWithOptions(self.capView.frame.size, true, UIScreen.mainScreen().scale)
-            var ctx: CGContextRef = UIGraphicsGetCurrentContext()!
-            self.capView.layer.renderInContext(ctx)
-            var shareImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            
-            let imageData:NSData = UIImagePNGRepresentation(shareImage)!
-
-            
-            let parameters = [
-                "imggallery": imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength),
-                "param1": String(currentMaxVelocity),
-                "param2": "12",
-                "Param3": "sensor",
-                "access": "mobile",
-                "code": FBSDKAccessToken.currentAccessToken().tokenString,
-                "caller": "json"
-            ]
-            
-            self.shareButton.enabled = false
-            Alamofire.request(.POST, "http://www.estcolathai.com/volleyballmobile/api/mobile/submitGame.aspx", parameters: parameters).responseJSON
-                { response in switch response.result {
-                case .Success(let JSON):
-                    print("Success with JSON: \(JSON)")
-                    
-                    let response = JSON as! NSDictionary
-                    
-                    //example if there is an id, 
-                    let result = response.objectForKey("result")! as! String
-                    if(result == "complete") {
-                        self.gid = response.objectForKey("gid")! as! String
-                        self.shareImg = response.objectForKey("img")! as! String
-                        self.shareButton.enabled = true
-                    }
-                case .Failure(let error):
-                    print("Request failed with error: \(error)")
-                    }
-            }
-            
-            
-            
-            
         })
         
         capView.frame = CGRectMake(0.0, 0.0, 300.0/320*self.screenSize.width, 157.5/568*self.screenSize.height)
@@ -595,9 +555,6 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         self.view.addSubview(resultPopupView)
     }
     func fbShareResult(sender: UIButton) {
-        print(shareImg);
-        if(shareImg == "") { return; }
-        
         var resultImage = UIImageView(frame: CGRectMake(0.0, 0.0, 200.0/320*self.screenSize.width, 200.0/568*self.screenSize.height))
         resultImage.image = UIImage(named: "14.png")
         
@@ -607,23 +564,19 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         
         // resultImage.addSubview(button)
         
-        /*
         UIGraphicsBeginImageContextWithOptions(capView.frame.size, true, UIScreen.mainScreen().scale)
         var ctx: CGContextRef = UIGraphicsGetCurrentContext()!
         capView.layer.renderInContext(ctx)
         var shareImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        */
         
         
         var shareUrl = "http://www.estcolathai.com/volleyballmobile/app_install.php";
         
-        var contentImg = NSURL(string: self.shareImg);
-        var contentURL = NSURL(string: shareUrl);
+        var contentURL = NSURL.fileURLWithPath(shareUrl);
         var contentTitle = "ดวลลูกตบเอส ชิงบัตรเชียร์วอลเลย์บอลเวิลด์กรังด์ปรีซ์ ตั้งแต่วันนี้ - 28 มิ.ย. 59";
         var contentDescription = "เอส โคล่า ขอท้าคุณมาโชว์พลังตบให้แรงระดับชาติกับแอพสุดซ่า ชิงบัตรเวิลด์กรังด์ปรีซ์รอบสุดท้าย แล้วไปเชียร์สุดซี้ดติดขอบสนาม!!"
         
-        /*
         
         var photo = FBSDKSharePhoto()
         photo.image = shareImage
@@ -632,29 +585,27 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         
          
         photoContent.photos = [photo]
-         */
         
-        
-        //var shareUrl = "http://www.estcolathai.com/volleyballmobile/app_install.php";
+        /*
+        var shareUrl = "http://www.estcolathai.com/volleyballmobile/app_install.php";
         
         var photoContent:FBSDKShareLinkContent = FBSDKShareLinkContent();
+        photoContent.imageURL =
+        photoContent.contentURL = NSURL.fileURLWithPath(shareUrl);
+        photoContent.contentTitle = "ดวลลูกตบเอส ชิงบัตรเชียร์วอลเลย์บอลเวิลด์กรังด์ปรีซ์ ตั้งแต่วันนี้ - 28 มิ.ย. 59";
+        photoContent.contentDescription = "เอส โคล่า ขอท้าคุณมาโชว์พลังตบให้แรงระดับชาติกับแอพสุดซ่า ชิงบัตรเวิลด์กรังด์ปรีซ์รอบสุดท้าย แล้วไปเชียร์สุดซี้ดติดขอบสนาม!!"
+        */
         
-        photoContent.contentURL = contentURL;
-        photoContent.contentTitle = contentTitle;
-        photoContent.contentDescription = contentDescription;
+        FBSDKShareDialog.showFromViewController(self, withContent: photoContent, delegate: self)
         
-        photoContent.imageURL = contentImg;
-        
-        // FBSDKShareDialog.showFromViewController(self, withContent: photoContent, delegate: self)
-        
-                var dialog = FBSDKShareDialog()
-                dialog.mode = FBSDKShareDialogMode.FeedBrowser
-        
-                dialog.shareContent = photoContent
-                dialog.delegate = self
-                dialog.fromViewController = self
-        
-                dialog.show()
+        //        var dialog = FBSDKShareDialog()
+        //        dialog.mode = FBSDKShareDialogMode.FeedBrowser
+        //
+        //        dialog.shareContent = photoContent
+        //        dialog.delegate = self
+        //        dialog.fromViewController = self
+        //
+        //        dialog.show()
         
         
         
@@ -681,18 +632,6 @@ class GameController: UIViewController, FBSDKSharingDelegate {
     
     func sharer(sharer: FBSDKSharing!, didCompleteWithResults results: [NSObject : AnyObject]!) {
         print("didCompleteWithResults")
-        
-        let parameters = [
-            "gid": gid,
-            "type": "postshare",
-            "postid": "",
-            "access": "mobileapp",
-            "code": FBSDKAccessToken.currentAccessToken().tokenString,
-            "caller": "json"
-        ]
-        
-        Alamofire.request(.POST, "http://www.estcolathai.com/volleyballmobile/api/mobile/saveShareToWall.aspx", parameters: parameters)
-        
     }
     func goStartNewGame(sender: UIButton){
         currentMaxVelocity = 0

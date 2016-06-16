@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ABD5D20B1D11650C003B89D2 /* AppsFlyer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD5D20A1D11650C003B89D2 /* AppsFlyer.framework */; };
 		C5F730AB1EDBE27C6002F549 /* Pods_EstValleyball.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6EB32309C2C9B5308BCF582 /* Pods_EstValleyball.framework */; };
 		D0698B531D09317C00854814 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B521D09317C00854814 /* AppDelegate.swift */; };
 		D0698B551D09317C00854814 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B541D09317C00854814 /* ViewController.swift */; };
@@ -32,8 +33,9 @@
 /* Begin PBXFileReference section */
 		16E90600D604D2A6732C5C41 /* Pods-EstValleyball.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EstValleyball.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EstValleyball/Pods-EstValleyball.debug.xcconfig"; sourceTree = "<group>"; };
 		AB6E662FC22F19D8059234B6 /* Pods-EstValleyball.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EstValleyball.release.xcconfig"; path = "Pods/Target Support Files/Pods-EstValleyball/Pods-EstValleyball.release.xcconfig"; sourceTree = "<group>"; };
+		ABD5D20A1D11650C003B89D2 /* AppsFlyer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppsFlyer.framework; sourceTree = "<group>"; };
 		B6EB32309C2C9B5308BCF582 /* Pods_EstValleyball.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EstValleyball.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0698B4F1D09317C00854814 /* EstValleyball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EstValleyball.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0698B4F1D09317C00854814 /* est.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = est.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0698B521D09317C00854814 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0698B541D09317C00854814 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D0698B5C1D09317C00854814 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				D09906B61D0E708E0049A99A /* FBSDKShareKit.framework in Frameworks */,
 				C5F730AB1EDBE27C6002F549 /* Pods_EstValleyball.framework in Frameworks */,
 				D09906B41D0E708E0049A99A /* FBSDKCoreKit.framework in Frameworks */,
+				ABD5D20B1D11650C003B89D2 /* AppsFlyer.framework in Frameworks */,
 				D09906B51D0E708E0049A99A /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,6 +88,7 @@
 		7DB7B41295A1C3AD92BAA67B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ABD5D20A1D11650C003B89D2 /* AppsFlyer.framework */,
 				D09906B11D0E708E0049A99A /* FBSDKCoreKit.framework */,
 				D09906B21D0E708E0049A99A /* FBSDKLoginKit.framework */,
 				D09906B31D0E708E0049A99A /* FBSDKShareKit.framework */,
@@ -107,7 +111,7 @@
 		D0698B501D09317C00854814 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D0698B4F1D09317C00854814 /* EstValleyball.app */,
+				D0698B4F1D09317C00854814 /* est.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,7 +177,7 @@
 			);
 			name = EstValleyball;
 			productName = EstValleyball;
-			productReference = D0698B4F1D09317C00854814 /* EstValleyball.app */;
+			productReference = D0698B4F1D09317C00854814 /* est.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -188,7 +192,7 @@
 				TargetAttributes = {
 					D0698B4E1D09317C00854814 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = VC2Q84EQ3X;
+						DevelopmentTeam = 3HVSAM84K3;
 					};
 				};
 			};
@@ -411,10 +415,11 @@
 				INFOPLIST_FILE = EstValleyball/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nathakorn.EstValleyball;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adapter.est;
+				PRODUCT_NAME = est;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EstValleyball/Est-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -432,10 +437,11 @@
 				INFOPLIST_FILE = EstValleyball/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nathakorn.EstValleyball;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adapter.est;
+				PRODUCT_NAME = est;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EstValleyball/Est-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

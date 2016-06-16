@@ -143,7 +143,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "577"
             endingLineNumber = "577"
-            landmarkName = "fbShareResult(_:)"
+            landmarkName = "showResult()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -159,7 +159,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "612"
             endingLineNumber = "612"
-            landmarkName = "sharer(_:didCompleteWithResults:)"
+            landmarkName = "fbShareResult(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

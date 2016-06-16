@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D0698B4E1D09317C00854814"
-               BuildableName = "est.app"
+               BuildableName = "EstValleyball.app"
                BlueprintName = "EstValleyball"
                ReferencedContainer = "container:EstValleyball.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D0698B4E1D09317C00854814"
-            BuildableName = "est.app"
+            BuildableName = "EstValleyball.app"
             BlueprintName = "EstValleyball"
             ReferencedContainer = "container:EstValleyball.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D0698B4E1D09317C00854814"
-            BuildableName = "est.app"
+            BuildableName = "EstValleyball.app"
             BlueprintName = "EstValleyball"
             ReferencedContainer = "container:EstValleyball.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D0698B4E1D09317C00854814"
-            BuildableName = "est.app"
+            BuildableName = "EstValleyball.app"
             BlueprintName = "EstValleyball"
             ReferencedContainer = "container:EstValleyball.xcodeproj">
          </BuildableReference>
