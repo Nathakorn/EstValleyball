@@ -33,33 +33,27 @@
                                     <constraint firstAttribute="width" secondItem="DHR-s2-DKC" secondAttribute="height" multiplier="403:399" id="LL9-xf-7b8"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home" translatesAutoresizingMaskIntoConstraints="NO" id="KnO-SA-F1D">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_bg_text" translatesAutoresizingMaskIntoConstraints="NO" id="8MN-t5-xTh">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="203"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="KnO-SA-F1D" secondAttribute="height" multiplier="320:293" id="MhS-0m-b1G"/>
-                                    <constraint firstAttribute="height" constant="293" id="aA1-gd-RF7"/>
+                                    <constraint firstAttribute="width" secondItem="8MN-t5-xTh" secondAttribute="height" multiplier="320:203" id="pSS-vS-67t"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="aA1-gd-RF7"/>
-                                    </mask>
-                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="DHR-s2-DKC" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="403:568" id="0QE-Jn-mch"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xSG-l9-aTV" secondAttribute="bottom" id="7ZU-9E-53v"/>
+                            <constraint firstItem="8MN-t5-xTh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BOX-VZ-4ay"/>
                             <constraint firstItem="DHR-s2-DKC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="80" id="K2A-is-ZqO"/>
                             <constraint firstItem="DHR-s2-DKC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-91" id="VB8-Cq-CNo"/>
                             <constraint firstItem="xSG-l9-aTV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="WSQ-7L-c6x"/>
-                            <constraint firstItem="KnO-SA-F1D" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="aJV-G0-dla"/>
                             <constraint firstAttribute="trailing" secondItem="DHR-s2-DKC" secondAttribute="trailing" constant="183" id="j0I-h5-TZa"/>
                             <constraint firstItem="DHR-s2-DKC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="100" id="kjR-HO-HnS"/>
-                            <constraint firstItem="KnO-SA-F1D" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sE3-KQ-e7G"/>
+                            <constraint firstItem="8MN-t5-xTh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="pZl-Gj-a2W"/>
+                            <constraint firstAttribute="trailing" secondItem="8MN-t5-xTh" secondAttribute="trailing" id="sOn-9s-Vug"/>
                             <constraint firstItem="xSG-l9-aTV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sj8-m0-UDk"/>
                             <constraint firstItem="DHR-s2-DKC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="71" id="tG5-Z3-4ft"/>
-                            <constraint firstAttribute="trailing" secondItem="KnO-SA-F1D" secondAttribute="trailing" id="tuK-Pz-z3k"/>
                             <constraint firstAttribute="trailing" secondItem="xSG-l9-aTV" secondAttribute="trailing" id="wNJ-Je-xnx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DHR-s2-DKC" secondAttribute="trailing" constant="-203" id="xC9-Ig-x0m"/>
                         </constraints>
@@ -351,7 +345,7 @@
                                     <constraint firstAttribute="width" constant="44" id="Ppz-QJ-quv"/>
                                     <constraint firstAttribute="height" constant="44" id="j8U-XZ-AUZ"/>
                                 </constraints>
-                                <state key="normal" image="C4E202F3-7916-436E-81CE-E8178A831185"/>
+                                <state key="normal" image="85840413-BA3C-4494-816C-8EA507D0FFC2"/>
                                 <connections>
                                     <action selector="goStartGame:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="F0r-rH-lr9"/>
                                 </connections>
@@ -944,7 +938,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="C4E202F3-7916-436E-81CE-E8178A831185" width="183" height="183">
+        <image name="85840413-BA3C-4494-816C-8EA507D0FFC2" width="183" height="183">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -3249,7 +3243,6 @@ xgACGc4AAhnRAAIZ1gACGd4AAhnhAAIZ8wACGfYAAhn7AAAAAAAABAEAAAAAAAAAPgAAAAAAAAAAAAAA
 AAACGf0
 </mutableData>
         </image>
-        <image name="Home" width="1239" height="1165"/>
         <image name="bg_actionbar" width="640" height="86"/>
         <image name="bg_menu" width="540" height="960"/>
         <image name="bg_tvc" width="540" height="512"/>
@@ -3257,6 +3250,7 @@ AAACGf0
         <image name="btn_drawer" width="87" height="75"/>
         <image name="duringGameBackground" width="1242" height="2208"/>
         <image name="homeBackground" width="840" height="1493"/>
+        <image name="home_bg_text" width="480" height="310"/>
         <image name="howto" width="540" height="875"/>
         <image name="img_logo" width="120" height="101"/>
         <image name="notification_icon" width="73" height="73"/>
@@ -3265,10 +3259,10 @@ AAACGf0
         <image name="volleyball_001" width="1080" height="1080"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZvM-I7-OUD"/>
-        <segue reference="XtU-lX-PV5"/>
-        <segue reference="i93-76-0cj"/>
         <segue reference="jld-tC-7eH"/>
+        <segue reference="XtU-lX-PV5"/>
+        <segue reference="ic1-vV-h3l"/>
+        <segue reference="i93-76-0cj"/>
         <segue reference="off-pc-rOr"/>
     </inferredMetricsTieBreakers>
 </document>

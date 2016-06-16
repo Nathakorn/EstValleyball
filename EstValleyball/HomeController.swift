@@ -85,8 +85,8 @@ class HomeController: UIViewController {
         }*/
         
         
-        var screenSize = UIScreen.mainScreen().bounds.size
-        var buttonRect = CGRectMake(30.0/320.0*screenSize.width, 157.0/568.0*screenSize.height, 163.0/320.0*screenSize.width, 86.0/568.0*screenSize.height)
+        let screenSize = UIScreen.mainScreen().bounds.size
+        let buttonRect = CGRectMake(30.0/320.0*screenSize.width, 157.0/568.0*screenSize.height, 163.0/320.0*screenSize.width, 86.0/568.0*screenSize.height)
         
         self.normalButton.frame = buttonRect
         self.blinkButton.frame = buttonRect

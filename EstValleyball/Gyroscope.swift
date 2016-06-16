@@ -22,7 +22,6 @@ func startPitch(comingBall : UIImageView, lightBling: UIImageView, game: GameCon
     var i = 0
     var isHit = false
     var isVibration = false
-    var isHitTwo = false
     motionManager.accelerometerUpdateInterval = 0.01
     motionManager.gyroUpdateInterval = 0.01
     resetMaxValues()

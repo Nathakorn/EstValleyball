@@ -15,7 +15,7 @@ class YoutubeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var screenSize = UIScreen.mainScreen().bounds.size
+        let screenSize = UIScreen.mainScreen().bounds.size
         self.youtubeView.frame = CGRectMake(15/320*screenSize.width, 117/568*screenSize.height, 291/320*screenSize.width, 186/568*screenSize.height)
         
         self.view.addSubview(self.youtubeView)

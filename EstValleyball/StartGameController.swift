@@ -47,8 +47,8 @@ class StartGameController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var screenSize = UIScreen.mainScreen().bounds.size
-        var buttonRect = CGRectMake(83.0/320.0*screenSize.width, 213.0/568.0*screenSize.height, 148.0/320.0*screenSize.width, 79.0/568.0*screenSize.height)
+        let screenSize = UIScreen.mainScreen().bounds.size
+        let buttonRect = CGRectMake(83.0/320.0*screenSize.width, 213.0/568.0*screenSize.height, 148.0/320.0*screenSize.width, 79.0/568.0*screenSize.height)
         
         self.normalButton.frame = buttonRect
         self.blinkButton.frame = buttonRect
@@ -71,7 +71,7 @@ class StartGameController: UIViewController {
             }, completion: { finished in
         })
         
-        var screenSize = UIScreen.mainScreen().bounds.size
+        let screenSize = UIScreen.mainScreen().bounds.size
         
         var keepBall = UIImageView()
         let image = UIImage(named: "hand.png")

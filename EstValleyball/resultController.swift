@@ -29,7 +29,7 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
     }
     override func viewDidAppear(animated: Bool) {
         //currentMaxVelocity = 28
-        var resultView = UIView()
+        let resultView = UIView()
         resultView.frame = CGRectMake(0,0,320/320*self.screenSize.width, 524/568*self.screenSize.height)
         
         print("resultView.frame: \(resultView.frame)")
@@ -37,7 +37,7 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
         var x: CGFloat = 0.0
         var y: CGFloat = 0.0
         
-        var score = UILabel()
+        let score = UILabel()
         score.text = String(currentMaxVelocity)
         score.textColor = UIColor.whiteColor()
         score.layer.zPosition = 200
@@ -111,21 +111,21 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
         result.layer.zPosition = 2
         resultView.addSubview(score)
         
-        var goBackAndBackButton = UIButton()
+        let goBackAndBackButton = UIButton()
         goBackAndBackButton.frame = CGRectMake(280/320*self.screenSize.width,100/568*self.screenSize.height,20/320*self.screenSize.width,20/568*self.screenSize.height)
         goBackAndBackButton.setImage(UIImage(named: "btn_close_tvc"), forState: .Normal)
         goBackAndBackButton.layer.zPosition = 1
         goBackAndBackButton.addTarget(self, action: #selector(goStartNewGame), forControlEvents: .TouchUpInside)
         resultView.addSubview(goBackAndBackButton)
         
-        var startNewGameButton = UIButton()
+        let startNewGameButton = UIButton()
         startNewGameButton.frame = CGRectMake(30/320*self.screenSize.width,400/568*self.screenSize.height,148/320*self.screenSize.width,79/568*self.screenSize.height)
         startNewGameButton.setImage(UIImage(named: "btn_start_a"), forState: .Normal)
         startNewGameButton.layer.zPosition = 1
         startNewGameButton.addTarget(self, action: #selector(goStartNewGame), forControlEvents: .TouchUpInside)
         resultView.addSubview(startNewGameButton)
         
-        var shareButton = UIButton()
+        let shareButton = UIButton()
         shareButton.frame = CGRectMake(180/320*self.screenSize.width,375/568*self.screenSize.height,148/320*self.screenSize.width,79/568*self.screenSize.height)
         shareButton.setImage(UIImage(named: "btn_share"), forState: .Normal)
         shareButton.layer.zPosition = 1
@@ -140,7 +140,7 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
             self.profileImageView.frame = CGRectMake(x, y, 80.0, 55.0)
             self.profileImageView.layer.zPosition = 100
             
-            var fbId = FBSDKAccessToken.currentAccessToken().userID
+            let fbId = FBSDKAccessToken.currentAccessToken().userID
             let url = NSURL(string:"http://graph.facebook.com/" + fbId + "/picture?type=square")
             self.data = NSData(contentsOfURL: url!)
             if let image = UIImage(data: self.data) {
@@ -155,7 +155,7 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
         })
        
         capView.frame = CGRectMake(0.0, 0.0, 300.0/320*self.screenSize.width, 157.5/568*self.screenSize.height)
-        var sharePic = UIImageView()
+        let sharePic = UIImageView()
         sharePic.frame = CGRectMake(0.0, 0.0, 300.0/320*self.screenSize.width, 157.5/568*self.screenSize.height)
         if currentMaxVelocity > 55{
             sharePic.image = UIImage(named: "share1.png")
@@ -200,7 +200,7 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
     }
     
     func fbShareResult(sender: UIButton) {
-        var resultImage = UIImageView(frame: CGRectMake(0.0, 0.0, 200.0/320*self.screenSize.width, 200.0/568*self.screenSize.height))
+        let resultImage = UIImageView(frame: CGRectMake(0.0, 0.0, 200.0/320*self.screenSize.width, 200.0/568*self.screenSize.height))
         resultImage.image = UIImage(named: "14.png")
         
 //        var button = UIImageView(frame: CGRectMake(50.0/320*self.screenSize.width, 50.0/568*self.screenSize.height, 50.0/320*self.screenSize.width, 50.0/568*self.screenSize.height))
@@ -210,15 +210,15 @@ class ResultController: UIViewController, FBSDKSharingDelegate {
         // resultImage.addSubview(button)
         
         UIGraphicsBeginImageContextWithOptions(capView.frame.size, true, UIScreen.mainScreen().scale)
-        var ctx: CGContextRef = UIGraphicsGetCurrentContext()!
+        let ctx: CGContextRef = UIGraphicsGetCurrentContext()!
         capView.layer.renderInContext(ctx)
-        var shareImage = UIGraphicsGetImageFromCurrentImageContext()
+        let shareImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        var photo = FBSDKSharePhoto()
+        let photo = FBSDKSharePhoto()
         photo.image = shareImage
         photo.userGenerated = true
-        var photoContent = FBSDKSharePhotoContent()
+        let photoContent = FBSDKSharePhotoContent()
         
         photoContent.photos = [photo]
         FBSDKShareDialog.showFromViewController(self, withContent: photoContent, delegate: self)

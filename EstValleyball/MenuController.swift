@@ -35,7 +35,7 @@ class MenuController: UIViewController ,FBSDKSharingDelegate {
     func goYoutubeButton() {
         //self.performSegueWithIdentifier("goYoutube", sender: nil)
         
-        var dimBackground = UIImageView()
+        let dimBackground = UIImageView()
         dimBackground.frame = CGRectMake(0,0,320/320 * self.screenSize.width, 568/568 * self.screenSize.height)
         dimBackground.backgroundColor = UIColor.blackColor()
         dimBackground.alpha = 0.6
@@ -58,7 +58,7 @@ class MenuController: UIViewController ,FBSDKSharingDelegate {
         youtubeView.layer.zPosition = 4
         YoutubeSuperView.addSubview(youtubeView)
         
-        var goBackAndBackButton = UIButton()
+        let goBackAndBackButton = UIButton()
         goBackAndBackButton.frame = CGRectMake(280/320*self.screenSize.width,65/568*self.screenSize.height,30/320*self.screenSize.width,20/568*self.screenSize.height)
         goBackAndBackButton.setImage(UIImage(named: "btn_close_tvc"), forState: .Normal)
         goBackAndBackButton.addTarget(self, action: #selector(goBackMenu), forControlEvents: .TouchUpInside)
@@ -78,12 +78,12 @@ class MenuController: UIViewController ,FBSDKSharingDelegate {
     func goShare() {
         //self.performSegueWithIdentifier(fromSegue, sender: nil)
         
-        var shareUrl = "http://www.estcolathai.com/volleyballmobile/app_install.php";
+        let shareUrl = "http://www.estcolathai.com/volleyballmobile/app_install.php";
         
-        var contentImg = NSURL(string: "http://www.estcolathai.com/volleyballmobile/app/image/shareApp.jpg");
-        var contentURL = NSURL(string: shareUrl);
-        var contentTitle = "ดวลลูกตบเอส ชิงบัตรเชียร์วอลเลย์บอลเวิลด์กรังด์ปรีซ์ ตั้งแต่วันนี้ - 28 มิ.ย. 59";
-        var contentDescription = "เอส โคล่า ขอท้าคุณมาโชว์พลังตบให้แรงระดับชาติกับแอพสุดซ่า ชิงบัตรเวิลด์กรังด์ปรีซ์รอบสุดท้าย แล้วไปเชียร์สุดซี้ดติดขอบสนาม!!"
+        let contentImg = NSURL(string: "http://www.estcolathai.com/volleyballmobile/app/image/shareApp.jpg");
+        let contentURL = NSURL(string: shareUrl);
+        let contentTitle = "ดวลลูกตบเอส ชิงบัตรเชียร์วอลเลย์บอลเวิลด์กรังด์ปรีซ์ ตั้งแต่วันนี้ - 28 มิ.ย. 59";
+        let contentDescription = "เอส โคล่า ขอท้าคุณมาโชว์พลังตบให้แรงระดับชาติกับแอพสุดซ่า ชิงบัตรเวิลด์กรังด์ปรีซ์รอบสุดท้าย แล้วไปเชียร์สุดซี้ดติดขอบสนาม!!"
         
         /*
          
@@ -99,7 +99,7 @@ class MenuController: UIViewController ,FBSDKSharingDelegate {
         
         //var shareUrl = "http://www.estcolathai.com/volleyballmobile/app_install.php";
         
-        var photoContent:FBSDKShareLinkContent = FBSDKShareLinkContent();
+        let photoContent:FBSDKShareLinkContent = FBSDKShareLinkContent();
         
         photoContent.contentURL = contentURL;
         photoContent.contentTitle = contentTitle;
@@ -109,7 +109,7 @@ class MenuController: UIViewController ,FBSDKSharingDelegate {
         
         // FBSDKShareDialog.showFromViewController(self, withContent: photoContent, delegate: self)
         
-        var dialog = FBSDKShareDialog()
+        let dialog = FBSDKShareDialog()
         dialog.mode = FBSDKShareDialogMode.FeedBrowser
         
         dialog.shareContent = photoContent
@@ -128,11 +128,11 @@ class MenuController: UIViewController ,FBSDKSharingDelegate {
         //print(fromSegue)
         // Do any additional setup after loading the view.
         
-        var screenSize = UIScreen.mainScreen().bounds.size
+        let screenSize = UIScreen.mainScreen().bounds.size
         
-        var x: CGFloat = 34.0 / 320.0 * screenSize.width
-        var width: CGFloat = 252.0 / 320.0 * screenSize.width
-        var height: CGFloat = 23.0 / 568.0 * screenSize.height
+        let x: CGFloat = 34.0 / 320.0 * screenSize.width
+        let width: CGFloat = 252.0 / 320.0 * screenSize.width
+        let height: CGFloat = 23.0 / 568.0 * screenSize.height
         
         self.playButton.frame = CGRectMake(x, 82.0 / 568.0 * screenSize.height, width, height)
         self.playButton.setImage(UIImage(named: "btn_menu1.png"), forState: .Normal)

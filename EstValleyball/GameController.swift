@@ -87,7 +87,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
     }
     
     func showNoplay(){
-        var dimBackground = UIImageView()
+        let dimBackground = UIImageView()
         dimBackground.frame = CGRectMake(0,0,320/320 * self.screenSize.width, 568/568 * self.screenSize.height)
         dimBackground.backgroundColor = UIColor.blackColor()
         dimBackground.alpha = 0.6
@@ -113,7 +113,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         noPlayPopupView.addSubview(startButton)
         //button bright
         
-        var startButtonBright = UIImageView()
+        let startButtonBright = UIImageView()
         startButtonBright.frame = CGRectMake(165/320*self.screenSize.width,155/568*self.screenSize.height,148/320*self.screenSize.width,79/568*self.screenSize.height)
         startButtonBright.image = UIImage(named: "btn_start_b")
         startButtonBright.layer.zPosition = 5
@@ -327,9 +327,9 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         //attribute result
         var data : NSData!
         
-        var screenSize = UIScreen.mainScreen().bounds.size
-        var widthMultiplier = 320 * UIScreen.mainScreen().bounds.size.width
-        var heightMultiplier = 568 * UIScreen.mainScreen().bounds.size.height
+        _ = UIScreen.mainScreen().bounds.size
+        _ = 320 * UIScreen.mainScreen().bounds.size.width
+        _ = 568 * UIScreen.mainScreen().bounds.size.height
         
         
         //inside popup view (did appear)
@@ -441,7 +441,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         facebookNameLabel.layer.zPosition = 3000
         resultView.addSubview(facebookNameLabel)*/
         
-        var goBackAndBackButton = UIButton()
+        let goBackAndBackButton = UIButton()
         goBackAndBackButton.frame = CGRectMake(280/320*self.screenSize.width,110/568*self.screenSize.height,30/320*self.screenSize.width,30/568*self.screenSize.height)
         goBackAndBackButton.setImage(UIImage(named: "btn_close_tvc"), forState: .Normal)
         goBackAndBackButton.layer.zPosition = 1
@@ -449,7 +449,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         goBackAndBackButton.layer.zPosition = 6
         resultView.addSubview(goBackAndBackButton)
         
-        var startNewGameButton = UIButton()
+        let startNewGameButton = UIButton()
         startNewGameButton.frame = CGRectMake(30/320*self.screenSize.width,400/568*self.screenSize.height,148/320*self.screenSize.width,79/568*self.screenSize.height)
         startNewGameButton.setImage(UIImage(named: "btn_start_a"), forState: .Normal)
         startNewGameButton.layer.zPosition = 1
@@ -472,7 +472,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
             self.profileImageView.frame = CGRectMake(x, y, 80.0, 55.0)
             self.profileImageView.layer.zPosition = 100
             
-            var fbId = FBSDKAccessToken.currentAccessToken().userID
+            let fbId = FBSDKAccessToken.currentAccessToken().userID
             let url = NSURL(string:"http://graph.facebook.com/" + fbId + "/picture?type=square")
             data = NSData(contentsOfURL: url!)
             if let image = UIImage(data: data) {
@@ -489,9 +489,9 @@ class GameController: UIViewController, FBSDKSharingDelegate {
             
             
             UIGraphicsBeginImageContextWithOptions(self.capView.frame.size, true, UIScreen.mainScreen().scale)
-            var ctx: CGContextRef = UIGraphicsGetCurrentContext()!
+            let ctx: CGContextRef = UIGraphicsGetCurrentContext()!
             self.capView.layer.renderInContext(ctx)
-            var shareImage = UIGraphicsGetImageFromCurrentImageContext()
+            let shareImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             
             let imageData:NSData = UIImagePNGRepresentation(shareImage)!
@@ -533,10 +533,10 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         })
         
         capView.frame = CGRectMake(0.0, 0.0, 300.0/320*self.screenSize.width, 157.5/568*self.screenSize.height)
-        var sharePic = UIImageView()
+        let sharePic = UIImageView()
         sharePic.frame = CGRectMake(0.0, 0.0, 300.0/320*self.screenSize.width, 157.5/568*self.screenSize.height)
         let degreeForShare:CGFloat = -7
-        var scoreForShare = UILabel()
+        let scoreForShare = UILabel()
         scoreForShare.text = String(currentMaxVelocity)
         scoreForShare.textColor = UIColor.whiteColor()
         //scoreForShare.layer.zPosition = 200
@@ -598,7 +598,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         print(shareImg);
         if(shareImg == "") { return; }
         
-        var resultImage = UIImageView(frame: CGRectMake(0.0, 0.0, 200.0/320*self.screenSize.width, 200.0/568*self.screenSize.height))
+        let resultImage = UIImageView(frame: CGRectMake(0.0, 0.0, 200.0/320*self.screenSize.width, 200.0/568*self.screenSize.height))
         resultImage.image = UIImage(named: "14.png")
         
         //        var button = UIImageView(frame: CGRectMake(50.0/320*self.screenSize.width, 50.0/568*self.screenSize.height, 50.0/320*self.screenSize.width, 50.0/568*self.screenSize.height))
@@ -616,12 +616,12 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         */
         
         
-        var shareUrl = "http://www.estcolathai.com/volleyballmobile/app_install.php";
+        let shareUrl = "http://www.estcolathai.com/volleyballmobile/app_install.php";
         
-        var contentImg = NSURL(string: self.shareImg);
-        var contentURL = NSURL(string: shareUrl);
-        var contentTitle = "ดวลลูกตบเอส ชิงบัตรเชียร์วอลเลย์บอลเวิลด์กรังด์ปรีซ์ ตั้งแต่วันนี้ - 28 มิ.ย. 59";
-        var contentDescription = "เอส โคล่า ขอท้าคุณมาโชว์พลังตบให้แรงระดับชาติกับแอพสุดซ่า ชิงบัตรเวิลด์กรังด์ปรีซ์รอบสุดท้าย แล้วไปเชียร์สุดซี้ดติดขอบสนาม!!"
+        let contentImg = NSURL(string: self.shareImg);
+        let contentURL = NSURL(string: shareUrl);
+        let contentTitle = "ดวลลูกตบเอส ชิงบัตรเชียร์วอลเลย์บอลเวิลด์กรังด์ปรีซ์ ตั้งแต่วันนี้ - 28 มิ.ย. 59";
+        let contentDescription = "เอส โคล่า ขอท้าคุณมาโชว์พลังตบให้แรงระดับชาติกับแอพสุดซ่า ชิงบัตรเวิลด์กรังด์ปรีซ์รอบสุดท้าย แล้วไปเชียร์สุดซี้ดติดขอบสนาม!!"
         
         /*
         
@@ -637,7 +637,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         
         //var shareUrl = "http://www.estcolathai.com/volleyballmobile/app_install.php";
         
-        var photoContent:FBSDKShareLinkContent = FBSDKShareLinkContent();
+        let photoContent:FBSDKShareLinkContent = FBSDKShareLinkContent();
         
         photoContent.contentURL = contentURL;
         photoContent.contentTitle = contentTitle;
@@ -647,7 +647,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         
         // FBSDKShareDialog.showFromViewController(self, withContent: photoContent, delegate: self)
         
-                var dialog = FBSDKShareDialog()
+                let dialog = FBSDKShareDialog()
                 dialog.mode = FBSDKShareDialogMode.FeedBrowser
         
                 dialog.shareContent = photoContent
