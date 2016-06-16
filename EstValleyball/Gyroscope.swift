@@ -9,6 +9,7 @@
 import UIKit
 import CoreMotion
 import AudioToolbox
+import AVFoundation
 
 var motionManager = CMMotionManager()
 var currentMaxAccelX = 0.0
@@ -43,6 +44,9 @@ func startPitch(comingBall : UIImageView, lightBling: UIImageView, game: GameCon
         let randomOneToThree = Int(arc4random_uniform(4) + 1)
         currentMaxVelocity += randomOneToThree
         if(currentMaxVelocity >= 50){
+            if isVibration == false{
+                NSTimer.scheduledTimerWithTimeInterval(0, target: game, selector: #selector(GameController.playHitSound), userInfo: nil, repeats: false)
+            }
             lightBling.stopAnimating()
             UIView.animateWithDuration(0.5, delay: 0, options: [UIViewAnimationOptions.TransitionNone],animations: {
                 if isVibration == false{

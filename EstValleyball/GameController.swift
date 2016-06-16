@@ -9,11 +9,13 @@
 import UIKit
 import AudioToolbox
 import Alamofire
+import AVFoundation
+
 class GameController: UIViewController, FBSDKSharingDelegate {
     
     var shareImg:String = "";
     var gid:String = "";
-    
+    var dimBackgroundForNoPlay = UIImageView()
     var dimBackground = UIImageView()
     var result = UIImageView()
     var comingBall = UIImageView()
@@ -31,6 +33,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
     var screenSize = UIScreen.mainScreen().bounds.size
     var isResult = false
     var facebookCap = UIImageView()
+    var audioPlayer: AVAudioPlayer!
+    
     @IBOutlet weak var lightBling: UIImageView!
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "showedMenu"){
@@ -61,10 +65,13 @@ class GameController: UIViewController, FBSDKSharingDelegate {
     override func viewDidAppear(animated: Bool) {
         //number countdown
         
+        NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(2.5, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(3.5, target: self, selector: #selector(playStartSound), userInfo: nil, repeats: false)
+
         self.score.textAlignment = NSTextAlignment.Center
-        
         self.ballFromOpponent()
-        
         self.numCountDown.layer.zPosition = 1
         self.numCountDown.animationImages = [
             UIImage(named:"count3.png")!,
@@ -87,13 +94,13 @@ class GameController: UIViewController, FBSDKSharingDelegate {
     }
     
     func showNoplay(){
-        let dimBackground = UIImageView()
-        dimBackground.frame = CGRectMake(0,0,320/320 * self.screenSize.width, 568/568 * self.screenSize.height)
-        dimBackground.backgroundColor = UIColor.blackColor()
-        dimBackground.alpha = 0.6
+       //let dimBackgroundForNoPlay = UIImageView()
+        dimBackgroundForNoPlay.frame = CGRectMake(0,0,320/320 * self.screenSize.width, 568/568 * self.screenSize.height)
+        dimBackgroundForNoPlay.backgroundColor = UIColor.blackColor()
+        dimBackgroundForNoPlay.alpha = 0.6
         noPlayPopupView.frame = CGRectMake(0,0,320/320 * self.screenSize.width, 568/568 * self.screenSize.height)
-        dimBackground.layer.zPosition = 1
-        noPlayPopupView.addSubview(dimBackground)
+        dimBackgroundForNoPlay.layer.zPosition = 1
+        noPlayPopupView.addSubview(dimBackgroundForNoPlay)
         //noPlayPopupView.backgroundColor = UIColor.blackColor()
         //noPlayPopupView.alpha = 0.3
         var noPlayView = UIImageView()
@@ -141,7 +148,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
             var originFrame2 = self.comingBall.frame
             originFrame2 = CGRectMake(self.comingBall.frame.origin.x, 240/568*self.screenSize.height, 0, 0)
             self.comingBall.frame = originFrame2
-           
+            self.playAfterHitSound()
             }, completion: { finished in
         })
     }
@@ -150,10 +157,13 @@ class GameController: UIViewController, FBSDKSharingDelegate {
     }
     func newGame(segue: UIStoryboardSegue, sender: UIButton!){
         
-        print("korn")
-        
+        NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(playStartSound), userInfo: nil, repeats: false)
+
         self.noPlayPopupView.removeFromSuperview()
-        
+        dimBackgroundForNoPlay.removeFromSuperview()
         self.ballFromOpponent()
         self.numCountDown.layer.zPosition = 1
         self.numCountDown.animationImages = [
@@ -695,6 +705,11 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         
     }
     func goStartNewGame(sender: UIButton){
+        NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(playStartSound), userInfo: nil, repeats: false)
+        
         currentMaxVelocity = 0
         motionManager.stopAccelerometerUpdates()
         self.noPlayPopupView.removeFromSuperview()
@@ -726,7 +741,25 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         self.numCountDown.startAnimating()
         
     }
-
+    func playHitSound(){
+        playSound("Sound_1")
+    }
+    func playAfterHitSound(){
+        playSound("Sound_2")
+    }
+    func playCountdownSound(){
+        playSound("Sound_3")
+    }
+    func playStartSound(){
+        playSound("Sound_4")
+    }
+    func playSound(soundName: String)
+    {
+        let soundURL: NSURL = NSBundle.mainBundle().URLForResource(soundName, withExtension: "mp3")!
+        audioPlayer = try! AVAudioPlayer(contentsOfURL: soundURL)
+        //audioPlayer.delegate = self
+        audioPlayer.play()
+    }
 
     
 }
