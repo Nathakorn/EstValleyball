@@ -345,7 +345,7 @@
                                     <constraint firstAttribute="width" constant="44" id="Ppz-QJ-quv"/>
                                     <constraint firstAttribute="height" constant="44" id="j8U-XZ-AUZ"/>
                                 </constraints>
-                                <state key="normal" image="62C8CDE6-BFAA-4977-8936-3DFE1D74765B"/>
+                                <state key="normal" image="244CE0EB-72FF-4177-A159-9E1A448828EF"/>
                                 <connections>
                                     <action selector="goStartGame:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="F0r-rH-lr9"/>
                                 </connections>
@@ -574,7 +574,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="startedGame-bg" translatesAutoresizingMaskIntoConstraints="NO" id="e2M-0g-PVc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="startedGame_bg" translatesAutoresizingMaskIntoConstraints="NO" id="e2M-0g-PVc">
                                 <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="e2M-0g-PVc" secondAttribute="height" multiplier="80:131" id="MVv-hV-Yaf"/>
@@ -938,7 +938,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="62C8CDE6-BFAA-4977-8936-3DFE1D74765B" width="183" height="183">
+        <image name="244CE0EB-72FF-4177-A159-9E1A448828EF" width="183" height="183">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -3254,7 +3254,7 @@ AAACGf0
         <image name="howto" width="540" height="875"/>
         <image name="img_logo" width="120" height="101"/>
         <image name="notification_icon" width="73" height="73"/>
-        <image name="startedGame-bg" width="1242" height="2208"/>
+        <image name="startedGame_bg" width="1242" height="2208"/>
         <image name="txt_result" width="608" height="293"/>
         <image name="volleyball_001" width="1080" height="1080"/>
     </resources>
