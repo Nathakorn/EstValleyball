@@ -50,10 +50,11 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let screenSize = UIScreen.mainScreen().bounds.size
-        let loginManager = FBSDKLoginManager()
+        //let loginManager = FBSDKLoginManager()
+        //loginManager.logOut()
         homeBackground.layer.zPosition = 1
         frontText.layer.zPosition = 3
-        loginManager.logOut()
+        
         if (screenSize.height == 480.0 || screenSize.height == 1024.0){
             print("iphone4s/ipad")
             ballView.frame = CGRectMake(100.0/320.0*screenSize.width, -71.0/480.0*screenSize.height, 403.0/320.0*screenSize.width, 399.0/480.0*screenSize.height)

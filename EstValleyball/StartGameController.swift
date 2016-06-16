@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+
 
 class StartGameController: UIViewController {
     
@@ -16,6 +18,7 @@ class StartGameController: UIViewController {
     var normalButton = UIImageView()
     var blinkButton = UIImageView()
     var start = UIButton()
+    var winner = NSInteger()
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "showedMenu"){
@@ -46,7 +49,15 @@ class StartGameController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        /*
+        Alamofire.request(.GET, "http://www.estcolathai.com/volleyballmobile/api/mobile/getDataInfo.aspx")
+            .validate()
+            .responseJSON { response in
+                debugPrint(response)
+                let respons = response as! NSDictionary
+                let result = respons.objectForKey("winner")! as! String
+                print(result)
+        }*/
         let screenSize = UIScreen.mainScreen().bounds.size
         let buttonRect = CGRectMake(83.0/320.0*screenSize.width, 213.0/568.0*screenSize.height, 148.0/320.0*screenSize.width, 79.0/568.0*screenSize.height)
         
@@ -62,8 +73,11 @@ class StartGameController: UIViewController {
         self.view.addSubview(self.normalButton)
         self.view.addSubview(self.blinkButton)
         self.view.addSubview(self.start)
+        
+        
     }
     override func viewDidAppear(animated: Bool) {
+        
         //var customFrame = keepBall.frame
         //bright start button
         UIView.animateWithDuration(0.4, delay: 0.0, options: [UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.Repeat], animations: {

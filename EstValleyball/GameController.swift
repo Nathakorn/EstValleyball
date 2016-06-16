@@ -557,49 +557,58 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         scoreForShare.textColor = UIColor.whiteColor()
         //scoreForShare.layer.zPosition = 200
         scoreForShare.font = UIFont(name: "PSLEmpireProBoldItalic", size: 28.0/568*self.screenSize.height)
+        
+        let facebookCapView = UIView()
         //scoreForShare.text = "99"
-        facebookCap.transform = CGAffineTransformMakeRotation(degreeForShare * CGFloat(M_PI/180) )
+        
         scoreForShare.transform = CGAffineTransformMakeRotation(degreeForShare * CGFloat(M_PI/180) )
        
         if currentMaxVelocity >= 90 && currentMaxVelocity < 100{
             sharePic.image = UIImage(named: "share1.png")
-            facebookCap.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            facebookCapView.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             facebookCap.layer.zPosition = 4000
             scoreForShare.frame = CGRectMake(205/320*self.screenSize.width, 75/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             scoreForShare.layer.zPosition = 4001
         }
         else if currentMaxVelocity >= 80 && currentMaxVelocity < 90{
             sharePic.image = UIImage(named: "share2.png")
-            facebookCap.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            facebookCapView.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             facebookCap.layer.zPosition = 4000
             scoreForShare.frame = CGRectMake(205/320*self.screenSize.width, 75/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             scoreForShare.layer.zPosition = 4001
         }
         else if currentMaxVelocity >= 70 && currentMaxVelocity < 80{
             sharePic.image = UIImage(named: "share3.png")
-            facebookCap.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            facebookCapView.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             facebookCap.layer.zPosition = 4000
             scoreForShare.frame = CGRectMake(205/320*self.screenSize.width, 75/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             scoreForShare.layer.zPosition = 4001
         }
         else if currentMaxVelocity >= 60 && currentMaxVelocity < 70{
             sharePic.image = UIImage(named: "share4.png")
-            facebookCap.frame  = CGRectMake(70/320*self.screenSize.width, 95/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            facebookCapView.frame  = CGRectMake(70/320*self.screenSize.width, 95/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             facebookCap.layer.zPosition = 4000
             scoreForShare.frame = CGRectMake(125/320*self.screenSize.width, 80/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             scoreForShare.layer.zPosition = 4001
         }
         else if currentMaxVelocity >= 50 && currentMaxVelocity < 60{
             sharePic.image = UIImage(named: "share5.png")
-            facebookCap.frame  = CGRectMake(70/320*self.screenSize.width, 95/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            facebookCapView.frame  = CGRectMake(70/320*self.screenSize.width, 95/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             facebookCap.layer.zPosition = 4000
             scoreForShare.frame = CGRectMake(125/320*self.screenSize.width, 80/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             scoreForShare.layer.zPosition = 4001
         }
+        //white background view
+        
+        facebookCap.frame = CGRectMake(1/320*self.screenSize.width, 1/568*self.screenSize.height,38.0/320*self.screenSize.width, 28/568*self.screenSize.height)
+        facebookCapView.addSubview(facebookCap)
+        facebookCapView.layer.zPosition = 7000
+        facebookCapView.backgroundColor = UIColor.whiteColor()
+        facebookCapView.transform = CGAffineTransformMakeRotation(-8 * CGFloat(M_PI/180) )
         capView.addSubview(sharePic)
         capView.addSubview(scoreForShare)
         //capView.addSubview(dimBackground)
-        capView.addSubview(facebookCap)
+        capView.addSubview(facebookCapView)
         
         
         //score.format = "%d"

@@ -9,4 +9,5 @@ target 'EstValleyball' do
   # Pods for EstValleyball
   pod 'UICountingLabel'
   pod 'Alamofire', '~> 3.4'
+  pod 'SwiftyJSON'
 end

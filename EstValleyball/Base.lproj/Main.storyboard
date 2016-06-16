@@ -324,7 +324,7 @@
                                     <constraint firstAttribute="width" constant="44" id="Ppz-QJ-quv"/>
                                     <constraint firstAttribute="height" constant="44" id="j8U-XZ-AUZ"/>
                                 </constraints>
-                                <state key="normal" image="23B11353-A053-41B3-BCB3-FF4FB1EA9B28"/>
+                                <state key="normal" image="65D4455C-7436-4179-AACC-1D8BA4706094"/>
                                 <connections>
                                     <action selector="goStartGame:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="F0r-rH-lr9"/>
                                 </connections>
@@ -892,7 +892,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="C97E7EF6-A0C8-44C7-B8A3-24F09B3ECEB0" translatesAutoresizingMaskIntoConstraints="NO" id="2y1-7C-NLY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="85372F56-1046-45A4-A55D-94D1F5817452" translatesAutoresizingMaskIntoConstraints="NO" id="2y1-7C-NLY">
                                 <rect key="frame" x="13" y="438" width="294" height="122"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2y1-7C-NLY" secondAttribute="height" multiplier="147:61" id="N61-II-CIo"/>
@@ -926,7 +926,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="23B11353-A053-41B3-BCB3-FF4FB1EA9B28" width="183" height="183">
+        <image name="65D4455C-7436-4179-AACC-1D8BA4706094" width="183" height="183">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -3231,7 +3231,7 @@ xgACGc4AAhnRAAIZ1gACGd4AAhnhAAIZ8wACGfYAAhn7AAAAAAAABAEAAAAAAAAAPgAAAAAAAAAAAAAA
 AAACGf0
 </mutableData>
         </image>
-        <image name="C97E7EF6-A0C8-44C7-B8A3-24F09B3ECEB0" width="608" height="293">
+        <image name="85372F56-1046-45A4-A55D-94D1F5817452" width="608" height="293">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -15195,9 +15195,9 @@ PgAAAAAAAAAAAAAAAAAK7lk
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ZvM-I7-OUD"/>
-        <segue reference="CNh-1t-eEh"/>
-        <segue reference="BzG-4H-fcR"/>
-        <segue reference="Ay4-Xt-w7u"/>
-        <segue reference="6nw-w1-TWr"/>
+        <segue reference="XtU-lX-PV5"/>
+        <segue reference="r6E-wv-YSm"/>
+        <segue reference="jU9-Hj-2nh"/>
+        <segue reference="i93-76-0cj"/>
     </inferredMetricsTieBreakers>
 </document>
