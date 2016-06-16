@@ -144,6 +144,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         
     }
     func hitBallTwo(){
+        motionManager.stopAccelerometerUpdates()
         UIView.animateWithDuration(0.4, animations: {
             var originFrame2 = self.comingBall.frame
             originFrame2 = CGRectMake(self.comingBall.frame.origin.x, 240/568*self.screenSize.height, 0, 0)

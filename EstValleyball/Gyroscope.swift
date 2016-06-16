@@ -103,6 +103,7 @@ func startPitch(comingBall : UIImageView, lightBling: UIImageView, game: GameCon
     })
     
 }
+
 func resetMaxValues() {
     currentMaxAccelX = 0
     currentMaxAccelY = 0
@@ -126,6 +127,8 @@ func outputAccelerationDataZ(acceleration: CMAcceleration) -> Double{
         currentMaxAccelZ = acceleration.z
     }
     return currentMaxAccelZ
+    
+
 }
 
 
