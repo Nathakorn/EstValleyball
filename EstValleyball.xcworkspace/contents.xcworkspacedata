@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:EstValleyball/Base.lproj/Main.storyboard">
-   </FileRef>
-   <FileRef
       location = "group:EstValleyball.xcodeproj">
    </FileRef>
    <FileRef

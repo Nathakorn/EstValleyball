@@ -92,7 +92,7 @@ class HomeController: UIViewController {
         self.blinkButton.frame = buttonRect
         self.login.frame = buttonRect
         
-        self.normalButton.image = UIImage(named: "Login with Facebook")
+        self.normalButton.image = UIImage(named: "btn_login_a")
         self.blinkButton.image = UIImage(named: "btn_login_b")
         
         self.login.addTarget(self, action: #selector(HomeController.loginFacebook), forControlEvents: UIControlEvents.TouchUpInside)

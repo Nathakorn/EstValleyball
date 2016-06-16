@@ -243,7 +243,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
                         
                         self.lightBling.animationImages = [
                             UIImage(named:"img_light.png")!,
-                            UIImage(named:"11.png")!
+                            UIImage(named:"black_point.png")!
                         ]
                         
                         self.lightBling.animationDuration = 0.3
