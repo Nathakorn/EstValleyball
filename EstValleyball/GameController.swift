@@ -761,6 +761,4 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         //audioPlayer.delegate = self
         audioPlayer.play()
     }
-
-    
 }

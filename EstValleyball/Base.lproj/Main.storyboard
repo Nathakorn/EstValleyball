@@ -345,7 +345,7 @@
                                     <constraint firstAttribute="width" constant="44" id="Ppz-QJ-quv"/>
                                     <constraint firstAttribute="height" constant="44" id="j8U-XZ-AUZ"/>
                                 </constraints>
-                                <state key="normal" image="8134B934-8105-4A90-ABF0-12CC0142120B"/>
+                                <state key="normal" image="9746D7AC-F257-4DED-8C3F-87B21D6F13CB"/>
                                 <connections>
                                     <action selector="goStartGame:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="F0r-rH-lr9"/>
                                 </connections>
@@ -487,11 +487,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rwQ-o7-f5h">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="bg_actionbar" highlightedImage="bg_actionbar" translatesAutoresizingMaskIntoConstraints="NO" id="HRj-5t-bJp">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_actionbar" highlightedImage="bg_actionbar" translatesAutoresizingMaskIntoConstraints="NO" id="HRj-5t-bJp">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="47" id="SbF-0p-mNG"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="SbF-0p-mNG"/>
+                                            </mask>
+                                        </variation>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_logo" translatesAutoresizingMaskIntoConstraints="NO" id="j9x-ye-FCD">
                                         <rect key="frame" x="133" y="3" width="55" height="41"/>
@@ -545,13 +550,17 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="HRj-5t-bJp" secondAttribute="trailing" id="0xh-TM-HO4"/>
                                     <constraint firstAttribute="trailing" secondItem="HRj-5t-bJp" secondAttribute="trailing" id="3aG-41-lLy"/>
                                     <constraint firstAttribute="trailing" secondItem="BVM-aQ-um6" secondAttribute="trailing" constant="8" id="5Ie-to-89g"/>
                                     <constraint firstAttribute="bottom" secondItem="BVM-aQ-um6" secondAttribute="bottom" constant="8" id="DtA-1D-pDu"/>
+                                    <constraint firstItem="HRj-5t-bJp" firstAttribute="top" secondItem="rwQ-o7-f5h" secondAttribute="top" id="EZA-W0-6D0"/>
+                                    <constraint firstItem="HRj-5t-bJp" firstAttribute="leading" secondItem="rwQ-o7-f5h" secondAttribute="leading" id="Fio-Wv-VP3"/>
                                     <constraint firstItem="j9x-ye-FCD" firstAttribute="centerY" secondItem="rwQ-o7-f5h" secondAttribute="centerY" id="KIu-ZK-smJ"/>
                                     <constraint firstItem="HRj-5t-bJp" firstAttribute="leading" secondItem="rwQ-o7-f5h" secondAttribute="leading" id="Lkv-D9-MV8"/>
                                     <constraint firstItem="HRj-5t-bJp" firstAttribute="top" secondItem="rwQ-o7-f5h" secondAttribute="top" id="Nty-L4-nAL"/>
                                     <constraint firstAttribute="centerY" secondItem="j9x-ye-FCD" secondAttribute="centerY" constant="-1.5" id="PqF-sP-rU0"/>
+                                    <constraint firstAttribute="bottom" secondItem="HRj-5t-bJp" secondAttribute="bottom" id="Qms-CH-QEP"/>
                                     <constraint firstItem="BVM-aQ-um6" firstAttribute="top" secondItem="rwQ-o7-f5h" secondAttribute="top" constant="8" id="RqE-vU-P55"/>
                                     <constraint firstItem="dWX-n5-GL7" firstAttribute="top" secondItem="rwQ-o7-f5h" secondAttribute="top" constant="8" id="Rxt-eI-lB8"/>
                                     <constraint firstItem="j9x-ye-FCD" firstAttribute="centerX" secondItem="rwQ-o7-f5h" secondAttribute="centerX" id="VvF-M5-XvT"/>
@@ -904,7 +913,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6B6EA9B6-2FA5-4FA7-BC3E-687B42D90A67" translatesAutoresizingMaskIntoConstraints="NO" id="2y1-7C-NLY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="872644E6-4A99-4834-967D-1F5393BA9DC6" translatesAutoresizingMaskIntoConstraints="NO" id="2y1-7C-NLY">
                                 <rect key="frame" x="13" y="438" width="294" height="122"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2y1-7C-NLY" secondAttribute="height" multiplier="147:61" id="N61-II-CIo"/>
@@ -938,7 +947,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="6B6EA9B6-2FA5-4FA7-BC3E-687B42D90A67" width="608" height="293">
+        <image name="872644E6-4A99-4834-967D-1F5393BA9DC6" width="608" height="293">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -12887,7 +12896,7 @@ GQAK7hsACu4dAAruIgAK7ioACu4tAAruMgAK7joACu49AAruTwAK7lIACu5XAAAAAAAABAEAAAAAAAAA
 PgAAAAAAAAAAAAAAAAAK7lk
 </mutableData>
         </image>
-        <image name="8134B934-8105-4A90-ABF0-12CC0142120B" width="183" height="183">
+        <image name="9746D7AC-F257-4DED-8C3F-87B21D6F13CB" width="183" height="183">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -15207,10 +15216,10 @@ AAACGf0
         <image name="volleyball_001" width="1080" height="1080"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="i93-76-0cj"/>
-        <segue reference="CNh-1t-eEh"/>
-        <segue reference="jld-tC-7eH"/>
-        <segue reference="off-pc-rOr"/>
         <segue reference="ZvM-I7-OUD"/>
+        <segue reference="CNh-1t-eEh"/>
+        <segue reference="BzG-4H-fcR"/>
+        <segue reference="Ay4-Xt-w7u"/>
+        <segue reference="6nw-w1-TWr"/>
     </inferredMetricsTieBreakers>
 </document>
