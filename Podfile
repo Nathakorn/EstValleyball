@@ -6,5 +6,5 @@ target 'EstValleyball' do
 use_frameworks!
 	pod 'UICountingLabel'
 	pod 'Alamofire', '~> 3.4'
-	pod 'KeychainSwift', '~> 4.0'
+	pod 'Google/Analytics'
 end

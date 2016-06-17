@@ -107,8 +107,11 @@ class HomeController: UIViewController {
             print("uid: \(uid)")
         } else {
             print("currentAccessToken == nil")
-            let keychain = KeychainSwift()
-            keychain.set(NSUUID().UUIDString, forKey: "uid")
+            if let _ = KeychainSwift().get("uid") {
+            } else {
+                let keychain = KeychainSwift()
+                keychain.set(NSUUID().UUIDString, forKey: "uid")
+            }
         }
         
         

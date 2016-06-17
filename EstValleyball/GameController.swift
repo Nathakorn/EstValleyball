@@ -655,7 +655,6 @@ class GameController: UIViewController, FBSDKSharingDelegate {
                 } else if (result.declinedPermissions.contains("public_profile") || result.declinedPermissions.contains("email") || result.declinedPermissions.contains("user_about_me")) {
                     // declined "public_profile", "email" or "user_about_me"
                 } else {
-                    self.shareFacebookResult()
                     // TODO: api to update facebookid-nontoken
                     var parameters = [
                         "access": "mobileapp",
@@ -669,7 +668,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
                     let fbuid = FBSDKAccessToken.currentAccessToken().userID
                     KeychainSwift().set(fbuid, forKey: "uid")
                     
-                    parameters["uid"] = fbuid
+                    parameters["fbuid"] = fbuid
                     
                     // let dicPost: NSMutableDictionary = NSMutableDictionary()
                     // let request = FBSDKGraphRequest(graphPath: "me", parameters: dicPost as [NSObject : AnyObject], HTTPMethod: "GET")
@@ -715,6 +714,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
                             }
                             
                             Alamofire.request(.POST, "http://www.estcolathai.com/volleyballmobile/api/mobile/saveShareToWall.aspx", parameters: parameters)
+                            
+                            self.shareFacebookResult()
                         }
                     })
                     
@@ -809,7 +810,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
     func captureShareImage(cb: Callback<String>) {
         
         let fbId = FBSDKAccessToken.currentAccessToken().userID
-        let url = NSURL(string:"http://graph.facebook.com/" + fbId + "/picture?type=square&height=800&width=800")
+        let url = NSURL(string:"http://graph.facebook.com/" + fbId + "/picture?type=square")
+        // let url = NSURL(string:"http://graph.facebook.com/" + fbId + "/picture?type=square&height=800&width=800")
         let data = NSData(contentsOfURL: url!)
         if let data = data {
             if let image = UIImage(data: data) {
@@ -951,6 +953,28 @@ class GameController: UIViewController, FBSDKSharingDelegate {
     }
     
     func goStartNewGame(sender: UIButton){
+        var parameters = [
+            "param1": String(currentMaxVelocity),
+            "param2": String(currentMaxVelocity),
+            "Param3": "sensor",
+            "access": "mobile",
+            "caller": "json"
+        ]
+        
+        let keychain = KeychainSwift()
+        if let uid = keychain.get("uid") {
+            parameters["fbuid"] = uid
+        }
+        
+        Alamofire.request(.POST, "http://www.estcolathai.com/volleyballmobile/api/mobile/submitGameNonToken.aspx", parameters: parameters).responseJSON
+            { response in switch response.result {
+                case .Success(let JSON):
+                    print("Request success with json \(JSON)")
+                case .Failure(let error):
+                    print("Request failed with error: \(error)")
+            }
+        }
+        
         NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
         NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
         NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
@@ -986,28 +1010,6 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         self.numCountDown.animationDuration = 3
         self.numCountDown.animationRepeatCount = 1
         self.numCountDown.startAnimating()
-        
-        var parameters = [
-            "param1": String(currentMaxVelocity),
-            "param2": String(currentMaxVelocity),
-            "Param3": "sensor",
-            "access": "mobile",
-            "caller": "json"
-        ]
-        
-        let keychain = KeychainSwift()
-        if let uid = keychain.get("uid") {
-            parameters["fbuid"] = uid
-        }
-        
-        Alamofire.request(.POST, "http://www.estcolathai.com/volleyballmobile/api/mobile/submitGameNonToken.aspx", parameters: parameters).responseJSON
-            { response in switch response.result {
-                case .Success(let JSON):
-                    print("Request success with json \(JSON)")
-                case .Failure(let error):
-                    print("Request failed with error: \(error)")
-            }
-        }
         
     }
     func playHitSound(){
