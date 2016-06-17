@@ -28,6 +28,7 @@
 		D09906B41D0E708E0049A99A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09906B11D0E708E0049A99A /* FBSDKCoreKit.framework */; };
 		D09906B51D0E708E0049A99A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09906B21D0E708E0049A99A /* FBSDKLoginKit.framework */; };
 		D09906B61D0E708E0049A99A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09906B31D0E708E0049A99A /* FBSDKShareKit.framework */; };
+		D0AD3DC81D14272D009CBA82 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AD3DC71D14272D009CBA82 /* Keychain.swift */; };
 		D0BE51F01D140F22008EF7D2 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BE51EF1D140F22008EF7D2 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		D09906B11D0E708E0049A99A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		D09906B21D0E708E0049A99A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		D09906B31D0E708E0049A99A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		D0AD3DC71D14272D009CBA82 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		D0BE51EF1D140F22008EF7D2 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				D0BE51EF1D140F22008EF7D2 /* SwiftyJSON.swift */,
+				D0AD3DC71D14272D009CBA82 /* Keychain.swift */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				D0698B681D09532700854814 /* Constants.swift in Sources */,
 				D0BE51F01D140F22008EF7D2 /* SwiftyJSON.swift in Sources */,
 				D099047F1D0DADA00049A99A /* RuleController.swift in Sources */,
+				D0AD3DC81D14272D009CBA82 /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -43,7 +43,7 @@
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 79C040AFDDCE1BCBF6D8B5EB0B85887F;
-			remoteInfo = AlamofireI;
+			remoteInfo = "Alamofire-";
 		};
 		B75B2A3C6B614639EB3F2F7AA25B84ED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -333,9 +333,9 @@
 			productReference = C43C3D439FEEDE4ABCE821616D452C2F /* Pods_EstValleyball.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		79C040AFDDCE1BCBF6D8B5EB0B85887F /* AlamofireI */ = {
+		79C040AFDDCE1BCBF6D8B5EB0B85887F /* Alamofire- */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3CFB42910790CF0BDBCCEBAACD6B9367 /* Build configuration list for PBXNativeTarget "AlamofireI" */;
+			buildConfigurationList = 3CFB42910790CF0BDBCCEBAACD6B9367 /* Build configuration list for PBXNativeTarget "Alamofire-" */;
 			buildPhases = (
 				95CC2C7E06DC188A05DAAEE9CAA555A3 /* Sources */,
 				B1729F851F648EC60EE93CDB3C8BAEAD /* Frameworks */,
@@ -345,8 +345,8 @@
 			);
 			dependencies = (
 			);
-			name = AlamofireI;
-			productName = AlamofireI;
+			name = "Alamofire-";
+			productName = "Alamofire-";
 			productReference = 5EA169B3162F5773633E65F32E0D0C92 /* Alamofire.framework */;
 			productType = "com.apple.product-type.framework";
 		};
@@ -371,7 +371,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				79C040AFDDCE1BCBF6D8B5EB0B85887F /* AlamofireI */,
+				79C040AFDDCE1BCBF6D8B5EB0B85887F /* Alamofire- */,
 				358637512A7696383ACC9D7B3946ED05 /* Pods-EstValleyball */,
 				074E69A07D05B3E87AC9EF308055C9B5 /* UICountingLabel */,
 			);
@@ -432,8 +432,8 @@
 		};
 		CF707483FC2E46888B40BCABEE49FC53 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = AlamofireI;
-			target = 79C040AFDDCE1BCBF6D8B5EB0B85887F /* AlamofireI */;
+			name = "Alamofire-";
+			target = 79C040AFDDCE1BCBF6D8B5EB0B85887F /* Alamofire- */;
 			targetProxy = 57116968A0FC89BBE279A86642146EA1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -715,7 +715,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3CFB42910790CF0BDBCCEBAACD6B9367 /* Build configuration list for PBXNativeTarget "AlamofireI" */ = {
+		3CFB42910790CF0BDBCCEBAACD6B9367 /* Build configuration list for PBXNativeTarget "Alamofire-" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75218111E718FACE36F771E8ABECDB62 /* Debug */,

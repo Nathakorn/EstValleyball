@@ -3,10 +3,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 # platform :ios, '9.0'
 
 target 'EstValleyball' do
-  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for EstValleyball
-  pod 'UICountingLabel'
-  pod 'Alamofire', '~> 3.4'
+use_frameworks!
+	pod 'UICountingLabel'
+	pod 'Alamofire', '~> 3.4'
+	pod 'KeychainSwift', '~> 4.0'
 end
