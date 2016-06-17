@@ -43,7 +43,7 @@ func startPitch(comingBall : UIImageView, lightBling: UIImageView, game: GameCon
         currentMaxVelocity = Int(floor(velocity * 2.5 * 1.42))
         let randomOneToThree = Int(arc4random_uniform(4) + 1)
         currentMaxVelocity += randomOneToThree
-        if(currentMaxVelocity >= 30){
+        if(currentMaxVelocity >= 51){
             if isVibration == false{
                 NSTimer.scheduledTimerWithTimeInterval(0, target: game, selector: #selector(GameController.playHitSound), userInfo: nil, repeats: false)
             }
@@ -94,12 +94,12 @@ func startPitch(comingBall : UIImageView, lightBling: UIImageView, game: GameCon
                      */
             })
         }
-        if i == 300 && isHit == false{
+        if i == 300 && isHit == false {
             print("no play")
             motionManager.stopAccelerometerUpdates()
             game.showNoplay()
         }
-        print(currentMaxVelocity)
+        // print(currentMaxVelocity)
     })
     
 }

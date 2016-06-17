@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuController: UIViewController ,FBSDKSharingDelegate {
+class MenuController: UIViewController, FBSDKSharingDelegate {
     
     var fromSegue: String!
     var screenSize = UIScreen.mainScreen().bounds.size
@@ -26,12 +26,15 @@ class MenuController: UIViewController ,FBSDKSharingDelegate {
    
     func playGame() {
         self.performSegueWithIdentifier(SEGUE_SHOW_GAME, sender: nil)
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Button, action: .Clicked, label: "Play_menu")
     }
     func goRule() {
         self.performSegueWithIdentifier("goRule", sender: nil)
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Button, action: .Clicked, label: "Rule_menu")
     }
     func goHowToPlay() {
         self.performSegueWithIdentifier("goHowToPlay", sender: nil)
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Button, action: .Clicked, label: "HowTo_menu")
     }
     func goYoutubeButton() {
         //self.performSegueWithIdentifier("goYoutube", sender: nil)
@@ -69,22 +72,54 @@ class MenuController: UIViewController ,FBSDKSharingDelegate {
         
         self.view.addSubview(YoutubeSuperView)
         
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Button, action: .Clicked, label: "VDO_menu")
+        
     }
     func goBackMenu(){
         YoutubeSuperView.removeFromSuperview()
     }
     func goWinner() {
         self.performSegueWithIdentifier("goWinner", sender: nil)
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Button, action: .Clicked, label: "Winner_menu")
     }
     func goShare() {
         //self.performSegueWithIdentifier(fromSegue, sender: nil)
         
-        let shareUrl = "http://www.estcolathai.com/volleyballmobile/app_install.php";
-        
+        var params = Parameters.instance.parameters
+                    
+        var shareUrl = "http://www.estcolathai.com/volleyballmobile/app_install.php"
+        if let newShareUrl = params["share_url"] {
+            shareUrl = newShareUrl
+        }
+    
         let contentImg = NSURL(string: "http://www.estcolathai.com/volleyballmobile/app/image/shareApp.jpg");
-        let contentURL = NSURL(string: shareUrl);
-        let contentTitle = "ดวลลูกตบเอส ชิงบัตรเชียร์วอลเลย์บอลเวิลด์กรังด์ปรีซ์ ตั้งแต่วันนี้ - 28 มิ.ย. 59";
-        let contentDescription = "เอส โคล่า ขอท้าคุณมาโชว์พลังตบให้แรงระดับชาติกับแอพสุดซ่า ชิงบัตรเวิลด์กรังด์ปรีซ์รอบสุดท้าย แล้วไปเชียร์สุดซี้ดติดขอบสนาม!!"
+        let contentURL = NSURL(string: shareUrl)
+        
+        var contentTitle = "ดวลลูกตบเอส ชิงบัตรเชียร์วอลเลย์บอลเวิลด์กรังด์ปรีซ์ ตั้งแต่วันนี้ - 28 มิ.ย. 59"
+        if let title = params["share_title"] {
+            contentTitle = title
+        }
+        
+        var contentDescription = "เอส โคล่า ขอท้าคุณมาโชว์พลังตบให้แรงระดับชาติกับแอพสุดซ่า ชิงบัตรเวิลด์กรังด์ปรีซ์รอบสุดท้าย แล้วไปเชียร์สุดซี้ดติดขอบสนาม!!"
+        if let description = params["share_description"] {
+            contentDescription = description
+        }
+        
+        let photoContent: FBSDKShareLinkContent = FBSDKShareLinkContent()
+        
+        photoContent.contentURL = contentURL
+        photoContent.contentTitle = contentTitle
+        photoContent.contentDescription = contentDescription
+        photoContent.imageURL = contentImg
+        
+        let dialog = FBSDKShareDialog()
+        dialog.mode = FBSDKShareDialogMode.FeedBrowser
+        dialog.shareContent = photoContent
+        dialog.delegate = self
+        dialog.fromViewController = self
+        
+        dialog.show()
+        
         
         /*
          
@@ -100,6 +135,7 @@ class MenuController: UIViewController ,FBSDKSharingDelegate {
         
         //var shareUrl = "http://www.estcolathai.com/volleyballmobile/app_install.php";
         
+        /*
         let photoContent:FBSDKShareLinkContent = FBSDKShareLinkContent();
         
         photoContent.contentURL = contentURL;
@@ -118,11 +154,27 @@ class MenuController: UIViewController ,FBSDKSharingDelegate {
         dialog.fromViewController = self
         
         dialog.show()
+         */
         
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Button, action: .Clicked, label: "Share_menu")
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MenuController.enterFullScreen), name: UIWindowDidBecomeHiddenNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIWindowDidBecomeHiddenNotification, object: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Page, action: .Opened, label: "Menu Page")
+        
         if fromSegue == nil{
             fromSegue = SEGUE_STARTED_GAME
         }
@@ -207,5 +259,8 @@ class MenuController: UIViewController ,FBSDKSharingDelegate {
         print("didCompleteWithResults")
     }
     
+    func enterFullScreen() {
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Button, action: .Clicked, label: "PLAY VDO")
+    }
     
 }

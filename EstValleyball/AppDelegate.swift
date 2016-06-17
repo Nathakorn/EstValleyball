@@ -21,6 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AppsFlyerTracker.sharedTracker().appsFlyerDevKey = "vdVe9UxXnHjhUoKFT2HAnK"
         AppsFlyerTracker.sharedTracker().appleAppID = "1033833972"
+        
+        var configureError:NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        
+        // Optional: configure GAI options.
+        let gai = GAI.sharedInstance()
+        gai.trackUncaughtExceptions = true  // report uncaught exceptions
+        gai.logger.logLevel = GAILogLevel.Verbose  // remove before app release
 
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         // return true

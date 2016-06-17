@@ -13,6 +13,7 @@ class RuleController: UIViewController {
     @IBAction func goBackButton(sender: UIButton) {
         web.goBack()
     }
+    
     @IBOutlet weak var web: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,8 @@ class RuleController: UIViewController {
         } else {
             url = NSURL(string: "http://www.estcolathai.com/volleyballmobile/rule.html")
         }
+        
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Page, action: .Opened, label: "Rules & Condition Page")
         
         let request = NSURLRequest(URL: url!)
         web.loadRequest(request)        // Do any additional setup after loading the view.

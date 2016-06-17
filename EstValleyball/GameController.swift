@@ -16,6 +16,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
     var shareImg: String = ""
     var gid: String = ""
     
+    let keychain = KeychainSwift()
+    
     var dimBackgroundForNoPlay = UIImageView()
     var dimBackground = UIImageView()
     var result = UIImageView()
@@ -88,6 +90,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         self.numCountDown.animationDuration = 3
         self.numCountDown.animationRepeatCount = 1
         self.numCountDown.startAnimating()
+        
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Page, action: .Opened, label: "Countdown Before Start Game Page")
         
        //ball
        //NSTimer.scheduledTimerWithTimeInterval(4, target: self, selector: #selector(GameController.hitBall), userInfo: nil, repeats: false)
@@ -279,6 +283,9 @@ class GameController: UIViewController, FBSDKSharingDelegate {
     }
     
     func afterHitBall() {
+        
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Page, action: .Opened, label: "Game Page")
+        
         //var random = arc4random_uniform(80) + 10
         motionManager.stopAccelerometerUpdates()
         
@@ -492,6 +499,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         self.view.addSubview(dimBackground)
         self.view.sendSubviewToBack(resultView)
         
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Page, action: .Opened, label: "Result Page")
+        
         /*
         dispatch_async(dispatch_get_main_queue(), {
             
@@ -638,8 +647,45 @@ class GameController: UIViewController, FBSDKSharingDelegate {
     
     func fbShareResult(sender: UIButton) {
         
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Button, action: .Clicked, label: "Share")
+        
         if let _ = FBSDKAccessToken.currentAccessToken() {
-            self.shareFacebookResult()
+            // self.shareFacebookResult()
+            let request = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "email,gender,link,first_name,last_name"], HTTPMethod: "GET")
+            let connection = FBSDKGraphRequestConnection()
+            connection.addRequest(request, completionHandler: { (conn, result, error) -> Void in
+                if (error != nil) {
+                    print("\(error.localizedDescription)")
+                } else {
+                    var json = JSON(result)
+                    
+                    // var params = Dictionary<String, AnyObject>()
+                    
+                    if let firstname = json["first_name"].string {
+                        self.keychain.set(firstname, forKey: "firstname")
+                    }
+                    
+                    if let lastname = json["last_name"].string {
+                        self.keychain.set(lastname, forKey: "lastname")
+                    }
+                    
+                    if let email = json["email"].string {
+                        self.keychain.set(email, forKey: "email")
+                    }
+                    
+                    if let gender = json["gender"].string {
+                        self.keychain.set(gender, forKey: "gender")
+                    }
+                    
+                    if let link = json["link"].string {
+                        self.keychain.set(link, forKey: "link")
+                    }
+                    
+                    self.shareFacebookResult()
+                }
+            })
+            
+            connection.start()
         } else {
             let loginManager = FBSDKLoginManager()
             loginManager.logOut()
@@ -661,12 +707,12 @@ class GameController: UIViewController, FBSDKSharingDelegate {
                         "caller": "json"
                     ]
                     
-                    if let uid = KeychainSwift().get("uid") {
+                    if let uid = self.keychain.get("uid") {
                         parameters["fakefbuid"] = uid
                     }
                     
                     let fbuid = FBSDKAccessToken.currentAccessToken().userID
-                    KeychainSwift().set(fbuid, forKey: "uid")
+                    self.keychain.set(fbuid, forKey: "uid")
                     
                     parameters["fbuid"] = fbuid
                     
@@ -682,38 +728,40 @@ class GameController: UIViewController, FBSDKSharingDelegate {
                             
                             // var params = Dictionary<String, AnyObject>()
                             
-                            let keychain = KeychainSwift()
-                            
                             if let firstname = json["first_name"].string {
                                 parameters["firstname"] = json["first_name"].string
-                                keychain.set(firstname, forKey: "firstname")
+                                if self.keychain.set(firstname, forKey: "firstname") {
+                                    print("add success")
+                                } else {
+                                    print("add failed")
+                                }
                             }
                             
                             if let lastname = json["last_name"].string {
                                 parameters["lastname"] = json["last_name"].string
-                                keychain.set(lastname, forKey: "lastname")
+                                self.keychain.set(lastname, forKey: "lastname")
                             }
                             
                             if let email = json["email"].string {
                                 parameters["email"] = json["email"].string
-                                keychain.set(email, forKey: "email")
+                                self.keychain.set(email, forKey: "email")
                             }
                             
                             if let gender = json["gender"].string {
                                 parameters["gender"] = json["gender"].string
-                                keychain.set(gender, forKey: "gender")
+                                self.keychain.set(gender, forKey: "gender")
                             }
                             
                             if let link = json["link"].string {
-                                parameters["link"] = json["link"].string
-                                keychain.set(link, forKey: "link")
+                                parameters["profilelink"] = json["link"].string
+                                self.keychain.set(link, forKey: "link")
                             }
                             
                             for (key, value) in parameters {
                                 print("\(key): \(value)")
                             }
                             
-                            Alamofire.request(.POST, "http://www.estcolathai.com/volleyballmobile/api/mobile/saveShareToWall.aspx", parameters: parameters)
+                            Alamofire.request(.POST, "http://www.estcolathai.com/volleyballmobile/api/mobile/getinfoV3NonToken.aspx", parameters: parameters)
                             
                             self.shareFacebookResult()
                         }
@@ -842,35 +890,35 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         
         if currentMaxVelocity >= 90 && currentMaxVelocity < 100{
             sharePic.image = UIImage(named: "share1.png")
-            facebookCapView.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            facebookCapView.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 40.0/320*self.screenSize.width)
             self.facebookCap.layer.zPosition = 4000
             scoreForShare.frame = CGRectMake(205/320*self.screenSize.width, 75/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             scoreForShare.layer.zPosition = 4001
         }
         else if currentMaxVelocity >= 80 && currentMaxVelocity < 90{
             sharePic.image = UIImage(named: "share2.png")
-            facebookCapView.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            facebookCapView.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 40.0/320*self.screenSize.width)
             self.facebookCap.layer.zPosition = 4000
             scoreForShare.frame = CGRectMake(205/320*self.screenSize.width, 75/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             scoreForShare.layer.zPosition = 4001
         }
         else if currentMaxVelocity >= 70 && currentMaxVelocity < 80{
             sharePic.image = UIImage(named: "share3.png")
-            facebookCapView.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            facebookCapView.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 40.0/320*self.screenSize.width)
             self.facebookCap.layer.zPosition = 4000
             scoreForShare.frame = CGRectMake(205/320*self.screenSize.width, 75/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             scoreForShare.layer.zPosition = 4001
         }
         else if currentMaxVelocity >= 60 && currentMaxVelocity < 70{
             sharePic.image = UIImage(named: "share4.png")
-            facebookCapView.frame  = CGRectMake(70/320*self.screenSize.width, 95/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            facebookCapView.frame  = CGRectMake(70/320*self.screenSize.width, 95/568*self.screenSize.height,40.0/320*self.screenSize.width, 40.0/320*self.screenSize.width)
             self.facebookCap.layer.zPosition = 4000
             scoreForShare.frame = CGRectMake(125/320*self.screenSize.width, 80/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             scoreForShare.layer.zPosition = 4001
         }
         else if currentMaxVelocity < 60{
             sharePic.image = UIImage(named: "share5.png")
-            facebookCapView.frame  = CGRectMake(70/320*self.screenSize.width, 95/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            facebookCapView.frame  = CGRectMake(70/320*self.screenSize.width, 95/568*self.screenSize.height,40.0/320*self.screenSize.width, 40.0/320*self.screenSize.width)
             self.facebookCap.layer.zPosition = 4000
             scoreForShare.frame = CGRectMake(125/320*self.screenSize.width, 80/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             scoreForShare.layer.zPosition = 4001
@@ -896,40 +944,41 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         
         let imageData:NSData = UIImagePNGRepresentation(shareImage)!
         
-        var parameters = [
-            "imggallery": imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength),
-            "param1": String(currentMaxVelocity),
-            "param2": String(currentMaxVelocity),
-            "Param3": "sensor",
-            "access": "mobile",
-            "code": FBSDKAccessToken.currentAccessToken().tokenString,
-            "caller": "json"
-        ]
+        var parameters = Dictionary<String, AnyObject>()
         
-        let keychain = KeychainSwift()
+        parameters["imggallery"] = imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+        parameters["param1"] = String(currentMaxVelocity)
+        parameters["param2"] = String(currentMaxVelocity)
+        parameters["param3"] = "sensor"
+        parameters["access"] = "mobile"
+        parameters["code"] =  FBSDKAccessToken.currentAccessToken().tokenString
+        parameters["caller"] = "json"
+        parameters["fbuid"] = FBSDKAccessToken.currentAccessToken().userID
         
-        if let uid = keychain.get("uid") {
-            parameters["fbuid"] = uid
-        }
-        
-        if let firstname = keychain.get("firstname") {
+        if let firstname = self.keychain.get("firstname") {
             parameters["firstname"] = firstname
         }
         
-        if let lastname = keychain.get("lastname") {
+        if let lastname = self.keychain.get("lastname") {
             parameters["lastname"] = lastname
         }
         
-        if let email = keychain.get("email") {
+        if let email = self.keychain.get("email") {
             parameters["email"] = email
         }
         
-        if let gender = keychain.get("gender") {
+        if let gender = self.keychain.get("gender") {
             parameters["gender"] = gender
         }
         
-        if let link = keychain.get("link") {
-            parameters["link"] = link
+        if let link = self.keychain.get("link") {
+            parameters["profilelink"] = link
+        }
+        
+        for (key, value) in parameters {
+            if (key != "imggallery") {
+                print("submitGameNonToken with fbuid: \(key), \(value)")
+            }
         }
         
         self.shareButton.enabled = false
@@ -953,17 +1002,45 @@ class GameController: UIViewController, FBSDKSharingDelegate {
     }
     
     func goStartNewGame(sender: UIButton){
-        var parameters = [
-            "param1": String(currentMaxVelocity),
-            "param2": String(currentMaxVelocity),
-            "Param3": "sensor",
-            "access": "mobile",
-            "caller": "json"
-        ]
         
-        let keychain = KeychainSwift()
-        if let uid = keychain.get("uid") {
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Button, action: .Clicked, label: "Replay")
+        
+        var parameters = Dictionary<String, AnyObject>()
+        
+        parameters["param1"] = String(currentMaxVelocity)
+        parameters["param2"] = String(currentMaxVelocity)
+        parameters["param3"] = "sensor"
+        parameters["access"] = "mobile"
+        parameters["caller"] = "json"
+        
+        if let uid = self.keychain.get("uid") {
             parameters["fbuid"] = uid
+        }
+        
+        if let firstname = self.keychain.get("firstname") {
+            parameters["firstname"] = firstname
+        }
+        
+        if let lastname = self.keychain.get("lastname") {
+            parameters["lastname"] = lastname
+        }
+        
+        if let email = self.keychain.get("email") {
+            parameters["email"] = email
+        }
+        
+        if let gender = self.keychain.get("gender") {
+            parameters["gender"] = gender
+        }
+        
+        if let link = self.keychain.get("link") {
+            parameters["profilelink"] = link
+        }
+        
+        for (key, value) in parameters {
+            if (key != "imggallery") {
+                print("submitGameNonToken with fbuid: \(key), \(value)")
+            }
         }
         
         Alamofire.request(.POST, "http://www.estcolathai.com/volleyballmobile/api/mobile/submitGameNonToken.aspx", parameters: parameters).responseJSON
@@ -1010,6 +1087,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         self.numCountDown.animationDuration = 3
         self.numCountDown.animationRepeatCount = 1
         self.numCountDown.startAnimating()
+        
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Page, action: .Opened, label: "Countdown Before Start Game Page")
         
     }
     func playHitSound(){

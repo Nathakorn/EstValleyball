@@ -9,6 +9,8 @@
 #ifndef Est_Bridging_Header_h
 #define Est_Bridging_Header_h
 
+#import <Google/Analytics.h>
+
 #import "UICountingLabel.h"
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>

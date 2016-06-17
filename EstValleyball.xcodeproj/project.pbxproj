@@ -12,6 +12,9 @@
 		D0156DC01D142CA10083C326 /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0156DBF1D142CA10083C326 /* KeychainSwift.swift */; };
 		D0156DC31D142DF30083C326 /* Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0156DC21D142DF30083C326 /* Parameters.swift */; };
 		D0156DC51D1431360083C326 /* Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0156DC41D1431360083C326 /* Callback.swift */; };
+		D0156DC81D1451AA0083C326 /* EstValleyballHTTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0156DC71D1451AA0083C326 /* EstValleyballHTTPService.swift */; };
+		D0156DCA1D14574B0083C326 /* HowToPlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0156DC91D14574B0083C326 /* HowToPlayController.swift */; };
+		D0156DCC1D1457CC0083C326 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0156DCB1D1457CC0083C326 /* GoogleService-Info.plist */; };
 		D0698B531D09317C00854814 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B521D09317C00854814 /* AppDelegate.swift */; };
 		D0698B551D09317C00854814 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B541D09317C00854814 /* ViewController.swift */; };
 		D0698B5D1D09317C00854814 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0698B5B1D09317C00854814 /* LaunchScreen.storyboard */; };
@@ -56,6 +59,9 @@
 		D0156DBF1D142CA10083C326 /* KeychainSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainSwift.swift; sourceTree = "<group>"; };
 		D0156DC21D142DF30083C326 /* Parameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameters.swift; sourceTree = "<group>"; };
 		D0156DC41D1431360083C326 /* Callback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callback.swift; sourceTree = "<group>"; };
+		D0156DC71D1451AA0083C326 /* EstValleyballHTTPService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstValleyballHTTPService.swift; sourceTree = "<group>"; };
+		D0156DC91D14574B0083C326 /* HowToPlayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToPlayController.swift; sourceTree = "<group>"; };
+		D0156DCB1D1457CC0083C326 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D035F26D1D13A83800471D84 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "SwiftyJSON/build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		D0698B4F1D09317C00854814 /* est.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = est.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0698B521D09317C00854814 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,9 +137,18 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		D0156DC61D14519C0083C326 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D0156DC71D1451AA0083C326 /* EstValleyballHTTPService.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 		D0698B461D09317B00854814 = {
 			isa = PBXGroup;
 			children = (
+				D0156DCB1D1457CC0083C326 /* GoogleService-Info.plist */,
 				D09906AF1D0DF13B0049A99A /* estvalleyball.xcassets */,
 				D0698B511D09317C00854814 /* EstValleyball */,
 				D0698B501D09317C00854814 /* Products */,
@@ -153,6 +168,7 @@
 		D0698B511D09317C00854814 /* EstValleyball */ = {
 			isa = PBXGroup;
 			children = (
+				D0156DC61D14519C0083C326 /* Service */,
 				D0156DC11D142DE50083C326 /* Models */,
 				D0BE51EE1D140F16008EF7D2 /* Libraries */,
 				D0698B6B1D09566100854814 /* Fonts */,
@@ -162,9 +178,9 @@
 				D099047B1D0D8C6F0049A99A /* Main.storyboard */,
 				D0698B5B1D09317C00854814 /* LaunchScreen.storyboard */,
 				D0698B5E1D09317C00854814 /* Info.plist */,
-				D0698B671D09532700854814 /* Constants.swift */,
 				D0698B701D0AD97200854814 /* Est-Bridging-Header.h */,
 				D0698B711D0ADBD000854814 /* UICountingLabel.h */,
+				D0698B671D09532700854814 /* Constants.swift */,
 				D09904731D0C606E0049A99A /* Gyroscope.swift */,
 			);
 			path = EstValleyball;
@@ -181,6 +197,7 @@
 				D099047E1D0DADA00049A99A /* RuleController.swift */,
 				D09904801D0DBADD0049A99A /* YoutubeController.swift */,
 				D09904821D0DC4FB0049A99A /* WinnerController.swift */,
+				D0156DC91D14574B0083C326 /* HowToPlayController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -268,6 +285,7 @@
 			files = (
 				D0698B5D1D09317C00854814 /* LaunchScreen.storyboard in Resources */,
 				D0698B6F1D0AB82800854814 /* PSL053pro_0.ttf in Resources */,
+				D0156DCC1D1457CC0083C326 /* GoogleService-Info.plist in Resources */,
 				D09906B01D0DF13B0049A99A /* estvalleyball.xcassets in Resources */,
 				D099047D1D0D8C6F0049A99A /* Main.storyboard in Resources */,
 			);
@@ -334,6 +352,7 @@
 				D0698B531D09317C00854814 /* AppDelegate.swift in Sources */,
 				D09904831D0DC4FB0049A99A /* WinnerController.swift in Sources */,
 				D0156DC01D142CA10083C326 /* KeychainSwift.swift in Sources */,
+				D0156DC81D1451AA0083C326 /* EstValleyballHTTPService.swift in Sources */,
 				D0698B6A1D0954B900854814 /* StartGameController.swift in Sources */,
 				D09904761D0D76520049A99A /* ResultController.swift in Sources */,
 				D0156DC51D1431360083C326 /* Callback.swift in Sources */,
@@ -341,6 +360,7 @@
 				D09904811D0DBADD0049A99A /* YoutubeController.swift in Sources */,
 				D0698B661D094FB600854814 /* HomeController.swift in Sources */,
 				D0698B681D09532700854814 /* Constants.swift in Sources */,
+				D0156DCA1D14574B0083C326 /* HowToPlayController.swift in Sources */,
 				D0BE51F01D140F22008EF7D2 /* SwiftyJSON.swift in Sources */,
 				D099047F1D0DADA00049A99A /* RuleController.swift in Sources */,
 				D0AD3DC81D14272D009CBA82 /* Keychain.swift in Sources */,

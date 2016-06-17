@@ -57,8 +57,12 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var loginManager = FBSDKLoginManager()
-        loginManager.logOut()
+//        var loginManager = FBSDKLoginManager()
+//        loginManager.logOut()
+//        
+//        KeychainSwift().clear()
+ 
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Page, action: .Opened, label: "Home Page")
         
         Alamofire.request(.GET, "http://www.estcolathai.com/volleyballmobile/api/mobile/getDataInfo.aspx")
             .validate()
@@ -79,6 +83,7 @@ class HomeController: UIViewController {
                     
                     parameters["page_rule"] = json["page_rule"].string
                     parameters["page_winner"] = json["page_winner"].string
+                    parameters["page_howto"] = json["page_howto"].string
                     
                     for (key, value) in parameters {
                         print("\(key): \(value)")
@@ -107,7 +112,7 @@ class HomeController: UIViewController {
             print("uid: \(uid)")
         } else {
             print("currentAccessToken == nil")
-            if let _ = KeychainSwift().get("uid") {
+            if let uid = KeychainSwift().get("uid") where uid != "" {
             } else {
                 let keychain = KeychainSwift()
                 keychain.set(NSUUID().UUIDString, forKey: "uid")

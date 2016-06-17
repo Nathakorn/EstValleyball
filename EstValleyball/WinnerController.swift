@@ -25,6 +25,9 @@ class WinnerController: UIViewController {
 
         let request = NSURLRequest(URL: url!)
         winnerView.loadRequest(request)
+        
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Page, action: .Opened, label: "Announcer Page")
+        
         // Do any additional setup after loading the view.
     }
 

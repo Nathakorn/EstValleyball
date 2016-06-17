@@ -20,17 +20,36 @@ class YoutubeController: UIViewController {
         
         self.view.addSubview(self.youtubeView)
         
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(YoutubeController.enterFullScreen), name: UIWindowDidBecomeHiddenNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIWindowDidBecomeHiddenNotification, object: nil)
+    }
+    
     override func viewDidAppear(animated: Bool) {
-       let url = NSURL(string: "https://www.youtube.com/watch?v=" + youtubeID)
-        let request = NSURLRequest(URL: url!)
-        self.youtubeView.loadRequest(request)
+        
+        if let youtubeId = Parameters.instance.parameters["youtube"] {
+            let url = NSURL(string: "https://www.youtube.com/watch?v=" + youtubeId)
+            let request = NSURLRequest(URL: url!)
+            self.youtubeView.loadRequest(request)
+        }
+        
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Page, action: .Opened, label: "VDO Popup Page")
+    }
+    
+    func enterFullScreen() {
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Button, action: .Clicked, label: "PLAY VDO")
     }
 
     /*

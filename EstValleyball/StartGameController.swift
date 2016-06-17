@@ -28,22 +28,9 @@ class StartGameController: UIViewController {
     
     @IBOutlet weak var keepBall: UIImageView!
     var isImageBottom = true
+    
     func startGame() {
         self.performSegueWithIdentifier(SEGUE_STARTED_GAME, sender: nil)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        /*
-        Alamofire.request(.GET, "http://www.estcolathai.com/volleyballmobile/api/mobile/getDataInfo.aspx")
-            .validate()
-            .responseJSON { response in
-                debugPrint(response)
-                let respons = response as! NSDictionary
-                let result = respons.objectForKey("winner")! as! String
-                print(result)
-        }*/
         
         var parameters = Dictionary<String, AnyObject>()
         
@@ -52,6 +39,14 @@ class StartGameController: UIViewController {
         parameters["param2"] = "startgame"
         
         Alamofire.request(.GET, "http://www.estcolathai.com/volleyballmobile/api/mobile/applicationstatlog.aspx", parameters: parameters)
+        
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Button, action: .Clicked, label: "start")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Page, action: .Opened, label: "Start Game Page")
         
         let screenSize = UIScreen.mainScreen().bounds.size
         let buttonRect = CGRectMake(83.0/320.0*screenSize.width, 213.0/568.0*screenSize.height, 148.0/320.0*screenSize.width, 79.0/568.0*screenSize.height)
