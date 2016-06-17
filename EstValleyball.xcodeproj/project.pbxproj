@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		ABD5D20B1D11650C003B89D2 /* AppsFlyer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD5D20A1D11650C003B89D2 /* AppsFlyer.framework */; };
 		C5F730AB1EDBE27C6002F549 /* Pods_EstValleyball.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6EB32309C2C9B5308BCF582 /* Pods_EstValleyball.framework */; };
+		D0156DC01D142CA10083C326 /* KeychainSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0156DBF1D142CA10083C326 /* KeychainSwift.swift */; };
+		D0156DC31D142DF30083C326 /* Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0156DC21D142DF30083C326 /* Parameters.swift */; };
+		D0156DC51D1431360083C326 /* Callback.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0156DC41D1431360083C326 /* Callback.swift */; };
 		D0698B531D09317C00854814 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B521D09317C00854814 /* AppDelegate.swift */; };
 		D0698B551D09317C00854814 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B541D09317C00854814 /* ViewController.swift */; };
 		D0698B5D1D09317C00854814 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0698B5B1D09317C00854814 /* LaunchScreen.storyboard */; };
@@ -50,6 +53,9 @@
 		AB6E662FC22F19D8059234B6 /* Pods-EstValleyball.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EstValleyball.release.xcconfig"; path = "Pods/Target Support Files/Pods-EstValleyball/Pods-EstValleyball.release.xcconfig"; sourceTree = "<group>"; };
 		ABD5D20A1D11650C003B89D2 /* AppsFlyer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppsFlyer.framework; sourceTree = "<group>"; };
 		B6EB32309C2C9B5308BCF582 /* Pods_EstValleyball.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EstValleyball.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0156DBF1D142CA10083C326 /* KeychainSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainSwift.swift; sourceTree = "<group>"; };
+		D0156DC21D142DF30083C326 /* Parameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parameters.swift; sourceTree = "<group>"; };
+		D0156DC41D1431360083C326 /* Callback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Callback.swift; sourceTree = "<group>"; };
 		D035F26D1D13A83800471D84 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "SwiftyJSON/build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		D0698B4F1D09317C00854814 /* est.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = est.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0698B521D09317C00854814 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +122,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D0156DC11D142DE50083C326 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D0156DC21D142DF30083C326 /* Parameters.swift */,
+				D0156DC41D1431360083C326 /* Callback.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		D0698B461D09317B00854814 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +153,7 @@
 		D0698B511D09317C00854814 /* EstValleyball */ = {
 			isa = PBXGroup;
 			children = (
+				D0156DC11D142DE50083C326 /* Models */,
 				D0BE51EE1D140F16008EF7D2 /* Libraries */,
 				D0698B6B1D09566100854814 /* Fonts */,
 				D0698B641D094F5700854814 /* Controllers */,
@@ -182,6 +198,7 @@
 			children = (
 				D0BE51EF1D140F22008EF7D2 /* SwiftyJSON.swift */,
 				D0AD3DC71D14272D009CBA82 /* Keychain.swift */,
+				D0156DBF1D142CA10083C326 /* KeychainSwift.swift */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -316,8 +333,10 @@
 				D0698B6D1D0A804000854814 /* GameController.swift in Sources */,
 				D0698B531D09317C00854814 /* AppDelegate.swift in Sources */,
 				D09904831D0DC4FB0049A99A /* WinnerController.swift in Sources */,
+				D0156DC01D142CA10083C326 /* KeychainSwift.swift in Sources */,
 				D0698B6A1D0954B900854814 /* StartGameController.swift in Sources */,
 				D09904761D0D76520049A99A /* ResultController.swift in Sources */,
+				D0156DC51D1431360083C326 /* Callback.swift in Sources */,
 				D09904741D0C606E0049A99A /* Gyroscope.swift in Sources */,
 				D09904811D0DBADD0049A99A /* YoutubeController.swift in Sources */,
 				D0698B661D094FB600854814 /* HomeController.swift in Sources */,
@@ -325,6 +344,7 @@
 				D0BE51F01D140F22008EF7D2 /* SwiftyJSON.swift in Sources */,
 				D099047F1D0DADA00049A99A /* RuleController.swift in Sources */,
 				D0AD3DC81D14272D009CBA82 /* Keychain.swift in Sources */,
+				D0156DC31D142DF30083C326 /* Parameters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,13 +23,8 @@ class StartGameController: UIViewController {
         if(segue.identifier == "showedMenu"){
             let destination = segue.destinationViewController as! MenuController
             destination.fromSegue = SEGUE_STARTED_GAME
-            //self.performSegueWithIdentifier(SEGUE_SHOW_MENU, sender: nil)
         }
     }
-    /*
-    @IBAction func goMenu(sender: UIButton) {
-        self.performSegueWithIdentifier(SEGUE_SHOW_MENU, sender: nil)
-    }*/
     
     @IBOutlet weak var keepBall: UIImageView!
     var isImageBottom = true
@@ -37,17 +32,9 @@ class StartGameController: UIViewController {
         self.performSegueWithIdentifier(SEGUE_STARTED_GAME, sender: nil)
     }
     
-    /*
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }*/
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         /*
         Alamofire.request(.GET, "http://www.estcolathai.com/volleyballmobile/api/mobile/getDataInfo.aspx")
             .validate()
@@ -57,6 +44,15 @@ class StartGameController: UIViewController {
                 let result = respons.objectForKey("winner")! as! String
                 print(result)
         }*/
+        
+        var parameters = Dictionary<String, AnyObject>()
+        
+        parameters["stat"] = "estvolleyball"
+        parameters["param1"] = "ios"
+        parameters["param2"] = "startgame"
+        
+        Alamofire.request(.GET, "http://www.estcolathai.com/volleyballmobile/api/mobile/applicationstatlog.aspx", parameters: parameters)
+        
         let screenSize = UIScreen.mainScreen().bounds.size
         let buttonRect = CGRectMake(83.0/320.0*screenSize.width, 213.0/568.0*screenSize.height, 148.0/320.0*screenSize.width, 79.0/568.0*screenSize.height)
         
@@ -72,13 +68,10 @@ class StartGameController: UIViewController {
         self.view.addSubview(self.normalButton)
         self.view.addSubview(self.blinkButton)
         self.view.addSubview(self.start)
-        
-        
     }
-    override func viewDidAppear(animated: Bool) {
-        
-        //var customFrame = keepBall.frame
-        //bright start button
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         UIView.animateWithDuration(0.4, delay: 0.0, options: [UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.Repeat], animations: {
             self.blinkButton.alpha = 0.2
             }, completion: { finished in
@@ -98,26 +91,9 @@ class StartGameController: UIViewController {
                 keepBall.frame = originFrame
             }, completion: { finished in
         })
-        /*
-        self.startButton.imageView?.animationImages = [
-            UIImage(named:"img_light.png")!,
-            UIImage(named:"11.png")!
-        ]
-        self.startButton.imageView?.animationDuration = 1
-        self.startButton.imageView?.animationRepeatCount = 3
-        self.startButton.imageView?.startAnimating()
-        */
-        /*
-        UIView.animateWithDuration(1.0,
-            animations: {
-         
-            }, completion: { finished in
-                
-        })
-        */
-        //keepBall.frame = customFrame
-        //keepBall.image = UIImage(named: "07" )
-        //isImageLeftSide = !isImageLeftSide
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         // Do any additional setup after loading the view.
     }
     override func didReceiveMemoryWarning() {

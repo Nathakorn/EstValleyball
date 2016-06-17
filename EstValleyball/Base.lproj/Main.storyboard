@@ -46,7 +46,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="frontText" destination="8MN-t5-xTh" id="ud1-UX-AZd"/>
+                        <outlet property="frontText" destination="8MN-t5-xTh" id="VBs-kJ-PA8"/>
                         <outlet property="homeBackground" destination="xSG-l9-aTV" id="7Th-wS-gxe"/>
                         <segue destination="ZXy-X5-IS0" kind="show" identifier="loggedIn" id="ZvM-I7-OUD"/>
                     </connections>
@@ -877,7 +877,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="D3711B63-0DA6-41FD-876D-5503732BD605" translatesAutoresizingMaskIntoConstraints="NO" id="2y1-7C-NLY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="361B2BDD-D899-42BF-AB43-B1EBC56B7906" translatesAutoresizingMaskIntoConstraints="NO" id="2y1-7C-NLY">
                                 <rect key="frame" x="13" y="438" width="294" height="122"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2y1-7C-NLY" secondAttribute="height" multiplier="147:61" id="N61-II-CIo"/>
@@ -911,7 +911,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="D3711B63-0DA6-41FD-876D-5503732BD605" width="608" height="293">
+        <image name="361B2BDD-D899-42BF-AB43-B1EBC56B7906" width="608" height="293">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -12797,7 +12797,7 @@ AmAAAAEBAAMAAAABASUAAAECAAMAAAAEAArgNgEDAAMAAAABAAEAAAEGAAMAAAABAAIAAAERAAQAAAAG
 AArgVgESAAMAAAABAAEAAAEVAAMAAAABAAQAAAEWAAMAAAABADUAAAEXAAQAAAAGAArgPgEcAAMAAAAB
 AAEAAAFSAAMAAAABAAIAAAFTAAMAAAAEAArgbodzAAcAAAxIAArgdgAAAAAACAAIAAgACAAB94AAAfeA
 AAH3gAAB94AAAfeAAAEKAAAAAAgAAfeIAAPvCAAF5ogAB94IAAnViAABAAEAAQABAAAMSExpbm8CEAAA
-bW50clJHQiBYWVogB84AAgAJAAYAMQAAYWNzcE1TRlQAAAAASUVDIHNSR0IAAAAAAAAAAAAAAAAAAPbW
+bW50clJHQiBYWVogB84AAgAJAAYAMQAAYWNzcE1TRlQAAAAASUVDIHNSR0IAAAAAAAAAAAAAAAEAAPbW
 AAEAAAAA0y1IUCAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR
 Y3BydAAAAVAAAAAzZGVzYwAAAYQAAABsd3RwdAAAAfAAAAAUYmtwdAAAAgQAAAAUclhZWgAAAhgAAAAU
 Z1hZWgAAAiwAAAAUYlhZWgAAAkAAAAAUZG1uZAAAAlQAAABwZG1kZAAAAsQAAACIdnVlZAAAA0wAAACG
@@ -12874,10 +12874,10 @@ PgAAAAAAAAAAAAAAAAAK7lk
         <image name="startedGame_bg" width="1242" height="2208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CNh-1t-eEh"/>
         <segue reference="jld-tC-7eH"/>
+        <segue reference="CNh-1t-eEh"/>
         <segue reference="Ay4-Xt-w7u"/>
-        <segue reference="4Gl-ow-BtX"/>
         <segue reference="6nw-w1-TWr"/>
+        <segue reference="ZvM-I7-OUD"/>
     </inferredMetricsTieBreakers>
 </document>

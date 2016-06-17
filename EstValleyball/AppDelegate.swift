@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppsFlyerTracker.sharedTracker().appsFlyerDevKey = "vdVe9UxXnHjhUoKFT2HAnK"
         AppsFlyerTracker.sharedTracker().appleAppID = "1033833972"
 
-        
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         // return true
     }

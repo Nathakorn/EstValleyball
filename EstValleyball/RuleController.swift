@@ -16,7 +16,15 @@ class RuleController: UIViewController {
     @IBOutlet weak var web: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = NSURL(string: "http://www.estcolathai.com/volleyballmobile/rule.html")
+        
+        var url: NSURL?
+        
+        if let urlString = Parameters.instance.parameters["page_rule"] {
+            url = NSURL(string: urlString)
+        } else {
+            url = NSURL(string: "http://www.estcolathai.com/volleyballmobile/rule.html")
+        }
+        
         let request = NSURLRequest(URL: url!)
         web.loadRequest(request)        // Do any additional setup after loading the view.
     }

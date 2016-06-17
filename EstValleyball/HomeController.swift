@@ -10,15 +10,16 @@ import UIKit
 import Alamofire
 class HomeController: UIViewController {
     
-    @IBOutlet weak var frontText: UIImageView!
     @IBOutlet weak var homeBackground: UIImageView!
-    @IBOutlet weak var brightLogin: UIImageView!
-    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var frontText: UIImageView!
     
     var ballView = UIImageView()
     var normalButton = UIImageView()
     var blinkButton = UIImageView()
     var login = UIButton()
+    
+    var tapGesture: UITapGestureRecognizer?
+    var tapGestureView = UIView()
     
     func loginFacebook() {
         
@@ -47,34 +48,85 @@ class HomeController: UIViewController {
         })
     
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var loginManager = FBSDKLoginManager()
+        loginManager.logOut()
+        
         Alamofire.request(.GET, "http://www.estcolathai.com/volleyballmobile/api/mobile/getDataInfo.aspx")
             .validate()
             .responseJSON { response in
-                let json = JSON(data: response.data!)
-                youtubeID = json["youtube"].stringValue
-                linkWinnerPage = json["page_winner"].stringValue
-                winnerNotiCount = json["page_winner"].intValue
-
-                //print(name)
+                if let data = response.data {
+                    let json = JSON(data: data)
+                    var parameters = Parameters.instance.parameters
+                    
+                    parameters["appactive"] = json["appactive"].string
+                    
+                    parameters["youtube"] = json["youtube"].string
+                    
+                    parameters["share_url"] = json["share_url"].string
+                    parameters["share_title"] = json["share_title"].string
+                    parameters["share_description"] = json["share_description"].string
+                    parameters["share_image"] = json["share_image"].string
+                    parameters["shareresult_url"] = json["shareresult_url"].string
+                    
+                    parameters["page_rule"] = json["page_rule"].string
+                    parameters["page_winner"] = json["page_winner"].string
+                    
+                    for (key, value) in parameters {
+                        print("\(key): \(value)")
+                    }
+                }
         }
         
+        var parameters = Dictionary<String, AnyObject>()
+        
+        parameters["stat"] = "estvolleyball"
+        parameters["param1"] = "ios"
+        parameters["param2"] = "openapp"
+        
+        Alamofire.request(.GET, "http://www.estcolathai.com/volleyballmobile/api/mobile/applicationstatlog.aspx", parameters: parameters)
+        
+        self.tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeController.tapGestureHandler))
+        self.tapGestureView.frame = CGRectMake(0.0, 0.0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height)
+        self.tapGestureView.backgroundColor = UIColor.clearColor()
+        if let tapGesture = self.tapGesture {
+            self.tapGestureView.addGestureRecognizer(tapGesture)
+        }
+        
+        if let _ = FBSDKAccessToken.currentAccessToken() {
+            print("currentAccessToken != nil")
+            let uid = KeychainSwift().get("uid")
+            print("uid: \(uid)")
+        } else {
+            print("currentAccessToken == nil")
+            let keychain = KeychainSwift()
+            keychain.set(NSUUID().UUIDString, forKey: "uid")
+        }
+        
+        
+        
         let screenSize = UIScreen.mainScreen().bounds.size
-        let loginManager = FBSDKLoginManager()
-        loginManager.logOut()
-        homeBackground.layer.zPosition = 1
-        frontText.layer.zPosition = 3
+        
+        self.homeBackground.layer.zPosition = 1
+        self.frontText.layer.zPosition = 3
         
         if (screenSize.height == 480.0 || screenSize.height == 1024.0){
             print("iphone4s/ipad")
-            ballView.frame = CGRectMake(100.0/320.0*screenSize.width, -71.0/480.0*screenSize.height, 403.0/320.0*screenSize.width, 399.0/480.0*screenSize.height)
+            self.ballView.frame = CGRectMake(100.0/320.0*screenSize.width, -71.0/480.0*screenSize.height, 403.0/320.0*screenSize.width, 399.0/480.0*screenSize.height)
         }else{
             print("iphone5,6,6plus")
-            ballView.frame = CGRectMake(100.0/320.0*screenSize.width, -71.0/568.0*screenSize.height, 403.0/320.0*screenSize.width, 399.0/568.0*screenSize.height)
+            self.ballView.frame = CGRectMake(100.0/320.0*screenSize.width, -71.0/568.0*screenSize.height, 403.0/320.0*screenSize.width, 399.0/568.0*screenSize.height)
         }
-        ballView.layer.zPosition = 2
-        self.view.addSubview(ballView)
+        self.ballView.layer.zPosition = 2
+        self.view.addSubview(self.ballView)
         self.ballView.animationImages = [
             UIImage(named:"volleyball_001.png")!,
             UIImage(named:"volleyball_002.png")!,
@@ -101,15 +153,6 @@ class HomeController: UIViewController {
         self.ballView.animationDuration = 1.5
         self.ballView.startAnimating()
         
-        /*
-        let fontFamilyNames = UIFont.familyNames()
-        for familyName in fontFamilyNames {
-            print("------------------------------")
-            print("Font Family Name = [\(familyName)]")
-            let names = UIFont.fontNamesForFamilyName(familyName )
-            print("Font Names = [\(names)]")
-        }*/
-        
         var buttonRect = CGRect()
         
         print(screenSize.height)
@@ -133,47 +176,29 @@ class HomeController: UIViewController {
         normalButton.layer.zPosition = 4
         blinkButton.layer.zPosition = 5
         login.layer.zPosition = 6
-//        self.view.addSubview(self.normalButton)
-//        self.view.addSubview(self.blinkButton)
-//        self.view.addSubview(self.login)
-//        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        print("viewWillAppear")
-        
-        if (FBSDKAccessToken.currentAccessToken() != nil) {
-            self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
-        } else {
-            
-        }
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        print("viewDidAppear")
-        
         UIView.animateWithDuration(0.4, delay: 0.0, options: [UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.Repeat], animations: {
                 self.blinkButton.alpha = 0.2
             }, completion: { finished in
         })
-        NSTimer.scheduledTimerWithTimeInterval(3.5, target: self, selector: #selector(goStartGame), userInfo: nil, repeats: false)
-//
-//        if (FBSDKAccessToken.currentAccessToken() != nil) {
-//            self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
-//        } else {
-//            
-//        }
+        NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(goStartGame), userInfo: nil, repeats: false)
+        self.view.addSubview(self.tapGestureView)
     }
+    
     func goStartGame(){
         self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
+    func tapGestureHandler() {
+        self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+    }
 
     /*
     // MARK: - Navigation
