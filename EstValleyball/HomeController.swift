@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
 class HomeController: UIViewController {
     
     @IBOutlet weak var frontText: UIImageView!

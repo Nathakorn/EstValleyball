@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		ABD5D20B1D11650C003B89D2 /* AppsFlyer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD5D20A1D11650C003B89D2 /* AppsFlyer.framework */; };
 		C5F730AB1EDBE27C6002F549 /* Pods_EstValleyball.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6EB32309C2C9B5308BCF582 /* Pods_EstValleyball.framework */; };
-		D035F26E1D13A83800471D84 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D035F26D1D13A83800471D84 /* SwiftyJSON.framework */; };
 		D0698B531D09317C00854814 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B521D09317C00854814 /* AppDelegate.swift */; };
 		D0698B551D09317C00854814 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B541D09317C00854814 /* ViewController.swift */; };
 		D0698B5D1D09317C00854814 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0698B5B1D09317C00854814 /* LaunchScreen.storyboard */; };
@@ -82,7 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D035F26E1D13A83800471D84 /* SwiftyJSON.framework in Frameworks */,
 				D09906B61D0E708E0049A99A /* FBSDKShareKit.framework in Frameworks */,
 				C5F730AB1EDBE27C6002F549 /* Pods_EstValleyball.framework in Frameworks */,
 				D09906B41D0E708E0049A99A /* FBSDKCoreKit.framework in Frameworks */,
