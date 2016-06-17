@@ -10,8 +10,6 @@
 		ABD5D20B1D11650C003B89D2 /* AppsFlyer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABD5D20A1D11650C003B89D2 /* AppsFlyer.framework */; };
 		C5F730AB1EDBE27C6002F549 /* Pods_EstValleyball.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6EB32309C2C9B5308BCF582 /* Pods_EstValleyball.framework */; };
 		D035F26E1D13A83800471D84 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D035F26D1D13A83800471D84 /* SwiftyJSON.framework */; };
-		D035F2731D13AABE00471D84 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D035F26F1D13A88700471D84 /* SwiftyJSON.framework */; };
-		D035F2741D13AABE00471D84 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D035F26F1D13A88700471D84 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D0698B531D09317C00854814 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B521D09317C00854814 /* AppDelegate.swift */; };
 		D0698B551D09317C00854814 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0698B541D09317C00854814 /* ViewController.swift */; };
 		D0698B5D1D09317C00854814 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0698B5B1D09317C00854814 /* LaunchScreen.storyboard */; };
@@ -31,6 +29,7 @@
 		D09906B41D0E708E0049A99A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09906B11D0E708E0049A99A /* FBSDKCoreKit.framework */; };
 		D09906B51D0E708E0049A99A /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09906B21D0E708E0049A99A /* FBSDKLoginKit.framework */; };
 		D09906B61D0E708E0049A99A /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09906B31D0E708E0049A99A /* FBSDKShareKit.framework */; };
+		D0BE51F01D140F22008EF7D2 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BE51EF1D140F22008EF7D2 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,7 +39,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D035F2741D13AABE00471D84 /* SwiftyJSON.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,7 +51,6 @@
 		ABD5D20A1D11650C003B89D2 /* AppsFlyer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppsFlyer.framework; sourceTree = "<group>"; };
 		B6EB32309C2C9B5308BCF582 /* Pods_EstValleyball.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EstValleyball.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D035F26D1D13A83800471D84 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "SwiftyJSON/build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
-		D035F26F1D13A88700471D84 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = SwiftyJSON.framework; path = "/Users/nathakorn/Library/Developer/Xcode/DerivedData/EstValleyball-cajiniwfniuqnteocytaiodykanu/Build/Products/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<absolute>"; };
 		D0698B4F1D09317C00854814 /* est.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = est.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0698B521D09317C00854814 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0698B541D09317C00854814 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +74,7 @@
 		D09906B11D0E708E0049A99A /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		D09906B21D0E708E0049A99A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		D09906B31D0E708E0049A99A /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		D0BE51EF1D140F22008EF7D2 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +83,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D035F26E1D13A83800471D84 /* SwiftyJSON.framework in Frameworks */,
-				D035F2731D13AABE00471D84 /* SwiftyJSON.framework in Frameworks */,
 				D09906B61D0E708E0049A99A /* FBSDKShareKit.framework in Frameworks */,
 				C5F730AB1EDBE27C6002F549 /* Pods_EstValleyball.framework in Frameworks */,
 				D09906B41D0E708E0049A99A /* FBSDKCoreKit.framework in Frameworks */,
@@ -122,7 +119,6 @@
 		D0698B461D09317B00854814 = {
 			isa = PBXGroup;
 			children = (
-				D035F26F1D13A88700471D84 /* SwiftyJSON.framework */,
 				D09906AF1D0DF13B0049A99A /* estvalleyball.xcassets */,
 				D0698B511D09317C00854814 /* EstValleyball */,
 				D0698B501D09317C00854814 /* Products */,
@@ -142,6 +138,7 @@
 		D0698B511D09317C00854814 /* EstValleyball */ = {
 			isa = PBXGroup;
 			children = (
+				D0BE51EE1D140F16008EF7D2 /* Libraries */,
 				D0698B6B1D09566100854814 /* Fonts */,
 				D0698B641D094F5700854814 /* Controllers */,
 				D0698B521D09317C00854814 /* AppDelegate.swift */,
@@ -178,6 +175,14 @@
 				D0698B6E1D0AB82800854814 /* PSL053pro_0.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		D0BE51EE1D140F16008EF7D2 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				D0BE51EF1D140F22008EF7D2 /* SwiftyJSON.swift */,
+			);
+			name = Libraries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +321,7 @@
 				D09904811D0DBADD0049A99A /* YoutubeController.swift in Sources */,
 				D0698B661D094FB600854814 /* HomeController.swift in Sources */,
 				D0698B681D09532700854814 /* Constants.swift in Sources */,
+				D0BE51F01D140F22008EF7D2 /* SwiftyJSON.swift in Sources */,
 				D099047F1D0DADA00049A99A /* RuleController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
