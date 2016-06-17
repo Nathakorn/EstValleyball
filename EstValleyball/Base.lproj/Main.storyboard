@@ -324,7 +324,7 @@
                                     <constraint firstAttribute="width" constant="44" id="Ppz-QJ-quv"/>
                                     <constraint firstAttribute="height" constant="44" id="j8U-XZ-AUZ"/>
                                 </constraints>
-                                <state key="normal" image="65D4455C-7436-4179-AACC-1D8BA4706094"/>
+                                <state key="normal" image="8A6E75A5-BE2A-46B2-BC1A-1271B7D9CC33"/>
                                 <connections>
                                     <action selector="goStartGame:" destination="Nul-UZ-cfi" eventType="touchUpInside" id="F0r-rH-lr9"/>
                                 </connections>
@@ -892,7 +892,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="85372F56-1046-45A4-A55D-94D1F5817452" translatesAutoresizingMaskIntoConstraints="NO" id="2y1-7C-NLY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CBB4C6B1-21FA-483D-B2AD-7F5BE2C4A267" translatesAutoresizingMaskIntoConstraints="NO" id="2y1-7C-NLY">
                                 <rect key="frame" x="13" y="438" width="294" height="122"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2y1-7C-NLY" secondAttribute="height" multiplier="147:61" id="N61-II-CIo"/>
@@ -926,7 +926,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="65D4455C-7436-4179-AACC-1D8BA4706094" width="183" height="183">
+        <image name="8A6E75A5-BE2A-46B2-BC1A-1271B7D9CC33" width="183" height="183">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -3168,7 +3168,7 @@ AAAAAAAAAAAAAAAOAQAAAwAAAAEAtwAAAQEAAwAAAAEAtwAAAQIAAwAAAAQAAgv6AQMAAwAAAAEAAQAA
 AQYAAwAAAAEAAgAAAREABAAAAAIAAgwKARIAAwAAAAEAAQAAARUAAwAAAAEABAAAARYAAwAAAAEAswAA
 ARcABAAAAAIAAgwCARwAAwAAAAEAAQAAAVIAAwAAAAEAAgAAAVMAAwAAAAQAAgwSh3MABwAADEgAAgwa
 AAAAAAAIAAgACAAIAAH/1AAAC3AAAAAIAAH/3AABAAEAAQABAAAMSExpbm8CEAAAbW50clJHQiBYWVog
-B84AAgAJAAYAMQAAYWNzcE1TRlQAAAAASUVDIHNSR0IAAAAAAAAAAAAAAAEAAPbWAAEAAAAA0y1IUCAg
+B84AAgAJAAYAMQAAYWNzcE1TRlQAAAAASUVDIHNSR0IAAAAAAAAAAAAAAAAAAPbWAAEAAAAA0y1IUCAg
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARY3BydAAAAVAAAAAz
 ZGVzYwAAAYQAAABsd3RwdAAAAfAAAAAUYmtwdAAAAgQAAAAUclhZWgAAAhgAAAAUZ1hZWgAAAiwAAAAU
 YlhZWgAAAkAAAAAUZG1uZAAAAlQAAABwZG1kZAAAAsQAAACIdnVlZAAAA0wAAACGdmlldwAAA9QAAAAk
@@ -3231,7 +3231,7 @@ xgACGc4AAhnRAAIZ1gACGd4AAhnhAAIZ8wACGfYAAhn7AAAAAAAABAEAAAAAAAAAPgAAAAAAAAAAAAAA
 AAACGf0
 </mutableData>
         </image>
-        <image name="85372F56-1046-45A4-A55D-94D1F5817452" width="608" height="293">
+        <image name="CBB4C6B1-21FA-483D-B2AD-7F5BE2C4A267" width="608" height="293">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -15117,7 +15117,7 @@ AmAAAAEBAAMAAAABASUAAAECAAMAAAAEAArgNgEDAAMAAAABAAEAAAEGAAMAAAABAAIAAAERAAQAAAAG
 AArgVgESAAMAAAABAAEAAAEVAAMAAAABAAQAAAEWAAMAAAABADUAAAEXAAQAAAAGAArgPgEcAAMAAAAB
 AAEAAAFSAAMAAAABAAIAAAFTAAMAAAAEAArgbodzAAcAAAxIAArgdgAAAAAACAAIAAgACAAB94AAAfeA
 AAH3gAAB94AAAfeAAAEKAAAAAAgAAfeIAAPvCAAF5ogAB94IAAnViAABAAEAAQABAAAMSExpbm8CEAAA
-bW50clJHQiBYWVogB84AAgAJAAYAMQAAYWNzcE1TRlQAAAAASUVDIHNSR0IAAAAAAAAAAAAAAAEAAPbW
+bW50clJHQiBYWVogB84AAgAJAAYAMQAAYWNzcE1TRlQAAAAASUVDIHNSR0IAAAAAAAAAAAAAAAAAAPbW
 AAEAAAAA0y1IUCAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR
 Y3BydAAAAVAAAAAzZGVzYwAAAYQAAABsd3RwdAAAAfAAAAAUYmtwdAAAAgQAAAAUclhZWgAAAhgAAAAU
 Z1hZWgAAAiwAAAAUYlhZWgAAAkAAAAAUZG1uZAAAAlQAAABwZG1kZAAAAsQAAACIdnVlZAAAA0wAAACG
@@ -15194,10 +15194,10 @@ PgAAAAAAAAAAAAAAAAAK7lk
         <image name="startedGame_bg" width="1242" height="2208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZvM-I7-OUD"/>
-        <segue reference="XtU-lX-PV5"/>
-        <segue reference="r6E-wv-YSm"/>
-        <segue reference="jU9-Hj-2nh"/>
+        <segue reference="EY3-PX-fN5"/>
         <segue reference="i93-76-0cj"/>
+        <segue reference="EnW-fF-QvJ"/>
+        <segue reference="D5d-Cg-9MS"/>
+        <segue reference="ic1-vV-h3l"/>
     </inferredMetricsTieBreakers>
 </document>

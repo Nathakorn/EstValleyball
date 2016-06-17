@@ -13,7 +13,7 @@ class WinnerController: UIViewController {
     @IBOutlet weak var winnerView: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = NSURL(string: "http://www.estcolathai.com/volleyballmobile/winner.aspx")
+        let url = NSURL(string: linkWinnerPage)
         let request = NSURLRequest(URL: url!)
         winnerView.loadRequest(request)
         // Do any additional setup after loading the view.

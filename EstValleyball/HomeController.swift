@@ -54,8 +54,11 @@ class HomeController: UIViewController {
             .validate()
             .responseJSON { response in
                 let json = JSON(data: response.data!)
-                let name = json["youtube"].stringValue
-                print(name)
+                youtubeID = json["youtube"].stringValue
+                linkWinnerPage = json["page_winner"].stringValue
+                winnerNotiCount = json["page_winner"].intValue
+
+                //print(name)
         }
         
         let screenSize = UIScreen.mainScreen().bounds.size

@@ -29,13 +29,7 @@ class YoutubeController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     override func viewDidAppear(animated: Bool) {
-        Alamofire.request(.GET, "http://www.estcolathai.com/volleyballmobile/api/mobile/getDataInfo.aspx")
-            .validate()
-            .responseJSON { response in
-                debugPrint(response)
-        }
-        print("korn")
-        let url = NSURL(string: "https://www.youtube.com/watch?v=SSDvPawnuJE")
+       let url = NSURL(string: "https://www.youtube.com/watch?v=" + youtubeID)
         let request = NSURLRequest(URL: url!)
         self.youtubeView.loadRequest(request)
     }

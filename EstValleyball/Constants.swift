@@ -18,6 +18,9 @@ let SEGUE_STARTED_GAME = "startedGame"
 let SEGUE_SHOW_RESULT = "showedResult"
 let SEGUE_SHOW_MENU = "showedMenu"
 let SEGUE_SHOW_GAME = "showedGame"
+var youtubeID = String()
+var linkWinnerPage = String()
+var winnerNotiCount = Int()
 
 
 let SEGUE_GOBACK_STARTED_GAME = "goBackStartedGame"

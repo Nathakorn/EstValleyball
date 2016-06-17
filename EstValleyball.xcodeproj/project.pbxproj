@@ -85,10 +85,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D035F26E1D13A83800471D84 /* SwiftyJSON.framework in Frameworks */,
+				D035F2731D13AABE00471D84 /* SwiftyJSON.framework in Frameworks */,
 				D09906B61D0E708E0049A99A /* FBSDKShareKit.framework in Frameworks */,
 				C5F730AB1EDBE27C6002F549 /* Pods_EstValleyball.framework in Frameworks */,
 				D09906B41D0E708E0049A99A /* FBSDKCoreKit.framework in Frameworks */,
-				D035F2731D13AABE00471D84 /* SwiftyJSON.framework in Frameworks */,
 				ABD5D20B1D11650C003B89D2 /* AppsFlyer.framework in Frameworks */,
 				D09906B51D0E708E0049A99A /* FBSDKLoginKit.framework in Frameworks */,
 			);
