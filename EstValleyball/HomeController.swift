@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
 class HomeController: UIViewController {
     
     @IBOutlet weak var frontText: UIImageView!
@@ -50,6 +49,7 @@ class HomeController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         Alamofire.request(.GET, "http://www.estcolathai.com/volleyballmobile/api/mobile/getDataInfo.aspx")
             .validate()
             .responseJSON { response in
@@ -60,6 +60,22 @@ class HomeController: UIViewController {
 
                 //print(name)
         }
+        
+        /*
+        Alamofire.request(.GET, "http://www.estcolathai.com/volleyballmobile/api/mobile/getDataInfo.aspx")
+            .validate()
+            .responseJSON { response in
+                switch response.result {
+                case .Success:
+                    if let value = response.result.value {
+                        let json = JSON(value)
+                        print("JSON: \(json)")
+                    }
+                case .Failure(let error):
+                    print(error)
+                }
+        }
+        */
         
         let screenSize = UIScreen.mainScreen().bounds.size
         let loginManager = FBSDKLoginManager()

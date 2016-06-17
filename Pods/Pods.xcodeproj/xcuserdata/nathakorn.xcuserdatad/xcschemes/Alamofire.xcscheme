@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "79C040AFDDCE1BCBF6D8B5EB0B85887F"
                BuildableName = "Alamofire.framework"
-               BlueprintName = "AlamofireI"
+               BlueprintName = "AlamofireJ"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,7 +47,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "79C040AFDDCE1BCBF6D8B5EB0B85887F"
             BuildableName = "Alamofire.framework"
-            BlueprintName = "AlamofireI"
+            BlueprintName = "AlamofireJ"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
