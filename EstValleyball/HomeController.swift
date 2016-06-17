@@ -62,8 +62,8 @@ class HomeController: UIViewController {
         }
         
         let screenSize = UIScreen.mainScreen().bounds.size
-        //let loginManager = FBSDKLoginManager()
-        //loginManager.logOut()
+        let loginManager = FBSDKLoginManager()
+        loginManager.logOut()
         homeBackground.layer.zPosition = 1
         frontText.layer.zPosition = 3
         
@@ -134,10 +134,10 @@ class HomeController: UIViewController {
         normalButton.layer.zPosition = 4
         blinkButton.layer.zPosition = 5
         login.layer.zPosition = 6
-        self.view.addSubview(self.normalButton)
-        self.view.addSubview(self.blinkButton)
-        self.view.addSubview(self.login)
-        
+//        self.view.addSubview(self.normalButton)
+//        self.view.addSubview(self.blinkButton)
+//        self.view.addSubview(self.login)
+//        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -159,14 +159,17 @@ class HomeController: UIViewController {
                 self.blinkButton.alpha = 0.2
             }, completion: { finished in
         })
-        
-        if (FBSDKAccessToken.currentAccessToken() != nil) {
-            self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
-        } else {
-            
-        }
+        NSTimer.scheduledTimerWithTimeInterval(3.5, target: self, selector: #selector(goStartGame), userInfo: nil, repeats: false)
+//
+//        if (FBSDKAccessToken.currentAccessToken() != nil) {
+//            self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+//        } else {
+//            
+//        }
     }
-
+    func goStartGame(){
+        self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -43,7 +43,7 @@ func startPitch(comingBall : UIImageView, lightBling: UIImageView, game: GameCon
         currentMaxVelocity = Int(floor(velocity * 2.5 * 1.42))
         let randomOneToThree = Int(arc4random_uniform(4) + 1)
         currentMaxVelocity += randomOneToThree
-        if(currentMaxVelocity >= 50){
+        if(currentMaxVelocity >= 30){
             if isVibration == false{
                 NSTimer.scheduledTimerWithTimeInterval(0, target: game, selector: #selector(GameController.playHitSound), userInfo: nil, repeats: false)
             }

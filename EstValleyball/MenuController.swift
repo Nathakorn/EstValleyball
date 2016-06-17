@@ -9,6 +9,7 @@
 import UIKit
 
 class MenuController: UIViewController ,FBSDKSharingDelegate {
+    
     var fromSegue: String!
     var screenSize = UIScreen.mainScreen().bounds.size
     var youtubeView = UIWebView()

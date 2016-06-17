@@ -297,7 +297,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         
         self.view.addSubview(self.kmHr)
         NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(GameController.showResult), userInfo: nil, repeats: false)
-        }
+    }
+    
     func showResult() {
         
         
@@ -378,8 +379,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         if currentMaxVelocity >= 90 && currentMaxVelocity < 100{
             let image = UIImage(named: "bg_result1v2.png")
             result = UIImageView(image: image)
-            scoreR.frame = CGRectMake(232/320*self.screenSize.width,
-                                     260/568*self.screenSize.height,
+            scoreR.frame = CGRectMake(192/320*self.screenSize.width,
+                                     270/568*self.screenSize.height,
                                      60/320*self.screenSize.width,
                                      60/568*self.screenSize.height)
             x = 133.0/320*self.screenSize.width
@@ -389,8 +390,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         else if currentMaxVelocity >= 80 && currentMaxVelocity < 90{
             let image = UIImage(named: "bg_result2v2.png")
             result = UIImageView(image: image)
-            scoreR.frame = CGRectMake(240/320*self.screenSize.width,
-                                     265/568*self.screenSize.height,
+            scoreR.frame = CGRectMake(203/320*self.screenSize.width,
+                                     275/568*self.screenSize.height,
                                      60/320*self.screenSize.width,
                                      60/568*self.screenSize.height)
             x = 155.0/320*self.screenSize.width
@@ -399,8 +400,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         else if currentMaxVelocity >= 70 && currentMaxVelocity < 80{
             let image = UIImage(named: "bg_result3v2.png")
             result = UIImageView(image: image)
-            scoreR.frame = CGRectMake(160/320*self.screenSize.width,
-                                     214/568*self.screenSize.height,
+            scoreR.frame = CGRectMake(115/320*self.screenSize.width,
+                                     224/568*self.screenSize.height,
                                      60/320*self.screenSize.width,
                                      60/568*self.screenSize.height)
             x = 76.0/320*self.screenSize.width
@@ -410,8 +411,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         else if currentMaxVelocity >= 60 && currentMaxVelocity < 70{
             let image = UIImage(named: "bg_result4v2.png")
             result = UIImageView(image: image)
-            scoreR.frame = CGRectMake(132/320*self.screenSize.width,
-                                     270/568*self.screenSize.height,
+            scoreR.frame = CGRectMake(92/320*self.screenSize.width,
+                                     280/568*self.screenSize.height,
                                      60/320*self.screenSize.width,
                                      60/568*self.screenSize.height)
             x = 50.0/320*self.screenSize.width
@@ -420,8 +421,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         else if currentMaxVelocity < 60{
             let image = UIImage(named: "bg_result5v2.png")
             result = UIImageView(image: image)
-            scoreR.frame = CGRectMake(128/320*self.screenSize.width,
-                                     242/568*self.screenSize.height,
+            scoreR.frame = CGRectMake(93/320*self.screenSize.width,
+                                     252/568*self.screenSize.height,
                                      60/320*self.screenSize.width,
                                      60/568*self.screenSize.height)
             x = 47.0/320*self.screenSize.width
@@ -488,13 +489,14 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         self.view.addSubview(dimBackground)
         self.view.sendSubviewToBack(resultView)
         
+        /*
         dispatch_async(dispatch_get_main_queue(), {
             
             self.profileImageView.frame = CGRectMake(x, y, 80.0/320*self.screenSize.width, 55.0/568*self.screenSize.height)
             self.profileImageView.layer.zPosition = 100
             
             let fbId = FBSDKAccessToken.currentAccessToken().userID
-            let url = NSURL(string:"http://graph.facebook.com/" + fbId + "/picture?type=square")
+            let url = NSURL(string:"http://graph.facebook.com/" + fbId + "/picture?type=square&height=800&width=800")
             data = NSData(contentsOfURL: url!)
             if let image = UIImage(data: data) {
                 self.profileImageView.image = image
@@ -552,7 +554,10 @@ class GameController: UIViewController, FBSDKSharingDelegate {
             
             
         })
+         */
         
+        /*
+        // capview for sharing
         capView.frame = CGRectMake(0.0, 0.0, 300.0/320*self.screenSize.width, 157.5/568*self.screenSize.height)
         let sharePic = UIImageView()
         sharePic.frame = CGRectMake(0.0, 0.0, 300.0/320*self.screenSize.width, 157.5/568*self.screenSize.height)
@@ -621,8 +626,11 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         //print(FBSDKAccessToken.currentAccessToken().userID)
         
         // facebookImg.image = UIImage(data:data!)
+        
+        */
     
         self.view.addSubview(resultPopupView)
+        
     }
     func fbShareResult(sender: UIButton) {
         print(shareImg);
