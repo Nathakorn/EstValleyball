@@ -9,7 +9,6 @@
 import UIKit
 import Alamofire
 
-
 class StartGameController: UIViewController {
     
     @IBOutlet weak var startButton: UIButton!

@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import SwiftyJSON
+import Alamofire
 class YoutubeController: UIViewController {
     
     var youtubeView = UIWebView()
@@ -20,16 +21,24 @@ class YoutubeController: UIViewController {
         
         self.view.addSubview(self.youtubeView)
         
-        let url = NSURL(string: "https://www.youtube.com/watch?v=SSDvPawnuJE")
-        let request = NSURLRequest(URL: url!)
-        self.youtubeView.loadRequest(request)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewDidAppear(animated: Bool) {
+        Alamofire.request(.GET, "http://www.estcolathai.com/volleyballmobile/api/mobile/getDataInfo.aspx")
+            .validate()
+            .responseJSON { response in
+                debugPrint(response)
+        }
+        print("korn")
+        let url = NSURL(string: "https://www.youtube.com/watch?v=SSDvPawnuJE")
+        let request = NSURLRequest(URL: url!)
+        self.youtubeView.loadRequest(request)
+    }
 
     /*
     // MARK: - Navigation

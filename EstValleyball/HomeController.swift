@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import Alamofire
+import SwiftyJSON
 class HomeController: UIViewController {
     
     @IBOutlet weak var frontText: UIImageView!
@@ -49,6 +50,14 @@ class HomeController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        Alamofire.request(.GET, "http://www.estcolathai.com/volleyballmobile/api/mobile/getDataInfo.aspx")
+            .validate()
+            .responseJSON { response in
+                let json = JSON(data: response.data!)
+                let name = json["youtube"].stringValue
+                print(name)
+        }
+        
         let screenSize = UIScreen.mainScreen().bounds.size
         //let loginManager = FBSDKLoginManager()
         //loginManager.logOut()

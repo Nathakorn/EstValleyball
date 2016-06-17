@@ -19,4 +19,5 @@ let SEGUE_SHOW_RESULT = "showedResult"
 let SEGUE_SHOW_MENU = "showedMenu"
 let SEGUE_SHOW_GAME = "showedGame"
 
+
 let SEGUE_GOBACK_STARTED_GAME = "goBackStartedGame"
