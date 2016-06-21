@@ -256,7 +256,7 @@
 				TargetAttributes = {
 					D0698B4E1D09317C00854814 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = VC2Q84EQ3X;
+						DevelopmentTeam = FQ9R46R5K8;
 					};
 				};
 			};
@@ -488,7 +488,7 @@
 				INFOPLIST_FILE = EstValleyball/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nathakorn.EstValleyball;
+				PRODUCT_BUNDLE_IDENTIFIER = com.petpolar.EstValleyball;
 				PRODUCT_NAME = est;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EstValleyball/Est-Bridging-Header.h";
@@ -511,7 +511,7 @@
 				INFOPLIST_FILE = EstValleyball/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nathakorn.EstValleyball;
+				PRODUCT_BUNDLE_IDENTIFIER = com.petpolar.EstValleyball;
 				PRODUCT_NAME = est;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "EstValleyball/Est-Bridging-Header.h";

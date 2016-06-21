@@ -69,24 +69,28 @@ class HomeController: UIViewController {
             .responseJSON { response in
                 if let data = response.data {
                     let json = JSON(data: data)
+                    
+                    // var parameters = (UIApplication.sharedApplication().delegate as! AppDelegate).parameters
                     var parameters = Parameters.instance.parameters
                     
-                    parameters["appactive"] = json["appactive"].string
+                    Parameters.instance.parameters["appactive"] = json["appactive"].string
                     
-                    parameters["youtube"] = json["youtube"].string
+                    Parameters.instance.parameters["youtube"] = json["youtube"].string
                     
-                    parameters["share_url"] = json["share_url"].string
-                    parameters["share_title"] = json["share_title"].string
-                    parameters["share_description"] = json["share_description"].string
-                    parameters["share_image"] = json["share_image"].string
-                    parameters["shareresult_url"] = json["shareresult_url"].string
+                    Parameters.instance.parameters["share_url"] = json["share_url"].string
+                    Parameters.instance.parameters["share_title"] = json["share_title"].string
+                    Parameters.instance.parameters["share_description"] = json["share_description"].string
+                    Parameters.instance.parameters["share_image"] = json["share_image"].string
+                    Parameters.instance.parameters["shareresult_url"] = json["shareresult_url"].string
                     
-                    parameters["page_rule"] = json["page_rule"].string
-                    parameters["page_winner"] = json["page_winner"].string
-                    parameters["page_howto"] = json["page_howto"].string
+                    Parameters.instance.parameters["page_rule"] = json["page_rule"].string
+                    Parameters.instance.parameters["page_winner"] = json["page_winner"].string
+                    Parameters.instance.parameters["page_howto"] = json["page_howto"].string
                     
-                    for (key, value) in parameters {
-                        print("\(key): \(value)")
+                    print("parameters.instance: \(unsafeAddressOf(Parameters.instance))")
+                    
+                    for (key, value) in Parameters.instance.parameters {
+                        print("getData - \(key): \(value)")
                     }
                 }
         }

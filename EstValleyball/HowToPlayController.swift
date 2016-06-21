@@ -18,7 +18,7 @@ class HowToPlayController: UIViewController {
         // Do any additional setup after loading the view.
         
         var url: NSURL?
-        
+    
         if let urlString = Parameters.instance.parameters["page_howto"] {
             url = NSURL(string: urlString)
         } else {

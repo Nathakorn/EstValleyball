@@ -10,13 +10,21 @@ import Foundation
 
 class Parameters: NSObject {
     
+    /*
     class var instance: Parameters {
         struct Static {
             static let instance: Parameters = Parameters()
         }
         return Static.instance
     }
+    */
     
-    var parameters = [ String : String ]()
+    static let instance: Parameters = Parameters()
+    
+    private override init() {
+        self.parameters = [String : String]()
+    }
+    
+    var parameters: [String : String]!
     
 }

@@ -37,6 +37,9 @@ class GameController: UIViewController, FBSDKSharingDelegate {
     var audioPlayer: AVAudioPlayer!
     var thankyouText = UIImageView()
     
+    var grayView = UIView()
+    var loadingView = UIView()
+    
     var i = 0
     var isResult = false
     
@@ -60,6 +63,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.initLoadingView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,12 +75,18 @@ class GameController: UIViewController, FBSDKSharingDelegate {
     override func viewDidAppear(animated: Bool) {
         //number countdown
         
+        self.score.textAlignment = NSTextAlignment.Center
+        
+        if (!self.isResult) {
+            self.goStartNewGame()
+        }
+        
+        /*
         NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
         NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
         NSTimer.scheduledTimerWithTimeInterval(2.5, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
         NSTimer.scheduledTimerWithTimeInterval(3.5, target: self, selector: #selector(playStartSound), userInfo: nil, repeats: false)
 
-        self.score.textAlignment = NSTextAlignment.Center
         self.ballFromOpponent()
         self.numCountDown.layer.zPosition = 1
         self.numCountDown.animationImages = [
@@ -91,12 +102,9 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         self.numCountDown.animationRepeatCount = 1
         self.numCountDown.startAnimating()
         
-        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Page, action: .Opened, label: "Countdown Before Start Game Page")
-        
-       //ball
-       //NSTimer.scheduledTimerWithTimeInterval(4, target: self, selector: #selector(GameController.hitBall), userInfo: nil, repeats: false)
-       //self.hitBall()
+         */
        
+        EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Page, action: .Opened, label: "Countdown Before Start Game Page")
         
     }
     
@@ -305,44 +313,16 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         self.kmHr.image = UIImage(named: "imv_bg_num.png")
         
         self.view.addSubview(self.kmHr)
+        
         NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(GameController.showResult), userInfo: nil, repeats: false)
     }
     
     func showResult() {
         
+        self.isResult = true
         
-        //post to server
-        //facebookID
-        /*
-        print("start post")
-        print(FBSDKAccessToken.currentAccessToken())
-        var velocity = String(currentMaxVelocity)
-        
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://www.estcolathai.com/volleyballmobile/api/mobile/submitGame.aspx")!)
-        request.HTTPMethod = "POST"
-        let postString = "imggallery=&param1=" + velocity + "&param2=&param3=&access=&code=&caller="
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
-            guard error == nil && data != nil else {                                                          // check for fundamental networking error
-                print("error=\(error)")
-                return
-            }
-            
-            if let httpStatus = response as? NSHTTPURLResponse where httpStatus.statusCode != 200 {           // check for http errors
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(response)")
-            }
-            
-            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("responseString = \(responseString)")
-        }
-        task.resume()
-        print("finish post")
-        */
         kmHr.alpha = 0.3
         self.kmHr.layer.zPosition = 1
-        //self.score.alpha = 0.2
-        //self.performSegueWithIdentifier(SEGUE_SHOW_RESULT, sender: nil)
         
         dimBackground.frame = CGRectMake(0,0,320/320 * self.screenSize.width, 568/568 * self.screenSize.height)
         dimBackground.backgroundColor = UIColor.blackColor()
@@ -358,23 +338,15 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         _ = 320 * UIScreen.mainScreen().bounds.size.width
         _ = 568 * UIScreen.mainScreen().bounds.size.height
         
-        
-        //inside popup view (did appear)
-        //currentMaxVelocity = 28
-        
         resultView.frame = CGRectMake(0,0,320/320*self.screenSize.width, 524/568*self.screenSize.height)
-        
-        //print("resultView.frame: \(resultView.frame)")
         
         var x: CGFloat = 0.0
         var y: CGFloat = 0.0
-        
         
         scoreR.text = String(currentMaxVelocity)
         scoreR.textColor = UIColor.whiteColor()
         scoreR.layer.zPosition = 200
         scoreR.font = UIFont(name: "PSLEmpireProBoldItalic", size: 45.0/568*self.screenSize.height)
-        
         
         //rotate image
         let degrees:CGFloat = -8
@@ -443,32 +415,6 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         result.layer.zPosition = 2
         resultView.addSubview(scoreR)
         
-        /*
-        let req = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"email,name"], tokenString: FBSDKAccessToken.currentAccessToken().tokenString, version: nil, HTTPMethod: "GET")
-        req.startWithCompletionHandler({ (connection, result, error : NSError!) -> Void in
-            if(error == nil)
-            {
-                print(result.dictionaryForKey())
-            }
-            else
-            {
-                print("error \(error)")
-            }
-        })*/
-        //current
-        //print(FBSDKProfile.currentProfile().firstName)
-        //print("korn")
-        //facebook name
-        /*
-        var facebookName = FBSDKProfile.currentProfile().name
-        facebookNameLabel.text = facebookName
-        facebookNameLabel.frame = CGRectMake(132/320*self.screenSize.width,
-                                             320/568*self.screenSize.height,
-                                             10/320*self.screenSize.width,
-                                             10/568*self.screenSize.height)
-        facebookNameLabel.layer.zPosition = 3000
-        resultView.addSubview(facebookNameLabel)*/
-        
         let goBackAndBackButton = UIButton()
         goBackAndBackButton.frame = CGRectMake(280/320*self.screenSize.width,110/568*self.screenSize.height,30/320*self.screenSize.width,30/568*self.screenSize.height)
         goBackAndBackButton.setImage(UIImage(named: "btn_close_tvc"), forState: .Normal)
@@ -489,10 +435,10 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         thankyouText.layer.zPosition = 9000
         resultView.addSubview(thankyouText)
         
-        shareButton.frame = CGRectMake(165/320*self.screenSize.width,375/568*self.screenSize.height,148/320*self.screenSize.width,79/568*self.screenSize.height)
-        shareButton.setImage(UIImage(named: "btn_share"), forState: .Normal)
-        shareButton.layer.zPosition = 1
-        shareButton.addTarget(self, action: #selector(fbShareResult), forControlEvents: .TouchUpInside)
+        self.shareButton.frame = CGRectMake(165/320*self.screenSize.width,375/568*self.screenSize.height,148/320*self.screenSize.width,79/568*self.screenSize.height)
+        self.shareButton.setImage(UIImage(named: "btn_share"), forState: .Normal)
+        self.shareButton.layer.zPosition = 1
+        self.shareButton.addTarget(self, action: #selector(fbShareResult), forControlEvents: .TouchUpInside)
         resultView.addSubview(shareButton)
         
         self.view.addSubview(resultView)
@@ -500,152 +446,16 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         self.view.sendSubviewToBack(resultView)
         
         EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Page, action: .Opened, label: "Result Page")
-        
-        /*
-        dispatch_async(dispatch_get_main_queue(), {
-            
-            self.profileImageView.frame = CGRectMake(x, y, 80.0/320*self.screenSize.width, 55.0/568*self.screenSize.height)
-            self.profileImageView.layer.zPosition = 100
-            
-            let fbId = FBSDKAccessToken.currentAccessToken().userID
-            let url = NSURL(string:"http://graph.facebook.com/" + fbId + "/picture?type=square&height=800&width=800")
-            data = NSData(contentsOfURL: url!)
-            if let image = UIImage(data: data) {
-                self.profileImageView.image = image
-                self.facebookCap.image = image
-            }
-            
-            self.profileImageView.layer.borderColor = UIColor.whiteColor().CGColor
-            self.profileImageView.layer.borderWidth = 1.0
-            
-            self.view.addSubview(self.profileImageView)
-            self.view.bringSubviewToFront(self.profileImageView)
-            
-            
-            
-            UIGraphicsBeginImageContextWithOptions(self.capView.frame.size, true, UIScreen.mainScreen().scale)
-            let ctx: CGContextRef = UIGraphicsGetCurrentContext()!
-            self.capView.layer.renderInContext(ctx)
-            let shareImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            
-            let imageData:NSData = UIImagePNGRepresentation(shareImage)!
-
-            
-            let parameters = [
-                "imggallery": imageData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength),
-                "param1": String(currentMaxVelocity),
-                "param2": "12",
-                "Param3": "sensor",
-                "access": "mobile",
-                "code": FBSDKAccessToken.currentAccessToken().tokenString,
-                "caller": "json"
-            ]
-            
-            self.shareButton.enabled = false
-            Alamofire.request(.POST, "http://www.estcolathai.com/volleyballmobile/api/mobile/submitGame.aspx", parameters: parameters).responseJSON
-                { response in switch response.result {
-                case .Success(let JSON):
-                    print("Success with JSON: \(JSON)")
-                    
-                    let response = JSON as! NSDictionary
-                    
-                    //example if there is an id, 
-                    let result = response.objectForKey("result")! as! String
-                    if(result == "complete") {
-                        self.gid = response.objectForKey("gid")! as! String
-                        self.shareImg = response.objectForKey("img")! as! String
-                        self.shareButton.enabled = true
-                    }
-                case .Failure(let error):
-                    print("Request failed with error: \(error)")
-                    }
-            }
-            
-            
-            
-            
-        })
-         */
-        
-        /*
-        // capview for sharing
-        capView.frame = CGRectMake(0.0, 0.0, 300.0/320*self.screenSize.width, 157.5/568*self.screenSize.height)
-        let sharePic = UIImageView()
-        sharePic.frame = CGRectMake(0.0, 0.0, 300.0/320*self.screenSize.width, 157.5/568*self.screenSize.height)
-        let degreeForShare:CGFloat = -7
-        let scoreForShare = UILabel()
-        scoreForShare.text = String(currentMaxVelocity)
-        scoreForShare.textColor = UIColor.whiteColor()
-        //scoreForShare.layer.zPosition = 200
-        scoreForShare.font = UIFont(name: "PSLEmpireProBoldItalic", size: 28.0/568*self.screenSize.height)
-        
-        let facebookCapView = UIView()
-        //scoreForShare.text = "99"
-        
-        scoreForShare.transform = CGAffineTransformMakeRotation(degreeForShare * CGFloat(M_PI/180) )
-       
-        if currentMaxVelocity >= 90 && currentMaxVelocity < 100{
-            sharePic.image = UIImage(named: "share1.png")
-            facebookCapView.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
-            facebookCap.layer.zPosition = 4000
-            scoreForShare.frame = CGRectMake(205/320*self.screenSize.width, 75/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
-            scoreForShare.layer.zPosition = 4001
-        }
-        else if currentMaxVelocity >= 80 && currentMaxVelocity < 90{
-            sharePic.image = UIImage(named: "share2.png")
-            facebookCapView.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
-            facebookCap.layer.zPosition = 4000
-            scoreForShare.frame = CGRectMake(205/320*self.screenSize.width, 75/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
-            scoreForShare.layer.zPosition = 4001
-        }
-        else if currentMaxVelocity >= 70 && currentMaxVelocity < 80{
-            sharePic.image = UIImage(named: "share3.png")
-            facebookCapView.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
-            facebookCap.layer.zPosition = 4000
-            scoreForShare.frame = CGRectMake(205/320*self.screenSize.width, 75/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
-            scoreForShare.layer.zPosition = 4001
-        }
-        else if currentMaxVelocity >= 60 && currentMaxVelocity < 70{
-            sharePic.image = UIImage(named: "share4.png")
-            facebookCapView.frame  = CGRectMake(70/320*self.screenSize.width, 95/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
-            facebookCap.layer.zPosition = 4000
-            scoreForShare.frame = CGRectMake(125/320*self.screenSize.width, 80/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
-            scoreForShare.layer.zPosition = 4001
-        }
-        else if currentMaxVelocity < 60{
-            sharePic.image = UIImage(named: "share5.png")
-            facebookCapView.frame  = CGRectMake(70/320*self.screenSize.width, 95/568*self.screenSize.height,40.0/320*self.screenSize.width, 30/568*self.screenSize.height)
-            facebookCap.layer.zPosition = 4000
-            scoreForShare.frame = CGRectMake(125/320*self.screenSize.width, 80/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
-            scoreForShare.layer.zPosition = 4001
-        }
-        //white background view
-        
-        facebookCap.frame = CGRectMake(1/320*self.screenSize.width, 1/568*self.screenSize.height,38.0/320*self.screenSize.width, 28/568*self.screenSize.height)
-        facebookCapView.addSubview(facebookCap)
-        facebookCapView.layer.zPosition = 7000
-        facebookCapView.backgroundColor = UIColor.whiteColor()
-        facebookCapView.transform = CGAffineTransformMakeRotation(-8 * CGFloat(M_PI/180) )
-        capView.addSubview(sharePic)
-        capView.addSubview(scoreForShare)
-        //capView.addSubview(dimBackground)
-        capView.addSubview(facebookCapView)
-        
-        
-        //score.format = "%d"
-        scoreR.text = String(currentMaxVelocity)
-        //print(FBSDKAccessToken.currentAccessToken().userID)
-        
-        // facebookImg.image = UIImage(data:data!)
-        
-        */
     
         self.view.addSubview(resultPopupView)
         
     }
     
     func fbShareResult(sender: UIButton) {
+        
+        // todo -> loading screen
+        
+        self.showLoadingView()
         
         EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Button, action: .Clicked, label: "Share")
         
@@ -813,7 +623,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
             if (success) {
                 if let urlString: String = imageUrl {
                     
-                    var params = Parameters.instance.parameters
+                    var params = (UIApplication.sharedApplication().delegate as! AppDelegate).parameters
                     
                     var shareUrl = "http://www.estcolathai.com/volleyballmobile/app_install.php"
                     if let newShareUrl = params["share_url"] {
@@ -846,6 +656,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
                     dialog.delegate = self
                     dialog.fromViewController = self
                     
+                    self.hideLoadingView()
+                    
                     dialog.show()
                 }
             } else {
@@ -870,8 +682,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         self.profileImageView.layer.borderColor = UIColor.whiteColor().CGColor
         self.profileImageView.layer.borderWidth = 1.0
         
-        self.view.addSubview(self.profileImageView)
-        self.view.bringSubviewToFront(self.profileImageView)
+        // self.view.addSubview(self.profileImageView)
+        // self.view.bringSubviewToFront(self.profileImageView)
         
         self.capView.frame = CGRectMake(0.0, 0.0, 300.0/320*self.screenSize.width, 157.5/568*self.screenSize.height)
         let sharePic = UIImageView()
@@ -925,7 +737,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         }
         
         //white background view
-        self.facebookCap.frame = CGRectMake(1/320*self.screenSize.width, 1/568*self.screenSize.height,38.0/320*self.screenSize.width, 28/568*self.screenSize.height)
+        self.facebookCap.frame = CGRectMake(1/320*self.screenSize.width, 1/568*self.screenSize.height,38.0/320*self.screenSize.width, 38.0/320*self.screenSize.width)
+        
         facebookCapView.addSubview(self.facebookCap)
         facebookCapView.layer.zPosition = 7000
         facebookCapView.backgroundColor = UIColor.whiteColor()
@@ -981,7 +794,6 @@ class GameController: UIViewController, FBSDKSharingDelegate {
             }
         }
         
-        self.shareButton.enabled = false
         Alamofire.request(.POST, "http://www.estcolathai.com/volleyballmobile/api/mobile/submitGameNonToken.aspx", parameters: parameters).responseJSON
             { response in switch response.result {
                 case .Success(let JSON):
@@ -990,7 +802,6 @@ class GameController: UIViewController, FBSDKSharingDelegate {
                     if(result == "complete") {
                         self.gid = response.objectForKey("gid")! as! String
                         self.shareImg = response.objectForKey("img")! as! String
-                        self.shareButton.enabled = true
                         cb.callback(self.shareImg, true, nil, nil)
                     }
                 case .Failure(let error):
@@ -1001,7 +812,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         
     }
     
-    func goStartNewGame(sender: UIButton){
+    func goStartNewGame() {
         
         EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Button, action: .Clicked, label: "Replay")
         
@@ -1052,10 +863,10 @@ class GameController: UIViewController, FBSDKSharingDelegate {
             }
         }
         
-        NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
-        NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
-        NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
-        NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(playStartSound), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(0.0, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: #selector(playStartSound), userInfo: nil, repeats: false)
         
         kmHr.alpha = 1
         currentMaxVelocity = 0
@@ -1071,7 +882,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         currentMaxAccelZ = 0.0
         currentMaxVelocity = 0
         scoreR.removeFromSuperview()
-       // isResult == true
+        self.isResult = false
         
         self.ballFromOpponent()
        
@@ -1091,6 +902,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Page, action: .Opened, label: "Countdown Before Start Game Page")
         
     }
+    
     func playHitSound(){
         playSound("Sound_1")
     }
@@ -1103,10 +915,46 @@ class GameController: UIViewController, FBSDKSharingDelegate {
     func playStartSound(){
         playSound("Sound_4")
     }
+    
     func playSound(soundName: String)
     {
         let soundURL: NSURL = NSBundle.mainBundle().URLForResource(soundName, withExtension: "mp3")!
         audioPlayer = try! AVAudioPlayer(contentsOfURL: soundURL)
         audioPlayer.play()
+    }
+    
+    func initLoadingView() {
+        let screen = UIScreen.mainScreen().bounds.size
+        
+        self.grayView.layer.zPosition = 10000
+        self.loadingView.layer.zPosition = 20000
+        
+        self.grayView.frame = CGRectMake(0.0, 0.0, screen.width, screen.height)
+        self.grayView.backgroundColor = UIColor.blackColor()
+        self.grayView.alpha = 0.3
+        
+        self.loadingView.frame = CGRectMake((screen.width - 150.0) / 2.0, (screen.height - 50.0) / 2.0, 150.0, 50.0)
+        self.loadingView.backgroundColor = UIColor.whiteColor()
+        self.loadingView.layer.cornerRadius = 5.0
+        self.loadingView.clipsToBounds = true
+        
+        let loadingLabel = UILabel(frame: CGRectMake(0.0, 0.0, 150.0, 50.0))
+        loadingLabel.textAlignment = NSTextAlignment.Center
+        loadingLabel.textColor = UIColor.blackColor()
+        loadingLabel.font = UIFont.systemFontOfSize(20.0)
+        loadingLabel.text = "Loading ..."
+        loadingLabel.backgroundColor = UIColor.clearColor()
+        
+        self.loadingView.addSubview(loadingLabel)
+    }
+    
+    func showLoadingView() {
+        self.view.addSubview(self.grayView)
+        self.view.addSubview(self.loadingView)
+    }
+    
+    func hideLoadingView() {
+        self.grayView.removeFromSuperview()
+        self.loadingView.removeFromSuperview()
     }
 }

@@ -85,10 +85,10 @@ class MenuController: UIViewController, FBSDKSharingDelegate {
     func goShare() {
         //self.performSegueWithIdentifier(fromSegue, sender: nil)
         
-        var params = Parameters.instance.parameters
+        // var parameters = (UIApplication.sharedApplication().delegate as! AppDelegate).parameters
                     
         var shareUrl = "http://www.estcolathai.com/volleyballmobile/app_install.php"
-        if let newShareUrl = params["share_url"] {
+        if let newShareUrl = Parameters.instance.parameters["share_url"] {
             shareUrl = newShareUrl
         }
     
@@ -96,12 +96,12 @@ class MenuController: UIViewController, FBSDKSharingDelegate {
         let contentURL = NSURL(string: shareUrl)
         
         var contentTitle = "ดวลลูกตบเอส ชิงบัตรเชียร์วอลเลย์บอลเวิลด์กรังด์ปรีซ์ ตั้งแต่วันนี้ - 28 มิ.ย. 59"
-        if let title = params["share_title"] {
+        if let title = Parameters.instance.parameters["share_title"] {
             contentTitle = title
         }
         
         var contentDescription = "เอส โคล่า ขอท้าคุณมาโชว์พลังตบให้แรงระดับชาติกับแอพสุดซ่า ชิงบัตรเวิลด์กรังด์ปรีซ์รอบสุดท้าย แล้วไปเชียร์สุดซี้ดติดขอบสนาม!!"
-        if let description = params["share_description"] {
+        if let description = Parameters.instance.parameters["share_description"] {
             contentDescription = description
         }
         
