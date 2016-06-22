@@ -82,6 +82,8 @@ class HomeController: UIViewController {
                     Parameters.instance.parameters["share_description"] = json["share_description"].string
                     Parameters.instance.parameters["share_image"] = json["share_image"].string
                     Parameters.instance.parameters["shareresult_url"] = json["shareresult_url"].string
+                    Parameters.instance.parameters["shareresult_title"] = json["shareresult_title"].string
+                    Parameters.instance.parameters["shareresult_description"] = json["shareresult_description"].string
                     
                     Parameters.instance.parameters["page_rule"] = json["page_rule"].string
                     Parameters.instance.parameters["page_winner"] = json["page_winner"].string

@@ -11,7 +11,7 @@ import Alamofire
 class YoutubeController: UIViewController {
     
     var youtubeView = UIWebView()
-    
+    var screenSize = UIScreen.mainScreen().bounds.size
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +38,11 @@ class YoutubeController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        
+        let goBackAndBackButton = UIButton()
+        goBackAndBackButton.frame = CGRectMake(280/320*self.screenSize.width,66/568*self.screenSize.height,15/320*self.screenSize.width,20/568*self.screenSize.height)
+        goBackAndBackButton.setImage(UIImage(named: "btn_close_tvc"), forState: .Normal)
+        goBackAndBackButton.layer.zPosition = 100000
+       //self.view.addSubview(goBackAndBackButton)
         if let youtubeId = Parameters.instance.parameters["youtube"] {
             let url = NSURL(string: "https://www.youtube.com/watch?v=" + youtubeId)
             let request = NSURLRequest(URL: url!)

@@ -56,14 +56,21 @@ class MenuController: UIViewController, FBSDKSharingDelegate {
         YoutubeSuperView.addSubview(noPlayView)
         
         self.youtubeView.frame = CGRectMake(15/320*screenSize.width, 137/568*screenSize.height, 291/320*screenSize.width, 186/568*screenSize.height)
-        let url = NSURL(string: "https://www.youtube.com/watch?v=SSDvPawnuJE")
+        let url: NSURL?
+        
+        if let code = Parameters.instance.parameters["youtube"] {
+            url = NSURL(string: "https://www.youtube.com/watch?v=" + code)
+        } else {
+            url = NSURL(string: "https://www.youtube.com/watch?v=SSDvPawnuJE")
+        }
+        
         let request = NSURLRequest(URL: url!)
         self.youtubeView.loadRequest(request)
         youtubeView.layer.zPosition = 4
         YoutubeSuperView.addSubview(youtubeView)
         
         let goBackAndBackButton = UIButton()
-        goBackAndBackButton.frame = CGRectMake(280/320*self.screenSize.width,65/568*self.screenSize.height,30/320*self.screenSize.width,20/568*self.screenSize.height)
+        goBackAndBackButton.frame = CGRectMake(280/320*self.screenSize.width,67/568*self.screenSize.height,20/320*self.screenSize.width,20/568*self.screenSize.height)
         goBackAndBackButton.setImage(UIImage(named: "btn_close_tvc"), forState: .Normal)
         goBackAndBackButton.addTarget(self, action: #selector(goBackMenu), forControlEvents: .TouchUpInside)
         goBackAndBackButton.layer.zPosition = 6
@@ -91,11 +98,15 @@ class MenuController: UIViewController, FBSDKSharingDelegate {
         if let newShareUrl = Parameters.instance.parameters["share_url"] {
             shareUrl = newShareUrl
         }
-    
-        let contentImg = NSURL(string: "http://www.estcolathai.com/volleyballmobile/app/image/shareApp.jpg");
-        let contentURL = NSURL(string: shareUrl)
         
-        var contentTitle = "ดวลลูกตบเอส ชิงบัตรเชียร์วอลเลย์บอลเวิลด์กรังด์ปรีซ์ ตั้งแต่วันนี้ - 28 มิ.ย. 59"
+        var shareImage = "http://www.estcolathai.com/volleyballmobile/app/image/shareApp2.jpg"
+        if let image = Parameters.instance.parameters["share_image"] {
+            shareImage = image
+        }
+        
+        let contentImg = NSURL(string: shareImage);        let contentURL = NSURL(string: shareUrl)
+        
+        var contentTitle = "ดวลลูกตบเอส ชิงบัตรเชียร์วอลเลย์บอลเวิลด์กรังด์ปรีซ์ ตั้งแต่วันนี้ - 30 มิ.ย. 59"
         if let title = Parameters.instance.parameters["share_title"] {
             contentTitle = title
         }

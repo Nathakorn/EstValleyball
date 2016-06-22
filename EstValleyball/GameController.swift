@@ -129,7 +129,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         
         //Go to StartedGame
         let goBackButton = UIButton()
-        goBackButton.frame = CGRectMake(270/320*self.screenSize.width,110/568*self.screenSize.height,30/320*self.screenSize.width,20/568*self.screenSize.height)
+        goBackButton.frame = CGRectMake(270/320*self.screenSize.width,115/568*self.screenSize.height,20/320*self.screenSize.width,20/568*self.screenSize.height)
         goBackButton.setImage(UIImage(named: "btn_close_tvc"), forState: .Normal)
         goBackButton.layer.zPosition = 4
         goBackButton.addTarget(self, action: #selector(goBackStartGame), forControlEvents: .TouchUpInside)
@@ -398,7 +398,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         resultView.addSubview(scoreR)
         
         let goBackAndBackButton = UIButton()
-        goBackAndBackButton.frame = CGRectMake(280/320*self.screenSize.width,110/568*self.screenSize.height,30/320*self.screenSize.width,30/568*self.screenSize.height)
+        goBackAndBackButton.frame = CGRectMake(280/320*self.screenSize.width,113/568*self.screenSize.height,20/320*self.screenSize.width,20/568*self.screenSize.height)
         goBackAndBackButton.setImage(UIImage(named: "btn_close_tvc"), forState: .Normal)
         goBackAndBackButton.layer.zPosition = 1
         goBackAndBackButton.addTarget(self, action: #selector(goBackStartGame), forControlEvents: .TouchUpInside)
@@ -608,20 +608,20 @@ class GameController: UIViewController, FBSDKSharingDelegate {
                     var params = (UIApplication.sharedApplication().delegate as! AppDelegate).parameters
                     
                     var shareUrl = "http://www.estcolathai.com/volleyballmobile/app_install.php"
-                    if let newShareUrl = params["share_url"] {
+                    if let newShareUrl = params["shareresult_url"] {
                         shareUrl = newShareUrl
                     }
                     
                     let contentImg = NSURL(string: urlString)
                     let contentURL = NSURL(string: shareUrl)
                     
-                    var contentTitle = "ดวลลูกตบเอส ชิงบัตรเชียร์วอลเลย์บอลเวิลด์กรังด์ปรีซ์ ตั้งแต่วันนี้ - 28 มิ.ย. 59"
-                    if let title = params["share_title"] {
+                    var contentTitle = "ดวลลูกตบเอส ชิงบัตรเชียร์วอลเลย์บอลเวิลด์กรังด์ปรีซ์ ตั้งแต่วันนี้ - 30 มิ.ย. 59"
+                    if let title = params["shareresult_title"] {
                         contentTitle = title
                     }
                     
                     var contentDescription = "เอส โคล่า ขอท้าคุณมาโชว์พลังตบให้แรงระดับชาติกับแอพสุดซ่า ชิงบัตรเวิลด์กรังด์ปรีซ์รอบสุดท้าย แล้วไปเชียร์สุดซี้ดติดขอบสนาม!!"
-                    if let description = params["share_description"] {
+                    if let description = params["shareresult_description"] {
                         contentDescription = description
                     }
                     
