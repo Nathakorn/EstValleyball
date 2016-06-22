@@ -353,6 +353,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         else if currentMaxVelocity >= 80 && currentMaxVelocity < 90{
             let image = UIImage(named: "bg_result2v2.png")
             result = UIImageView(image: image)
+//            result.contentMode = UIViewContentMode.ScaleAspectFill
             scoreR.frame = CGRectMake(207/320*self.screenSize.width,
                                      263/568*self.screenSize.height,
                                      60/320*self.screenSize.width,
@@ -393,12 +394,12 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         }
         resultView.addSubview(result)
         
-        result.frame = CGRectMake(0,44/568*self.screenSize.height,320/320*self.screenSize.width, 524/568*self.screenSize.height)
+        result.frame = CGRectMake(0,20/568*self.screenSize.height,320/320*self.screenSize.width, 568/568*self.screenSize.height)
         result.layer.zPosition = 2
         resultView.addSubview(scoreR)
         
         let goBackAndBackButton = UIButton()
-        goBackAndBackButton.frame = CGRectMake(280/320*self.screenSize.width,113/568*self.screenSize.height,20/320*self.screenSize.width,20/568*self.screenSize.height)
+        goBackAndBackButton.frame = CGRectMake(280/320*self.screenSize.width,97/568*self.screenSize.height,20/320*self.screenSize.width,20/568*self.screenSize.height)
         goBackAndBackButton.setImage(UIImage(named: "btn_close_tvc"), forState: .Normal)
         goBackAndBackButton.layer.zPosition = 1
         goBackAndBackButton.addTarget(self, action: #selector(goBackStartGame), forControlEvents: .TouchUpInside)
