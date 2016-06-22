@@ -43,9 +43,12 @@ class GameController: UIViewController, FBSDKSharingDelegate {
     var i = 0
     var isResult = false
     
+    var timers = [NSTimer]()
+    
     @IBOutlet weak var lightBling: UIImageView!
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "showedMenu"){
+            self.stopSound()
             let destination = segue.destinationViewController as! MenuController
             destination.fromSegue = SEGUE_SHOW_GAME
             //self.performSegueWithIdentifier(SEGUE_SHOW_MENU, sender: nil)
@@ -81,29 +84,6 @@ class GameController: UIViewController, FBSDKSharingDelegate {
             self.goStartNewGame()
         }
         
-        /*
-        NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
-        NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
-        NSTimer.scheduledTimerWithTimeInterval(2.5, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
-        NSTimer.scheduledTimerWithTimeInterval(3.5, target: self, selector: #selector(playStartSound), userInfo: nil, repeats: false)
-
-        self.ballFromOpponent()
-        self.numCountDown.layer.zPosition = 1
-        self.numCountDown.animationImages = [
-            UIImage(named:"count3.png")!,
-            UIImage(named:"count3f.png")!,
-            UIImage(named:"count2.png")!,
-            UIImage(named:"count2f.png")!,
-            UIImage(named:"count1.png")!,
-            UIImage(named:"count1f.png")!
-        ]
-        
-        self.numCountDown.animationDuration = 3
-        self.numCountDown.animationRepeatCount = 1
-        self.numCountDown.startAnimating()
-        
-         */
-       
         EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Page, action: .Opened, label: "Countdown Before Start Game Page")
         
     }
@@ -131,7 +111,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         startButton.frame = CGRectMake(165/320*self.screenSize.width,155/568*self.screenSize.height,148/320*self.screenSize.width,79/568*self.screenSize.height)
         startButton.setImage(UIImage(named: "btn_start_a"), forState: .Normal)
         startButton.layer.zPosition = 4
-        startButton.addTarget(self, action: #selector(newGame), forControlEvents: .TouchUpInside)
+        startButton.addTarget(self, action: #selector(goStartNewGame), forControlEvents: .TouchUpInside)
         noPlayPopupView.addSubview(startButton)
         //button bright
         
@@ -173,9 +153,11 @@ class GameController: UIViewController, FBSDKSharingDelegate {
             }, completion: { finished in
         })
     }
+    
     func goBackStartGame(sender: UIButton){
         self.performSegueWithIdentifier(SEGUE_GOBACK_STARTED_GAME, sender: nil)
     }
+    
     func newGame(segue: UIStoryboardSegue, sender: UIButton!){
         
         NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
@@ -360,8 +342,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         if currentMaxVelocity >= 90 && currentMaxVelocity < 100{
             let image = UIImage(named: "bg_result1v2.png")
             result = UIImageView(image: image)
-            scoreR.frame = CGRectMake(192/320*self.screenSize.width,
-                                     270/568*self.screenSize.height,
+            scoreR.frame = CGRectMake(195/320*self.screenSize.width,
+                                     280/568*self.screenSize.height,
                                      60/320*self.screenSize.width,
                                      60/568*self.screenSize.height)
             x = 133.0/320*self.screenSize.width
@@ -371,8 +353,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         else if currentMaxVelocity >= 80 && currentMaxVelocity < 90{
             let image = UIImage(named: "bg_result2v2.png")
             result = UIImageView(image: image)
-            scoreR.frame = CGRectMake(203/320*self.screenSize.width,
-                                     275/568*self.screenSize.height,
+            scoreR.frame = CGRectMake(207/320*self.screenSize.width,
+                                     263/568*self.screenSize.height,
                                      60/320*self.screenSize.width,
                                      60/568*self.screenSize.height)
             x = 155.0/320*self.screenSize.width
@@ -381,8 +363,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         else if currentMaxVelocity >= 70 && currentMaxVelocity < 80{
             let image = UIImage(named: "bg_result3v2.png")
             result = UIImageView(image: image)
-            scoreR.frame = CGRectMake(115/320*self.screenSize.width,
-                                     224/568*self.screenSize.height,
+            scoreR.frame = CGRectMake(85/320*self.screenSize.width,
+                                     255/568*self.screenSize.height,
                                      60/320*self.screenSize.width,
                                      60/568*self.screenSize.height)
             x = 76.0/320*self.screenSize.width
@@ -392,8 +374,8 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         else if currentMaxVelocity >= 60 && currentMaxVelocity < 70{
             let image = UIImage(named: "bg_result4v2.png")
             result = UIImageView(image: image)
-            scoreR.frame = CGRectMake(92/320*self.screenSize.width,
-                                     280/568*self.screenSize.height,
+            scoreR.frame = CGRectMake(100/320*self.screenSize.width,
+                                     284/568*self.screenSize.height,
                                      60/320*self.screenSize.width,
                                      60/568*self.screenSize.height)
             x = 50.0/320*self.screenSize.width
@@ -425,7 +407,7 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         
         let startNewGameButton = UIButton()
         startNewGameButton.frame = CGRectMake(15/320*self.screenSize.width,400/568*self.screenSize.height,148/320*self.screenSize.width,79/568*self.screenSize.height)
-        startNewGameButton.setImage(UIImage(named: "btn_start_a"), forState: .Normal)
+        startNewGameButton.setImage(UIImage(named: "btn_replay"), forState: .Normal)
         startNewGameButton.layer.zPosition = 1
         startNewGameButton.addTarget(self, action: #selector(goStartNewGame), forControlEvents: .TouchUpInside)
         resultView.addSubview(startNewGameButton)
@@ -704,35 +686,35 @@ class GameController: UIViewController, FBSDKSharingDelegate {
             sharePic.image = UIImage(named: "share1.png")
             facebookCapView.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 40.0/320*self.screenSize.width)
             self.facebookCap.layer.zPosition = 4000
-            scoreForShare.frame = CGRectMake(205/320*self.screenSize.width, 75/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            scoreForShare.frame = CGRectMake(207/320*self.screenSize.width, 75/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             scoreForShare.layer.zPosition = 4001
         }
         else if currentMaxVelocity >= 80 && currentMaxVelocity < 90{
             sharePic.image = UIImage(named: "share2.png")
             facebookCapView.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 40.0/320*self.screenSize.width)
             self.facebookCap.layer.zPosition = 4000
-            scoreForShare.frame = CGRectMake(205/320*self.screenSize.width, 75/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            scoreForShare.frame = CGRectMake(207/320*self.screenSize.width, 75/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             scoreForShare.layer.zPosition = 4001
         }
         else if currentMaxVelocity >= 70 && currentMaxVelocity < 80{
             sharePic.image = UIImage(named: "share3.png")
             facebookCapView.frame  = CGRectMake(150/320*self.screenSize.width, 85/568*self.screenSize.height,40.0/320*self.screenSize.width, 40.0/320*self.screenSize.width)
             self.facebookCap.layer.zPosition = 4000
-            scoreForShare.frame = CGRectMake(205/320*self.screenSize.width, 75/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            scoreForShare.frame = CGRectMake(207/320*self.screenSize.width, 75/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             scoreForShare.layer.zPosition = 4001
         }
         else if currentMaxVelocity >= 60 && currentMaxVelocity < 70{
             sharePic.image = UIImage(named: "share4.png")
             facebookCapView.frame  = CGRectMake(70/320*self.screenSize.width, 95/568*self.screenSize.height,40.0/320*self.screenSize.width, 40.0/320*self.screenSize.width)
             self.facebookCap.layer.zPosition = 4000
-            scoreForShare.frame = CGRectMake(125/320*self.screenSize.width, 80/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            scoreForShare.frame = CGRectMake(125/320*self.screenSize.width, 87/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             scoreForShare.layer.zPosition = 4001
         }
         else if currentMaxVelocity < 60{
             sharePic.image = UIImage(named: "share5.png")
             facebookCapView.frame  = CGRectMake(70/320*self.screenSize.width, 95/568*self.screenSize.height,40.0/320*self.screenSize.width, 40.0/320*self.screenSize.width)
             self.facebookCap.layer.zPosition = 4000
-            scoreForShare.frame = CGRectMake(125/320*self.screenSize.width, 80/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
+            scoreForShare.frame = CGRectMake(125/320*self.screenSize.width, 84/568*self.screenSize.height,30.0/320*self.screenSize.width, 30/568*self.screenSize.height)
             scoreForShare.layer.zPosition = 4001
         }
         
@@ -863,10 +845,18 @@ class GameController: UIViewController, FBSDKSharingDelegate {
             }
         }
         
-        NSTimer.scheduledTimerWithTimeInterval(0.0, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
-        NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
-        NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false)
-        NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: #selector(playStartSound), userInfo: nil, repeats: false)
+        dispatch_async(dispatch_get_main_queue(), {
+            self.timers.append(NSTimer.scheduledTimerWithTimeInterval(0.0, target: self, selector: #selector(GameController.playCountdownSound), userInfo: nil, repeats: false))
+            self.timers.append(NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(GameController.playCountdownSound), userInfo: nil, repeats: false))
+            self.timers.append(NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(GameController.playCountdownSound), userInfo: nil, repeats: false))
+            self.timers.append(NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: #selector(GameController.playStartSound), userInfo: nil, repeats: false))
+        })
+        
+        /*
+        self.timers.append(NSTimer.init(timeInterval: 0.0, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false))
+        self.timers.append(NSTimer.init(timeInterval: 1.0, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false))
+        self.timers.append(NSTimer.init(timeInterval: 2.0, target: self, selector: #selector(playCountdownSound), userInfo: nil, repeats: false))
+         */
         
         kmHr.alpha = 1
         currentMaxVelocity = 0
@@ -923,6 +913,13 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         audioPlayer.play()
     }
     
+    func stopSound() {
+        for timer in self.timers {
+            timer.invalidate()
+        }
+        self.timers.removeAll(keepCapacity: false)
+    }
+    
     func initLoadingView() {
         let screen = UIScreen.mainScreen().bounds.size
         
@@ -934,18 +931,26 @@ class GameController: UIViewController, FBSDKSharingDelegate {
         self.grayView.alpha = 0.3
         
         self.loadingView.frame = CGRectMake((screen.width - 150.0) / 2.0, (screen.height - 50.0) / 2.0, 150.0, 50.0)
-        self.loadingView.backgroundColor = UIColor.whiteColor()
+        self.loadingView.backgroundColor = UIColor.clearColor()
         self.loadingView.layer.cornerRadius = 5.0
         self.loadingView.clipsToBounds = true
         
+        
+        let loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+        loadingIndicator.backgroundColor = UIColor.clearColor()
+        loadingIndicator.frame = CGRectMake(50.0, 0.0, 50.0, 50.0)
+        loadingIndicator.startAnimating()
+        
+        /*
         let loadingLabel = UILabel(frame: CGRectMake(0.0, 0.0, 150.0, 50.0))
         loadingLabel.textAlignment = NSTextAlignment.Center
         loadingLabel.textColor = UIColor.blackColor()
         loadingLabel.font = UIFont.systemFontOfSize(20.0)
         loadingLabel.text = "Loading ..."
         loadingLabel.backgroundColor = UIColor.clearColor()
+         */
         
-        self.loadingView.addSubview(loadingLabel)
+        self.loadingView.addSubview(loadingIndicator)
     }
     
     func showLoadingView() {

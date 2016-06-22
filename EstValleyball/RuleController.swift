@@ -26,6 +26,8 @@ class RuleController: UIViewController {
             url = NSURL(string: "http://www.estcolathai.com/volleyballmobile/rule.html")
         }
         
+        self.web.scrollView.bounces = false
+        
         EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Page, action: .Opened, label: "Rules & Condition Page")
         
         let request = NSURLRequest(URL: url!)

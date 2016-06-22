@@ -25,7 +25,7 @@ class MenuController: UIViewController, FBSDKSharingDelegate {
     var closeButton = UIButton()
    
     func playGame() {
-        self.performSegueWithIdentifier(SEGUE_SHOW_GAME, sender: nil)
+        self.performSegueWithIdentifier(SEGUE_STARTED_GAME, sender: nil)
         EstValleyballHTTPService.instance.sendGoogleAnalyticsEventTracking(.Button, action: .Clicked, label: "Play_menu")
     }
     func goRule() {
