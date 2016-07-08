@@ -18,15 +18,13 @@ class StartGameController: UIViewController {
     var blinkButton = UIImageView()
     var start = UIButton()
     var winner = NSInteger()
-    
+    var popupView = UIView()
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "showedMenu"){
             let destination = segue.destinationViewController as! MenuController
             destination.fromSegue = SEGUE_STARTED_GAME
         }
     }
-    
-    @IBOutlet weak var keepBall: UIImageView!
     var isImageBottom = true
     
     func startGame() {
@@ -67,18 +65,18 @@ class StartGameController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        let screenSize = UIScreen.mainScreen().bounds.size
+        //blink button
         UIView.animateWithDuration(0.4, delay: 0.0, options: [UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.Repeat], animations: {
             self.blinkButton.alpha = 0.2
             }, completion: { finished in
         })
-        
-        let screenSize = UIScreen.mainScreen().bounds.size
-        
+        //hand keep ball
         var keepBall = UIImageView()
         let image = UIImage(named: "hand.png")
         keepBall = UIImageView(image: image)
         keepBall.frame = CGRectMake(0, 240/568*screenSize.height, screenSize.width,390/568*screenSize.height)
-        keepBall.layer.zPosition = 4
+        keepBall.layer.zPosition = 0
         self.view.addSubview(keepBall)
         UIView.animateWithDuration(0.8, delay: 0.0, options: [UIViewAnimationOptions.Autoreverse, UIViewAnimationOptions.Repeat], animations: {
                 var originFrame = keepBall.frame
@@ -86,8 +84,42 @@ class StartGameController: UIViewController {
                 keepBall.frame = originFrame
             }, completion: { finished in
         })
+        //finish campaign popupView
+        //var popupView = UIView()
+        popupView.frame = CGRectMake(0, 0, screenSize.width, screenSize.height)
+        //dim background
+        var dimBackground = UIImageView()
+        dimBackground.frame = CGRectMake(0,0,screenSize.width, screenSize.height)
+        dimBackground.backgroundColor = UIColor.blackColor()
+        dimBackground.alpha = 0.6
+        dimBackground.layer.zPosition = 4
+        //add dim background
+        popupView.addSubview(dimBackground)
+        //add finish campaign image
+        var finishCamView = UIImageView()
+        let finishCamImage = UIImage(named: "bg_finish_campaign.png")
+        finishCamView  = UIImageView(image: finishCamImage)
+        finishCamView.frame = CGRectMake(0, 52/568*screenSize.height,320/320*screenSize.width,295/568*screenSize.height)
+        finishCamView.layer.zPosition = 5
+        //add finish campaign view
+        popupView.addSubview(finishCamView)
+        //close button
+        let goBackButton = UIButton()
+        goBackButton.frame = CGRectMake(270/320*screenSize.width,115/568*screenSize.height,20/320*screenSize.width,20/568*screenSize.height)
+        goBackButton.setImage(UIImage(named: "btn_close_tvc"), forState: .Normal)
+        goBackButton.layer.zPosition = 8
+        goBackButton.addTarget(self, action: #selector(closePopup), forControlEvents: .TouchUpInside)
+        //add back button
+        popupView.addSubview(goBackButton)
+        //add to main view
+        self.view.addSubview(popupView)
+        
+        
+        
     }
-    
+    func closePopup(){
+        popupView.alpha = 0
+    }
     override func viewDidAppear(animated: Bool) {
         // Do any additional setup after loading the view.
     }

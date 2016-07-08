@@ -877,7 +877,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ADCF2C6D-A427-4486-96A1-9D6689AA335E" translatesAutoresizingMaskIntoConstraints="NO" id="2y1-7C-NLY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FA82EE8B-A929-4EAE-ADE0-63987C70EDD5" translatesAutoresizingMaskIntoConstraints="NO" id="2y1-7C-NLY">
                                 <rect key="frame" x="13" y="438" width="294" height="122"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2y1-7C-NLY" secondAttribute="height" multiplier="147:61" id="N61-II-CIo"/>
@@ -911,7 +911,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ADCF2C6D-A427-4486-96A1-9D6689AA335E" width="608" height="293">
+        <image name="FA82EE8B-A929-4EAE-ADE0-63987C70EDD5" width="608" height="293">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -12873,10 +12873,10 @@ PgAAAAAAAAAAAAAAAAAK7lk
         <image name="startedGame_bg" width="1242" height="2208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CNh-1t-eEh"/>
-        <segue reference="jld-tC-7eH"/>
-        <segue reference="Ay4-Xt-w7u"/>
-        <segue reference="6nw-w1-TWr"/>
+        <segue reference="r6E-wv-YSm"/>
         <segue reference="ZvM-I7-OUD"/>
+        <segue reference="jU9-Hj-2nh"/>
+        <segue reference="XtU-lX-PV5"/>
+        <segue reference="6nw-w1-TWr"/>
     </inferredMetricsTieBreakers>
 </document>
